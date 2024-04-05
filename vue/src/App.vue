@@ -29,7 +29,7 @@ html {
   /* padding: 1rem; */
   background-color: #ffdede;
   height: 100vh;
-  width: 10%;
+  width: 150px;
   position: fixed;
   /* added */
   top: 0;
@@ -39,6 +39,7 @@ html {
 
 .logo {
   width: 40%;
+  min-width: 100px;
   height: auto;
 }
 
@@ -69,5 +70,7 @@ html {
   cursor: pointer;
 }
 
-#outofnav {}
+#outofnav {
+  /* margin-left: 150px; */
+}
 </style>

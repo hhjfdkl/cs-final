@@ -49,9 +49,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border-bottom: 1px solid #002263;
+  /* border-bottom: 1px solid #002263; */
   /* padding: 1rem; */
-  background-color: #ffdede;
+  background-color: #95ccba;
   height: 100vh;
 
   width: 100%;

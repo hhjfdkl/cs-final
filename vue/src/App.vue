@@ -15,7 +15,6 @@
     <div id="outofnav">
       <router-view />
     </div>
-
   </div>
 </template>
 
@@ -24,7 +23,22 @@ html {
   background-color: #fff0cb;
 }
 
+#capstone-app {
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr;
+  grid-template-areas:
+    "nav main main"
+    "nav jim bill"
+  ;
+  /* grid-area */
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+
+}
+
 #nav-bar {
+  grid-area: nav;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,6 +89,7 @@ html {
 }
 
 #outofnav {
+  grid-area: main;
   /* margin-left: 150px; */
   margin-left: 10%;
 

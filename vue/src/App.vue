@@ -23,6 +23,12 @@ html {
   background-color: #fff0cb;
 }
 
+body {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
 #capstone-app {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

@@ -31,10 +31,10 @@ body {
 
 #capstone-app {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 4fr;
   grid-template-areas:
 
-    "nav main main"
+    "nav main"
   ;
   /* grid-area */
   margin: 0px;

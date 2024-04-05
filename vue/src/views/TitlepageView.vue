@@ -2,7 +2,10 @@
     <div id="titlepage">
 
         <img class="logo" src="src\assets\BoxOfficeBuzzLogo.png" alt="BOB Logo">
-        <p>Welcome to Box Office Buzz!</p>
+        <p>Welcome to Box Office Buzz! Box Office Buzz is your ultimate destination for all things cinema. From the latest
+            blockbuster hits to hidden gems, our curated recommendations and in-depth reviews ensure you're always in the
+            know about what's worth watching. Whether you're a casual moviegoer or a dedicated cinephile, let Box Office
+            Buzz guide you to your next cinematic adventure. </p>
 
         <router-link v-bind:to="{ name: 'login' }" class="link" v-if="$store.state.token == ''">Login</router-link>
         <br>
@@ -23,9 +26,9 @@ export default {
 }
 
 p {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-
+    font-size: 1.25rem;
+    margin: 1rem;
+    padding: 2rem;
     font-weight: 900;
 }
 

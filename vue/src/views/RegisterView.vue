@@ -1,6 +1,6 @@
 <template>
   <div id="register" class="text-center">
-    <img src="src\assets\BoxOfficeBuzzLogo.png" alt="BOB Logo" class="logo">
+    <img src="src\assets\Dark Theme Logo.png" alt="BOB Dark Logo" class="logo">
     <form v-on:submit.prevent="register">
       <h1>Create Account</h1>
       <div role="alert" v-if="registrationErrors">
@@ -91,15 +91,15 @@ input[type=password] {
   padding: 0.5rem;
   border-radius: 4px;
   border: none;
-  box-shadow: 0 2px 4px #00113a;
+  box-shadow: 0 2px 4px #7B3911;
   width: 20rem;
   margin-right: 1rem;
 
 }
 
 button[type=submit] {
-  background-color: #95ccba;
-  color: #002263;
+  background-color: #DC661F;
+  color: #f8f2bf;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -111,7 +111,7 @@ button[type=submit] {
 
 a {
   /* text-decoration: none; */
-  color: #002263;
+  color: #7B3911;
   margin-left: 1rem;
 }
 
@@ -125,19 +125,20 @@ a {
 }
 
 img {
-  width: 20%;
+  width: 35%;
   margin: 0 auto;
 
 }
 
 label {
   width: 75px;
+  color: #7B3911;
 }
 
 
 h1 {
   font-size: 2rem;
-  color: #002263;
+  color: #7B3911;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -155,6 +156,4 @@ p {
   text-align: center;
 
 }
-
-button {}
 </style>

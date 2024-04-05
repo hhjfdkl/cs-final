@@ -3,7 +3,7 @@
 
     <nav id="nav-bar">
       <router-link v-bind:to="{ name: 'title' }">
-        <img src="src/assets/BoxOfficeBuzzLogo.png" alt="BOB Logo" class="logo">
+        <img src="src\assets\Light Theme Logo.png" alt="BOB Light Logo" class="logo">
       </router-link>
       <router-link v-bind:to="{ name: 'login' }" class="nav-button"
         v-if="$store.state.token == ''">Login</router-link>&nbsp;|&nbsp;
@@ -51,7 +51,7 @@ body {
   justify-content: flex-start;
   /* border-bottom: 1px solid #002263; */
   /* padding: 1rem; */
-  background-color: #95ccba;
+  background-color: #890304;
   height: 100vh;
 
   width: 100%;

@@ -23,12 +23,18 @@ html {
   background-color: #fff0cb;
 }
 
+body {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
 #capstone-app {
   display: grid;
-  grid-template-columns: 1fr, 1fr, 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
+
     "nav main main"
-    "nav jim bill"
   ;
   /* grid-area */
   margin: 0px;
@@ -47,8 +53,9 @@ html {
   /* padding: 1rem; */
   background-color: #ffdede;
   height: 100vh;
-  width: 150px;
-  /*position: fixed;
+
+  width: 100%;
+  /* position: fixed; */
   /* added */
   top: 0;
   /* added */
@@ -90,8 +97,9 @@ html {
 
 #outofnav {
   grid-area: main;
+
   /* margin-left: 150px; */
-  margin-left: 10%;
+  /* margin-left: 10%; */
 
 }
 </style>

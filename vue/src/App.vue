@@ -9,6 +9,8 @@
         v-if="$store.state.token == ''">Login</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'register' }" class="nav-button" v-if="$store.state.token == ''">Sign
         Up</router-link>
+      <router-link v-bind:to="{ name: 'logout' }" class="nav-button" v-else>Log out</router-link>
+
     </nav>
     <div id="outofnav">
       <router-view />

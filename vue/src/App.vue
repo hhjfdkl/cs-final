@@ -8,8 +8,9 @@
       <router-link v-bind:to="{ name: 'login' }" class="nav-button">Login</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'register' }" class="nav-button">Sign Up</router-link>
     </nav>
-
-    <router-view />
+    <div id="outofnav">
+      <router-view />
+    </div>
 
   </div>
 </template>
@@ -25,7 +26,7 @@ html {
   align-items: center;
   justify-content: flex-start;
   border-bottom: 1px solid #002263;
-  padding: 1rem;
+  /* padding: 1rem; */
   background-color: #ffdede;
   height: 100vh;
   width: 10%;
@@ -66,5 +67,10 @@ html {
   border-radius: 0.5rem;
   color: #fff7d5;
   cursor: pointer;
+}
+
+#outofnav {
+  margin-left: 10%;
+  background-color: aqua;
 }
 </style>

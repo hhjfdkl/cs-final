@@ -85,8 +85,8 @@ input[type=password] {
 }
 
 button[type=submit] {
-  background-color: #007bff;
-  color: white;
+  background-color: #95ccba;
+  color: #002263;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -97,8 +97,8 @@ button[type=submit] {
 }
 
 a {
-  text-decoration: none;
-  color: #007bff;
+  /* text-decoration: none; */
+  color: #002263;
   margin-left: 1rem;
 }
 
@@ -108,18 +108,18 @@ a {
   align-items: center;
   justify-content: center;
   height: 80vh;
-  background-color: #f8f9fa;
+  background-color: #fff0cb;
 }
 
 h1 {
   font-size: 2rem;
-  color: #007bff;
+  color: #002263;
   text-align: center;
   margin-bottom: 2rem;
 }
 
 div[role=alert] {
-  background-color: #dc3545;
+  background-color: #890304;
   color: white;
   padding: 0.5rem;
   border-radius: 4px;
@@ -131,6 +131,4 @@ p {
   text-align: center;
 
 }
-
-button {}
 </style>

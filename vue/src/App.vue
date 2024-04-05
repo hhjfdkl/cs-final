@@ -48,7 +48,7 @@ html {
   background-color: #ffdede;
   height: 100vh;
   width: 150px;
-  position: fixed;
+  /*position: fixed;
   /* added */
   top: 0;
   /* added */

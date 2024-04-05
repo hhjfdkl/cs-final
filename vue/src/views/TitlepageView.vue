@@ -4,9 +4,9 @@
         <img class="logo" src="src\assets\BoxOfficeBuzzLogo.png" alt="BOB Logo">
         <p>Welcome to Box Office Buzz!</p>
 
-        <router-link v-bind:to="{ name: 'login' }" class="link">Login</router-link>
+        <router-link v-bind:to="{ name: 'login' }" class="link" v-if="$store.state.token == ''">Login</router-link>
         <br>
-        <router-link v-bind:to="{ name: 'register' }" class="link">Register</router-link>
+        <router-link v-bind:to="{ name: 'register' }" class="link" v-if="$store.state.token == ''">Register</router-link>
 
     </div>
 </template>

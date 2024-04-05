@@ -5,8 +5,10 @@
       <router-link v-bind:to="{ name: 'title' }">
         <img src="src/assets/BoxOfficeBuzzLogo.png" alt="BOB Logo" class="logo">
       </router-link>
-      <router-link v-bind:to="{ name: 'login' }" class="nav-button">Login</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'register' }" class="nav-button">Sign Up</router-link>
+      <router-link v-bind:to="{ name: 'login' }" class="nav-button"
+        v-if="$store.state.token == ''">Login</router-link>&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'register' }" class="nav-button" v-if="$store.state.token == ''">Sign
+        Up</router-link>
     </nav>
     <div id="outofnav">
       <router-view />

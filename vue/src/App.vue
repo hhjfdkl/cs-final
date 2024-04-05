@@ -69,8 +69,5 @@ html {
   cursor: pointer;
 }
 
-#outofnav {
-  margin-left: 10%;
-  background-color: aqua;
-}
+#outofnav {}
 </style>

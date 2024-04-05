@@ -6,6 +6,7 @@ import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
+import TitlepageView from '../views/TitlepageView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -47,6 +48,14 @@ const routes = [
     meta: {
       requiresAuth: false
     }
+  },
+  {
+    path: "/title",
+    name: "title",
+    component: TitlepageView,
+    meta: {
+      requiresAuth: false
+    }
   }
 ];
 
@@ -66,7 +75,7 @@ router.beforeEach((to) => {
 
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
-    return {name: "login"};
+    return { name: "login" };
   }
   // Otherwise, do nothing and they'll go to their next destination
 });

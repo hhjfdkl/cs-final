@@ -23,8 +23,9 @@ CREATE TABLE movie(
     plot varchar(1000) ,
     meterRanking varchar(10) ,
     ratingsSummary varchar(100) , --??
-    episodes numeric
+    episodes numeric,
 --    series
+    CONSTRAINT PK_movie PRIMARY KEY (id)
 );
 
 

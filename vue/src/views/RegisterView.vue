@@ -75,8 +75,79 @@ export default {
 <style scoped>
 .form-input-group {
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 label {
   margin-right: 0.5rem;
+  font-weight: bold;
 }
+
+input[type=text],
+input[type=password] {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 2px 4px #00113a;
+  width: 20rem;
+  margin-right: 1rem;
+
+}
+
+button[type=submit] {
+  background-color: #95ccba;
+  color: #002263;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  /* added styles */
+}
+
+a {
+  /* text-decoration: none; */
+  color: #002263;
+  margin-left: 1rem;
+}
+
+#register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+
+}
+
+label {
+  width: 75px;
+}
+
+
+h1 {
+  font-size: 2rem;
+  color: #002263;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+div[role=alert] {
+  background-color: #dc3545;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+
+}
+
+button {}
 </style>

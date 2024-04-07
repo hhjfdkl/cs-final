@@ -69,4 +69,20 @@ public class Movie {
     public int getEpisodes() {
         return episodes;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "titleText='" + titleText + '\'' +
+                ", id=" + id +
+                ", primaryImage='" + primaryImage + '\'' +
+                ", releaseDate=" + releaseDate +
+                ", genres='" + genres + '\'' +
+                ", runtime=" + runtime +
+                ", plot='" + plot + '\'' +
+                ", meterRanking='" + meterRanking + '\'' +
+                ", ratingsSummary='" + ratingsSummary + '\'' +
+                ", episodes=" + episodes +
+                '}';
+    }
 }

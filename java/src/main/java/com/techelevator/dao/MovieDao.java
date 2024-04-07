@@ -9,4 +9,5 @@ public interface MovieDao {
 //    public List<Movie> getMovies();
     public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy);
 
+
 }

@@ -1,0 +1,50 @@
+DROP TABLE IF EXISTS favorite_genres, genres, favorites, movies, ratings CASCADE;
+
+--mock movie db
+CREATE TABLE movies (
+movie_id serial,
+	
+	CONSTRAINT PK_movies PRIMARY KEY (movie_id)
+);
+
+--non-mock fav db
+CREATE TABLE favorites (
+	user_id INTEGER NOT NULL,
+	movie_id INTEGER NOT NULL,
+	
+	CONSTRAINT PK_favorites PRIMARY KEY (user_id, movie_id),
+	CONSTRAINT FK_favorites_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_favorites_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id)	
+);
+
+--non-mock
+CREATE TABLE genres (
+	genre_id SERIAL,
+	genre_name VARCHAR(20),
+	
+	CONSTRAINT PK_genres PRIMARY KEY (genre_id)
+	
+
+);
+
+--non-mock
+CREATE TABLE favorite_genres (
+	user_id INTEGER NOT NULL,
+	genre_id INTEGER NOT NULL,
+	
+	CONSTRAINT PK_favorite_genres PRIMARY KEY (user_id, genre_id),
+	CONSTRAINT FK_favorite_genres_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_favorite_genres_genres FOREIGN KEY (genre_id) REFERENCES genres (genre_id)
+);
+
+CREATE TABLE ratings (
+	user_id INTEGER NOT NULL,
+	rating INTEGER NOT NULL,
+	movie_id INTEGER NOT NULL,
+	
+	CONSTRAINT PK_ratings PRIMARY KEY (user_id, movie_id),
+	CONSTRAINT FK_ratings_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_ratings_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
+	CONSTRAINT check_rating_min CHECK (rating > 0),
+	CONSTRAINT check_rating_max CHECK (rating <= 5)
+);

@@ -32,11 +32,7 @@ body {
 
 #capstone-app {
   display: grid;
-<<<<<<< HEAD
-  grid-template-columns: 200px 1fr 1fr;
-=======
   grid-template-columns: 1fr 4fr;
->>>>>>> 18aab695e3173cdd1b1e50704895e25c6c8a0d4c
   grid-template-areas:
 
     "nav main"

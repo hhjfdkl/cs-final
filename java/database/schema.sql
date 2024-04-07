@@ -1,8 +1,9 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
---DROP TABLE IF EXISTS account;
 DROP TABLE IF EXISTS movie;
+DROP TABLE IF EXISTS account;
+
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -11,6 +12,7 @@ CREATE TABLE users (
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
+
 
 CREATE TABLE movie(
     titleText varchar(50) ,
@@ -74,5 +76,14 @@ INSERT INTO movie (titleText, primaryImage, releaseDate, genres, runtime, plot, 
 VALUES ('The Lord of the Rings: The Two Towers', 'lotr_two_towers.jpg', '2002-12-18', 'Action, Adventure, Drama', '2:59:00', 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron''s new ally, Saruman, and his hordes of Isengard.', '8.7', 'Rated PG-13 for epic battle sequences and scary images', NULL);
 --test data ends here
 
+
+
+CREATE TABLE account(
+username varchar(50) NOT NULL UNIQUE,
+	user_id int,
+	user_description varchar(500),
+	
+	FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
 
 COMMIT TRANSACTION;

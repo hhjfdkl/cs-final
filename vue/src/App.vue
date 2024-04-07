@@ -3,7 +3,7 @@
 
     <nav id="nav-bar">
       <router-link v-bind:to="{ name: 'title' }">
-        <img src="src/assets/BoxOfficeBuzzLogo.png" alt="BOB Logo" class="logo">
+        <img src="src\assets\Light Theme Logo.png" alt="BOB Light Logo" class="logo">
       </router-link>
       <router-link v-bind:to="{ name: 'login' }" class="nav-button"
         v-if="$store.state.token == ''">Login</router-link>&nbsp;|&nbsp;
@@ -31,10 +31,14 @@ body {
 
 #capstone-app {
   display: grid;
+<<<<<<< HEAD
   grid-template-columns: 200px 1fr 1fr;
+=======
+  grid-template-columns: 1fr 4fr;
+>>>>>>> 18aab695e3173cdd1b1e50704895e25c6c8a0d4c
   grid-template-areas:
 
-    "nav main main"
+    "nav main"
   ;
   /* grid-area */
   margin: 0px;
@@ -49,10 +53,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border-bottom: 1px solid #002263;
+  /* border-bottom: 1px solid #002263; */
   /* padding: 1rem; */
-  background-color: #ffdede;
+  background-color: #890304;
   height: 100vh;
+
   width: 100%;
   /* position: fixed; */
   /* added */

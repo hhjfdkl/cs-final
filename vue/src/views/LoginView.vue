@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <img src="src\assets\BoxOfficeBuzzLogo.png" alt="BOB Logo" class="logo">
+    <img src="src\assets\Dark Theme Logo.png" alt="BOB Dark Logo" class="logo">
     <form v-on:submit.prevent="login">
       <h1>Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
@@ -76,7 +76,7 @@ label {
 }
 
 img {
-  width: 20%;
+  width: 35%;
   margin: 0 auto;
 
 }

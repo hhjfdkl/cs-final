@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Timer;
 
@@ -8,7 +9,7 @@ public class Movie {
     String titleText;
     int id;
     String primaryImage;
-    LocalDateTime releaseDate;
+    LocalDate releaseDate;
     String genres;
     Time runtime;
     String plot;
@@ -16,7 +17,7 @@ public class Movie {
     String ratingsSummary;
     int episodes;
 
-    public Movie(String titleText, int id, String primaryImage, LocalDateTime releaseDate, String genres, Time runtime, String plot, String meterRanking, String ratingsSummary, int episodes) {
+    public Movie(String titleText, int id, String primaryImage, LocalDate releaseDate, String genres, Time runtime, String plot, String meterRanking, String ratingsSummary, int episodes) {
         this.titleText = titleText;
         this.id = id;
         this.primaryImage = primaryImage;
@@ -41,7 +42,7 @@ public class Movie {
         return primaryImage;
     }
 
-    public LocalDateTime getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 

@@ -1,6 +1,7 @@
 <template>
   <div id="login">
     <img src="src\assets\Dark Theme Logo.png" alt="BOB Dark Logo" class="logo">
+    <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <form v-on:submit.prevent="login">
       <h1>Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
@@ -73,6 +74,8 @@ export default {
 label {
   margin-right: 0.5rem;
   font-weight: bold;
+  font-family: 'League Spartan';
+  color: #7B3911;
 }
 
 img {
@@ -92,20 +95,21 @@ input[type=password] {
 }
 
 button[type=submit] {
-  background-color: #95ccba;
-  color: #002263;
+  background-color: #DC661F;
+  color: #f8f2bf;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   display: block;
   margin: 0 auto;
+  font-family: 'league spartan';
   /* added styles */
 }
 
 a {
   /* text-decoration: none; */
-  color: #002263;
+  color: #7B3911;
   margin-left: 1rem;
 }
 
@@ -120,9 +124,11 @@ a {
 
 h1 {
   font-size: 2rem;
-  color: #002263;
+  color: #7B3911;
   text-align: center;
   margin-bottom: 2rem;
+  font-family: 'League Spartan';
+
 }
 
 div[role=alert] {
@@ -136,6 +142,6 @@ div[role=alert] {
 
 p {
   text-align: center;
-
+  font-family: 'league spartan';
 }
 </style>

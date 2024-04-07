@@ -1,6 +1,7 @@
 <template>
   <div id="register" class="text-center">
     <img src="src\assets\Dark Theme Logo.png" alt="BOB Dark Logo" class="logo">
+    <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <form v-on:submit.prevent="register">
       <h1>Create Account</h1>
       <div role="alert" v-if="registrationErrors">
@@ -84,6 +85,7 @@ export default {
 label {
   margin-right: 0.5rem;
   font-weight: bold;
+  font-family: 'League Spartan';
 }
 
 input[type=text],
@@ -106,6 +108,7 @@ button[type=submit] {
   cursor: pointer;
   display: block;
   margin: 0 auto;
+  font-family: 'League Spartan';
   /* added styles */
 }
 
@@ -141,6 +144,8 @@ h1 {
   color: #7B3911;
   text-align: center;
   margin-bottom: 2rem;
+  font-family: 'League Spartan';
+  /* added font family */
 }
 
 div[role=alert] {
@@ -154,6 +159,6 @@ div[role=alert] {
 
 p {
   text-align: center;
-
+  font-family: 'League Spartan';
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div id="titlepage">
-
+        <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
         <img class="logo" src="src\assets\Dark Theme Logo.png" alt="BOB Dark LogoLogo">
         <p>Welcome to Box Office Buzz! Box Office Buzz is your ultimate destination for all things cinema. From the latest
             blockbuster hits to hidden gems, our curated recommendations and in-depth reviews ensure you're always in the
@@ -29,24 +29,23 @@ p {
     font-size: 1.25rem;
     margin: 1rem;
     padding: 2rem;
-    font-weight: 900;
+    font-weight: 500;
+    font-family: 'league Spartan';
 }
 
 .link {
-
     display: inline-block;
     padding: 0.5rem 1rem;
-
-
-    border-bottom: solid 1px #002263;
-    color: #002263;
+    font-weight: 600;
+    color: #7B3911;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
+    font-family: 'league Spartan';
 
 }
 
 .link:hover {
-    background-color: #002263;
+    background-color: #7B3911;
     border-radius: 0.5rem;
     color: #fff7d5;
     cursor: pointer;

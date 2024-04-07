@@ -1,8 +1,9 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
---DROP TABLE IF EXISTS account;
 DROP TABLE IF EXISTS movie;
+DROP TABLE IF EXISTS account;
+
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -12,22 +13,73 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
-CREATE TABLE movie(
-    titleText varchar(50) ,
-    id SERIAL,
-    primaryImage varchar(200) ,
+
+CREATE TABLE movies(
+    titleText varchar(50),
+    movie_id SERIAL,
+    primaryImage varchar(1024) ,
 --    titleType varchar(50), don't know what this would be for
     releaseDate date ,
     genres varchar(200) ,
     runtime time ,
-    plot varchar(1000) ,
+    plot varchar(1024) ,
+-- meterRanking will probably just be a calculated value from our users' ratings
     meterRanking varchar(10) ,
     ratingsSummary varchar(100) , --??
     episodes numeric,
 --    series
-    CONSTRAINT PK_movie PRIMARY KEY (id)
+    CONSTRAINT PK_movie PRIMARY KEY (movie_id)
 );
 
+CREATE TABLE favorites (
+	user_id INTEGER NOT NULL,
+	movie_id INTEGER NOT NULL,
+
+	CONSTRAINT PK_favorites PRIMARY KEY (user_id, movie_id),
+	CONSTRAINT FK_favorites_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_favorites_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id)
+);
+
+--non-mock
+CREATE TABLE genres (
+	genre_id SERIAL,
+	genre_name VARCHAR(20),
+
+	CONSTRAINT PK_genres PRIMARY KEY (genre_id)
+
+
+);
+
+CREATE TABLE favorite_genres (
+	user_id INTEGER NOT NULL,
+	genre_id INTEGER NOT NULL,
+
+	CONSTRAINT PK_favorite_genres PRIMARY KEY (user_id, genre_id),
+	CONSTRAINT FK_favorite_genres_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_favorite_genres_genres FOREIGN KEY (genre_id) REFERENCES genres (genre_id)
+);
+
+CREATE TABLE ratings (
+	user_id INTEGER NOT NULL,
+	rating INTEGER,
+	movie_id INTEGER NOT NULL,
+
+	CONSTRAINT PK_ratings PRIMARY KEY (user_id, movie_id),
+	CONSTRAINT FK_ratings_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_ratings_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
+	CONSTRAINT check_rating_min CHECK (rating > 0),
+	CONSTRAINT check_rating_max CHECK (rating <= 5)
+);
+
+CREATE TABLE reviews (
+	user_id INTEGER NOT NULL,
+	review VARCHAR(1024),
+	movie_id INTEGER NOT NULL,
+
+	CONSTRAINT PK_reviews PRIMARY KEY (user_id, movie_id),
+	CONSTRAINT FK_reviews_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_reviews_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id)
+);
 
 
 
@@ -73,6 +125,5 @@ VALUES ('Inception', 'inception.jpg', '2010-07-16', 'Action, Adventure, Sci-Fi',
 INSERT INTO movie (titleText, primaryImage, releaseDate, genres, runtime, plot, meterRanking, ratingsSummary, episodes)
 VALUES ('The Lord of the Rings: The Two Towers', 'lotr_two_towers.jpg', '2002-12-18', 'Action, Adventure, Drama', '2:59:00', 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron''s new ally, Saruman, and his hordes of Isengard.', '8.7', 'Rated PG-13 for epic battle sequences and scary images', NULL);
 --test data ends here
-
 
 COMMIT TRANSACTION;

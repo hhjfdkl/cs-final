@@ -3,10 +3,11 @@
 
     <nav id="nav-bar">
       <router-link v-bind:to="{ name: 'title' }">
-        <img src="src/assets/BoxOfficeBuzzLogo.png" alt="BOB Logo" class="logo">
+        <img src="src\assets\Light Theme Logo.png" alt="BOB Light Logo" class="logo">
+        <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
       </router-link>
       <router-link v-bind:to="{ name: 'login' }" class="nav-button"
-        v-if="$store.state.token == ''">Login</router-link>&nbsp;|&nbsp;
+        v-if="$store.state.token == ''">Login</router-link>&nbsp;&nbsp;
       <router-link v-bind:to="{ name: 'register' }" class="nav-button" v-if="$store.state.token == ''">Sign
         Up</router-link>
       <router-link v-bind:to="{ name: 'logout' }" class="nav-button" v-else>Log out</router-link>
@@ -31,10 +32,14 @@ body {
 
 #capstone-app {
   display: grid;
+<<<<<<< HEAD
   grid-template-columns: 200px 1fr 1fr;
+=======
+  grid-template-columns: 1fr 4fr;
+>>>>>>> 18aab695e3173cdd1b1e50704895e25c6c8a0d4c
   grid-template-areas:
 
-    "nav main main"
+    "nav main"
   ;
   /* grid-area */
   margin: 0px;
@@ -49,10 +54,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border-bottom: 1px solid #002263;
+  /* border-bottom: 1px solid #002263; */
   /* padding: 1rem; */
-  background-color: #ffdede;
+  background-color: #890304;
   height: 100vh;
+
   width: 100%;
   /* position: fixed; */
   /* added */
@@ -77,20 +83,22 @@ body {
 
   display: inline-block;
   padding: 0.5rem 1rem;
-
-  background-color: #ffdede;
-  border-bottom: solid 1px #002263;
-  color: #002263;
+  font-family: 'League Spartan';
+  font-weight: 600;
+  font-size: 1.25rem;
+  background-color: #f8f2bf;
+  color: #7B3911;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
-
+  border-radius: 0.5rem;
 }
 
 
 #nav-bar .nav-button:hover {
-  background-color: #002263;
+  background-color: #7B3911;
+  border-color: #f8f2bf;
   border-radius: 0.5rem;
-  color: #fff7d5;
+  color: #f8f2bf;
   cursor: pointer;
 }
 

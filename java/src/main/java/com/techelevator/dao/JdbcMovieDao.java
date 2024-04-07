@@ -47,13 +47,14 @@ public class JdbcMovieDao implements MovieDao  {
     }
 
     private Movie mapRowToMovie(SqlRowSet rs) {
-        Movie movie = new Movie(rs.getString("titletext"), rs.getInt("id"), rs.getString("primartimage"), rs.getDate("releasedate").toLocalDate(), rs.getString("genres"), rs.getTime("runtime"), rs.getNString("plot"), rs.getNString("meterranking"), rs.getNString("ratingssummary"), rs.getInt("episodes") );
+
+        Movie movie = new Movie(rs.getString("titletext"), rs.getInt("id"), rs.getString("primaryimage"), rs.getDate("releasedate").toLocalDate(), rs.getString("genres"), rs.getTime("runtime"), rs.getString("plot"), rs.getString("meterranking"), rs.getString("ratingssummary"), rs.getInt("episodes") );
 
         return movie;
     }
 
-    @Override
-    public List<Movie> getMovies() {
-        return null;
-    }
+
+//    public List<Movie> getMovies() {
+//        return null;
+//    }
 }

@@ -1,8 +1,9 @@
 <template>
-  <form class="search-change" @submit.prevent="searchMovies">
-    <input type="text" v-model="searchTerm" placeholder="Movies per page" />
-    <button class="change" type="submit">Change</button>
+  <form @submit.prevent="searchMovies">
+    <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
+    <button type="submit">Change</button>
   </form>
+
 
   <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
 
@@ -19,6 +20,7 @@ export default {
   data() {
     return {
       movies: [],
+      usersPerPage: ""
     };
   }
 
@@ -68,13 +70,13 @@ export default {
     }
 
     ,
-    searchMovies(newPageSize) {
+    searchMovies() {
       this.$router.push({
         name: "movies",
         params: {
-          pageSize: newPageSize,
+          pageSize: this.usersPerPage,
           page: 1,
-          sort: this.searchTerm
+          sort: this.$route.params.sort
         }
       });
     }

@@ -96,7 +96,7 @@ CREATE TABLE movie_to_genre (
 
 -- testing data -luke delete this later
 INSERT INTO movies (titleText, primaryImage, releaseDate, genres, runtime, plot, meterRanking, ratingsSummary, episodes)
-VALUES ('The Shawshank Redemption', 'shawshank_redemption.jpg', '1994-09-23', 'Drama', '2:22:00', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', '9.3', 'Rated R for language and prison violence', NULL);
+VALUES ('The Shawshank Redemption', 'https://i.kym-cdn.com/entries/icons/facebook/000/037/069/EyIdNM8XAAM5nd8.jpg', '1994-09-23', 'Drama', '2:22:00', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', '9.3', 'Rated R for language and prison violence', NULL);
 
 INSERT INTO movies (titleText, primaryImage, releaseDate, genres, runtime, plot, meterRanking, ratingsSummary, episodes)
 VALUES ('The Godfather', 'the_godfather.jpg', '1972-03-24', 'Crime, Drama', '2:55:00', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', '9.2', 'Rated R for language and violence', NULL);

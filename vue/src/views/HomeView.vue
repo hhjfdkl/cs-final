@@ -2,13 +2,13 @@
   <div class="home">
     <h1>Home</h1>
     <p>You must be authenticated to see this</p>
-    <div v-for="movie in movies" v-bind:key="movie.titleText">
-      <p>{{ movie.titleText }}</p>
-    </div>
+    <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
+
   </div>
 </template>
 
 <script>
+import MovieDetails from "../components/MovieDetails.vue";
 
 import MovieService from "../services/MovieService"; //change this service
 
@@ -21,9 +21,13 @@ export default {
 
   ,
   created() {
-    MovieService.getMoviePage(2, 1, "id").then((response) => {
+    MovieService.getMoviePage(4, 1, "id").then((response) => {
       this.movies = response.data;
     });
+  },
+
+  components: {
+    MovieDetails,
   },
 
 

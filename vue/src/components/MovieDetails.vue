@@ -2,17 +2,17 @@
   <header>
     <h1>{{ movie.titleText }}</h1>
   </header>
-  <img src="{{ movie.primaryImage }}" alt="">
+  <img :src="movie.primaryImage" alt="movie img">
   <div>
     {{ movie.plot }}
   </div>
   <div>
     {{ movie.genres }}
     <div>
-      {{ movie.rating }}
+      {{ movie.meterRanking }}
     </div>
   </div>
-</template> */
+</template> 
 
 <script>
 import { computed } from 'vue';

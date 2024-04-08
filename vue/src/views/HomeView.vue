@@ -1,20 +1,14 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
-
-    <form @submit.prevent="searchMovies">
-      <input type="text" v-model="searchTerm" placeholder="Movies per page" />
-      <button type="submit">Change</button>
-    </form>
-
-    <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
-
-    <button @click="previousPage">Previous Page</button>
-    <button @click="nextPage">Next Page</button>
+  <form @submit.prevent="searchMovies">
+    <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
+    <button type="submit">Change</button>
+  </form>
 
 
-  </div>
+  <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
+
+  <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+  <button class="prev-next" @click="nextPage">Next Page</button>
 </template>
 
 <script>
@@ -26,6 +20,7 @@ export default {
   data() {
     return {
       movies: [],
+      usersPerPage: ""
     };
   }
 
@@ -75,13 +70,13 @@ export default {
     }
 
     ,
-    searchMovies(newPageSize) {
+    searchMovies() {
       this.$router.push({
         name: "movies",
         params: {
-          pageSize: newPageSize,
+          pageSize: this.usersPerPage,
           page: 1,
-          sort: this.searchTerm
+          sort: this.$route.params.sort
         }
       });
     }
@@ -100,5 +95,39 @@ export default {
 .home-border {
   text-decoration-line: underline;
   text-decoration-thickness: 2px
+}
+
+.prev-next {
+  background-color: #fff0cb;
+  color: #890304;
+  border: 1px solid #890304;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+#prev {
+  margin-right: 5px;
+}
+
+.prev-next:hover {
+  background-color: #890304;
+  color: #fff0cb;
+}
+
+.change {
+  margin-left: 5px;
+  background-color: #fff0cb;
+  color: #890304;
+  border: 1px solid #890304;
+}
+
+.change:hover {
+  background-color: #890304;
+  color: #fff0cb;
+
+}
+
+.search-change {
+  margin: 10px;
 }
 </style>

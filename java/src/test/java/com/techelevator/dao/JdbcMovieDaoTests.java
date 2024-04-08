@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.exception.DaoException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,14 +29,12 @@ public class JdbcMovieDaoTests extends BaseDaoTests{
         Assert.assertEquals("method should start at 5",6, sut.getGroupOfMovies(4,2,"id").get(1).getId());
     }
 
-    @Test
-    public void getsremainingmovieswhenonfinalpage(){
-        System.out.println();
 
+    @Test(expected = DaoException.class)
+    public void illegalParamtersThrowDaoException (){
 
+        sut.getGroupOfMovies(1,-1,"nnnnnnnnnnnnnnnn");
 
-
-        Assert.assertEquals("method should return 4 movies even when page size is 8",4, sut.getGroupOfMovies(-1,2,"id").size());
     }
 
 

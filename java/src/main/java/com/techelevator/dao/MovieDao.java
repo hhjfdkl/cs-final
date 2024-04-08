@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface MovieDao {
 
-//    public List<Movie> getMovies();
+    //    public List<Movie> getMovies();
     public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy);
 
-
+    public Movie getMovieById(int id);
 }

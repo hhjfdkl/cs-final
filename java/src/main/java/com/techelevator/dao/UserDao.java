@@ -18,8 +18,7 @@ public interface UserDao {
     User createUser(RegisterUserDto user);
 
 
-  //grab an account for use on front end
-    Account getUserAccountInfo(int id);
+
 
 
 }

@@ -1,8 +1,5 @@
 BEGIN TRANSACTION;
-
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS movie;
-DROP TABLE IF EXISTS account;
+DROP TABLE IF EXISTS favorite_genres, genres, favorites, movies, ratings, users, reviews CASCADE;
 
 
 CREATE TABLE users (
@@ -10,7 +7,7 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
-	CONSTRAINT PK_user PRIMARY KEY (user_id)
+	CONSTRAINT PK_users PRIMARY KEY (user_id)
 );
 
 
@@ -28,7 +25,7 @@ CREATE TABLE movies(
     ratingsSummary varchar(100) , --??
     episodes numeric,
 --    series
-    CONSTRAINT PK_movie PRIMARY KEY (movie_id)
+    CONSTRAINT PK_movies PRIMARY KEY (movie_id)
 );
 
 CREATE TABLE favorites (
@@ -125,5 +122,4 @@ VALUES ('Inception', 'inception.jpg', '2010-07-16', 'Action, Adventure, Sci-Fi',
 INSERT INTO movies (titleText, primaryImage, releaseDate, genres, runtime, plot, meterRanking, ratingsSummary, episodes)
 VALUES ('The Lord of the Rings: The Two Towers', 'lotr_two_towers.jpg', '2002-12-18', 'Action, Adventure, Drama', '2:59:00', 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron''s new ally, Saruman, and his hordes of Isengard.', '8.7', 'Rated PG-13 for epic battle sequences and scary images', NULL);
 --test data ends here
-
 COMMIT TRANSACTION;

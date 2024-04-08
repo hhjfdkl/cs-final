@@ -1,5 +1,5 @@
 BEGIN TRANSACTION;
-DROP TABLE IF EXISTS favorite_genres, genres, favorites, movies, ratings, users, reviews CASCADE;
+DROP TABLE IF EXISTS favorite_genres, genres, favorites, movies, ratings, users, reviews, accounts CASCADE;
 
 
 CREATE TABLE users (
@@ -10,6 +10,16 @@ CREATE TABLE users (
 	CONSTRAINT PK_users PRIMARY KEY (user_id)
 );
 
+
+CREATE TABLE accounts (
+	account_id INTEGER NOT NULL,
+	--may add a "display name" later or something
+
+
+	CONSTRAINT PK_accounts PRIMARY KEY (account_id),
+	CONSTRAINT FK_accounts_users FOREIGN KEY (account_id) REFERENCES users (user_id)
+
+);
 
 CREATE TABLE movies(
     titleText varchar(50),
@@ -29,11 +39,11 @@ CREATE TABLE movies(
 );
 
 CREATE TABLE favorites (
-	user_id INTEGER NOT NULL,
+	account_id INTEGER NOT NULL,
 	movie_id INTEGER NOT NULL,
 
-	CONSTRAINT PK_favorites PRIMARY KEY (user_id, movie_id),
-	CONSTRAINT FK_favorites_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT PK_favorites PRIMARY KEY (account_id, movie_id),
+	CONSTRAINT FK_favorites_accounts FOREIGN KEY (account_id) REFERENCES accounts (account_id),
 	CONSTRAINT FK_favorites_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id)
 );
 
@@ -48,36 +58,44 @@ CREATE TABLE genres (
 );
 
 CREATE TABLE favorite_genres (
-	user_id INTEGER NOT NULL,
+	account_id INTEGER NOT NULL,
 	genre_id INTEGER NOT NULL,
 
-	CONSTRAINT PK_favorite_genres PRIMARY KEY (user_id, genre_id),
-	CONSTRAINT FK_favorite_genres_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT PK_favorite_genres PRIMARY KEY (account_id, genre_id),
+	CONSTRAINT FK_favorite_genres_accounts FOREIGN KEY (account_id) REFERENCES accounts (account_id),
 	CONSTRAINT FK_favorite_genres_genres FOREIGN KEY (genre_id) REFERENCES genres (genre_id)
 );
 
 CREATE TABLE ratings (
-	user_id INTEGER NOT NULL,
+	account_id INTEGER NOT NULL,
 	rating INTEGER,
 	movie_id INTEGER NOT NULL,
 
-	CONSTRAINT PK_ratings PRIMARY KEY (user_id, movie_id),
-	CONSTRAINT FK_ratings_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT PK_ratings PRIMARY KEY (account_id, movie_id),
+	CONSTRAINT FK_ratings_accounts FOREIGN KEY (account_id) REFERENCES accounts (account_id),
 	CONSTRAINT FK_ratings_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
 	CONSTRAINT check_rating_min CHECK (rating > 0),
 	CONSTRAINT check_rating_max CHECK (rating <= 5)
 );
 
 CREATE TABLE reviews (
-	user_id INTEGER NOT NULL,
+	account_id INTEGER NOT NULL,
 	review VARCHAR(1024),
 	movie_id INTEGER NOT NULL,
 
-	CONSTRAINT PK_reviews PRIMARY KEY (user_id, movie_id),
-	CONSTRAINT FK_reviews_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT PK_reviews PRIMARY KEY (account_id, movie_id),
+	CONSTRAINT FK_reviews_accounts FOREIGN KEY (account_id) REFERENCES accounts (account_id),
 	CONSTRAINT FK_reviews_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id)
 );
 
+CREATE TABLE movie_to_genre (
+	movie_id INTEGER NOT NULL,
+	genre_id INTEGER NOT NULL,
+
+	CONSTRAINT PK_movie_to_genre PRIMARY KEY (movie_id, genre_id),
+	CONSTRAINT FK_movie_to_genre_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
+	CONSTRAINT FK_movie_to_genre_genres FOREIGN KEY (genre_id) REFERENCES genres (genre_id)
+);
 
 
 

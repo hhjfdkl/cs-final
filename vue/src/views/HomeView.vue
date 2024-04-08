@@ -1,35 +1,135 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
-    <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
+  <form @submit.prevent="searchMovies">
+    <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
+    <button type="submit">Change</button>
+  </form>
 
-  </div>
+
+  <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
+
+  <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+  <button class="prev-next" @click="nextPage">Next Page</button>
 </template>
 
 <script>
 import MovieDetails from "../components/MovieDetails.vue";
 
-import MovieService from "../services/MovieService"; //change this service
+import MovieService from "../services/MovieService";
 
 export default {
   data() {
     return {
       movies: [],
+      usersPerPage: ""
     };
   }
 
   ,
   created() {
-    MovieService.getMoviePage(4, 1, "id").then((response) => {
-      this.movies = response.data;
-    });
+    this.updateMovies();
+
+  },
+
+  updated() {
+    this.updateMovies();
   },
 
   components: {
     MovieDetails,
   },
 
+  methods: {
+    nextPage() {
+      if (Number(this.$route.params.pageSize) > this.movies.length) return; //this doesn't work if the page was full
+      this.$router.push({
+        name: "movies",
+        params: {
+          pageSize: this.$route.params.pageSize,
+          page: Number(this.$route.params.page) + 1,
+          sort: this.$route.params.sort
+        }
+      });
+
+      this.updateMovies();
+    },
+    updateMovies() {
+      MovieService.getMoviePage(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
+        this.movies = response.data;
+      });
+    },
+    previousPage() {
+      if (Number(this.$route.params.page) <= 1) return;
+      this.$router.push({
+        name: "movies",
+        params: {
+          pageSize: this.$route.params.pageSize,
+          page: Number(this.$route.params.page) - 1,
+          sort: this.$route.params.sort
+        }
+      });
+    }
+
+    ,
+    searchMovies() {
+      this.$router.push({
+        name: "movies",
+        params: {
+          pageSize: this.usersPerPage,
+          page: 1,
+          sort: this.$route.params.sort
+        }
+      });
+    }
+
+  }
+
 
 };
 </script>
+
+<style>
+.home {
+  color: #890304;
+}
+
+.home-border {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px
+}
+
+.prev-next {
+  background-color: #fff0cb;
+  color: #890304;
+  border: 1px solid #890304;
+  margin-top: 10px;
+
+}
+
+#prev {
+  margin-left: 5%;
+  margin-right: 1%;
+}
+
+.prev-next:hover {
+  background-color: #890304;
+  color: #fff0cb;
+}
+
+.change {
+  margin-left: 5px;
+  background-color: #fff0cb;
+  color: #890304;
+  border: 1px solid #890304;
+}
+
+.change:hover {
+  background-color: #890304;
+  color: #fff0cb;
+
+}
+
+.search-change {
+  margin: 10px;
+  margin-left: 5%;
+}
+</style>

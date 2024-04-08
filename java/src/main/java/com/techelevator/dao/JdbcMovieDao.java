@@ -31,7 +31,7 @@ public class JdbcMovieDao implements MovieDao  {
         List<Movie> movies = new ArrayList<>();
 
         //remove the * when table is finalised
-        String sql = "SELECT * FROM movie ORDER BY ? OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
+        String sql = "SELECT * FROM movies ORDER BY ? OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, sortedBy, moviePerPage * (pageNumber-1) , moviePerPage);
             while (results.next()) {
@@ -48,7 +48,12 @@ public class JdbcMovieDao implements MovieDao  {
 
     private Movie mapRowToMovie(SqlRowSet rs) {
 
-        Movie movie = new Movie(rs.getString("titletext"), rs.getInt("id"), rs.getString("primaryimage"), rs.getDate("releasedate").toLocalDate(), rs.getString("genres"), rs.getTime("runtime"), rs.getString("plot"), rs.getString("meterranking"), rs.getString("ratingssummary"), rs.getInt("episodes") );
+        Movie movie = new Movie(
+                rs.getString("titleText"),
+                rs.getInt("movie_id"),
+                rs.getString("primaryImage"), rs.getDate("releaseDate").toLocalDate(),
+                rs.getString("genres"), rs.getTime("runtime"), rs.getString("plot"),
+                rs.getString("meterRanking"), rs.getString("ratingsSummary"), rs.getInt("episodes") );
 
         return movie;
     }

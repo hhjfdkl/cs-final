@@ -88,6 +88,14 @@ CREATE TABLE reviews (
 	CONSTRAINT FK_reviews_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id)
 );
 
+CREATE TABLE movie_to_genre (
+	movie_id INTEGER NOT NULL,
+	genre_id INTEGER NOT NULL,
+
+	CONSTRAINT PK_movie_to_genre PRIMARY KEY (movie_id, genre_id),
+	CONSTRAINT FK_movie_to_genre_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
+	CONSTRAINT FK_movie_to_genre_genres FOREIGN KEY (genre_id) REFERENCES genres (genre_id)
+);
 
 
 

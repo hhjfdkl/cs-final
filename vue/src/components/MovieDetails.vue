@@ -6,7 +6,7 @@
         <h1 class="movie-title">{{ movie.titleText }}</h1>
       </header>
       <div class="release-genres">
-        <div>{{ movie.releaseDate.substring(0, 4) }}</div>
+        <div>{{ movie.releaseDate.substr(0, 4) }}</div>
         <div>{{ movie.genres }}</div>
       </div>
       <div class="description">
@@ -30,8 +30,8 @@ export default {
 
 <style>
 .movie-img {
-  max-width: 20%;
-  max-height: 20%;
+  max-width: 14%;
+  max-height: 14%;
   margin: 5px;
 }
 
@@ -45,25 +45,26 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  justify-content: start;
 }
 
 .movie-title {
   font-weight: bold;
   color: #890304;
-  font-size: 20px;
+  font-size: 1.5rem;
 
 }
 
 .release-genres {
   color: gray;
-  margin-bottom: 5px;
-  font-size: 13px;
+  margin-bottom: .8rem;
+  font-size: .8REM;
 }
 
 .description {
   color: #890304;
   margin-bottom: 5px;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 .rating {

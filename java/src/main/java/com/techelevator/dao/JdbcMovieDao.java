@@ -68,23 +68,39 @@ public class JdbcMovieDao implements MovieDao  {
     }
 
     @Override
-    public List<Movie> getMoviesByUserFav() {
-//        List<Movie> movies = new ArrayList<>();
-//
-//        //remove the * when table is finalised
-//        String sql = "SELECT * FROM movies ORDER BY ? OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
-//        try {
-//            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, sortedBy, moviePerPage * (pageNumber-1) , moviePerPage);
-//            while (results.next()) {
-//                Movie movie = mapRowToMovie(results);
-//                movies.add(movie);
-//            }
-//        } catch (CannotGetJdbcConnectionException e) { //add another catch for sortedBy error
-//            throw new DaoException("Unable to connect to server or database", e);
-//        }catch (DataIntegrityViolationException e){
-//            throw new DaoException("Illegal arguments", e);
-//        }
-//        return movies;
+    public List<Movie> getMoviesByUserFav(int moviePerPage, int pageNumber, String sortedBy,int[] genres_id ) {
+        List<Movie> movies = new ArrayList<>();
+        StringBuilder questionMarkBuilder = new StringBuilder();
+//        sortedBy = "movies." + sortedBy;
+        System.out.println(sortedBy);
+        questionMarkBuilder.append(genres_id[0]);
+        for(int i = 1; genres_id.length > i; i++){
+            questionMarkBuilder.append("," + genres_id[i]);
+
+        }
+
+
+        System.out.println(questionMarkBuilder.toString());
+        //remove the * when table is finalised
+        String sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
+                ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM movies Join movie_to_genre\n" +
+                "as mg on mg.movie_id = movies.movie_id" +
+                " where genre_id in ("+ questionMarkBuilder.toString() + ") Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
+        try {
+
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, moviePerPage * (pageNumber-1) , moviePerPage);
+
+
+            while (results.next()) {
+                Movie movie = mapRowToMovie(results);
+                movies.add(movie);
+            }
+        } catch (CannotGetJdbcConnectionException e) { //add another catch for sortedBy error
+            throw new DaoException("Unable to connect to server or database", e);
+        }catch (DataIntegrityViolationException e){
+            throw new DaoException("Illegal arguments", e);
+        }
+        return movies;
     }
 
 

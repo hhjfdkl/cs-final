@@ -11,5 +11,5 @@ public interface MovieDao {
 
     public Movie getMovieById(int id);
 
-    public List<Movie> getMoviesByUserFav();
+    public List<Movie> getMoviesByUserFav(int moviePerPage, int pageNumber, String sortedBy,int[] genres_id );
 }

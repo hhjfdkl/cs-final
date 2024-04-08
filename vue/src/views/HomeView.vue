@@ -4,7 +4,7 @@
     <p>You must be authenticated to see this</p>
 
     <form @submit.prevent="searchMovies">
-      <input type="text" v-model="searchTerm" placeholder="Movies per page" />
+      <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
       <button type="submit">Change</button>
     </form>
 
@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       movies: [],
+      usersPerPage: ""
     };
   }
 
@@ -75,13 +76,13 @@ export default {
     }
 
     ,
-    searchMovies(newPageSize) {
+    searchMovies() {
       this.$router.push({
         name: "movies",
         params: {
-          pageSize: newPageSize,
+          pageSize: this.usersPerPage,
           page: 1,
-          sort: this.searchTerm
+          sort: this.$route.params.sort
         }
       });
     }

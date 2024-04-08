@@ -32,5 +32,15 @@ public class MovieController {
         }
     }
 
+    @GetMapping("/movies/{id}")
+    public Movie getMovieById(@PathVariable int id){
+        try {
+            return movieDao.getMovieById(id);
+        }
+        catch (DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
+        }
+    }
+
 
 }

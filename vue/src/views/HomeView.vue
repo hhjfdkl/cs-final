@@ -100,11 +100,12 @@ export default {
   color: #890304;
   border: 1px solid #890304;
   margin-top: 10px;
-  margin-left: 5px;
+
 }
 
 #prev {
-  margin-right: 5px;
+  margin-left: 5%;
+  margin-right: 1%;
 }
 
 .prev-next:hover {
@@ -127,5 +128,6 @@ export default {
 
 .search-change {
   margin: 10px;
+  margin-left: 5%;
 }
 </style>

@@ -56,6 +56,15 @@ const routes = [
     meta: {
       requiresAuth: false
     }
+  },
+  {
+    path: "/movies/:pageSize/:page/:sort/",
+    name: "movies",
+    component: HomeView,
+    meta: {
+      requiresAuth: true
+    }
+
   }
 ];
 

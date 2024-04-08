@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <h1 class="home-border">Home</h1>
+    <p>You must be authenticated to see this!</p>
     <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
 
   </div>
@@ -33,3 +33,14 @@ export default {
 
 };
 </script>
+
+<style>
+.home {
+  color: #890304;
+}
+
+.home-border {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px
+}
+</style>

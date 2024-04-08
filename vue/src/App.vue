@@ -76,9 +76,11 @@ body {
 
 
 #nav-bar .nav-button {
-
   display: inline-block;
   padding: 0.5rem 1rem;
+  min-width: 20rem;
+  text-align: center;
+
   font-family: 'League Spartan';
   font-weight: 600;
   font-size: 1.25rem;

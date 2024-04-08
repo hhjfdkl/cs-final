@@ -1,5 +1,5 @@
 BEGIN TRANSACTION;
-DROP TABLE IF EXISTS favorite_genres, genres, favorites, movies, ratings, users, reviews, accounts CASCADE;
+DROP TABLE IF EXISTS favorite_genres, genres, favorites, movies, users, reviews, accounts CASCADE;
 
 
 CREATE TABLE users (
@@ -66,26 +66,17 @@ CREATE TABLE favorite_genres (
 	CONSTRAINT FK_favorite_genres_genres FOREIGN KEY (genre_id) REFERENCES genres (genre_id)
 );
 
-CREATE TABLE ratings (
-	account_id INTEGER NOT NULL,
-	rating INTEGER,
-	movie_id INTEGER NOT NULL,
-
-	CONSTRAINT PK_ratings PRIMARY KEY (account_id, movie_id),
-	CONSTRAINT FK_ratings_accounts FOREIGN KEY (account_id) REFERENCES accounts (account_id),
-	CONSTRAINT FK_ratings_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
-	CONSTRAINT check_rating_min CHECK (rating > 0),
-	CONSTRAINT check_rating_max CHECK (rating <= 5)
-);
-
 CREATE TABLE reviews (
 	account_id INTEGER NOT NULL,
+	rating INTEGER NOT NULL,
 	review VARCHAR(1024),
 	movie_id INTEGER NOT NULL,
 
 	CONSTRAINT PK_reviews PRIMARY KEY (account_id, movie_id),
 	CONSTRAINT FK_reviews_accounts FOREIGN KEY (account_id) REFERENCES accounts (account_id),
-	CONSTRAINT FK_reviews_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id)
+	CONSTRAINT FK_reviews_movies FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
+	CONSTRAINT check_rating_min CHECK (rating > 0),
+	CONSTRAINT check_rating_max CHECK (rating <= 5)
 );
 
 CREATE TABLE movie_to_genre (

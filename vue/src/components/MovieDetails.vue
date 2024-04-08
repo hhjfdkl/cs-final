@@ -40,6 +40,8 @@ export default {
   display: flex;
   flex-direction: row;
   border: .001rem solid #890304;
+  width: 70%;
+  margin-left: 5%;
 }
 
 .column {
@@ -66,6 +68,7 @@ export default {
   color: #890304;
   margin-bottom: 5px;
   font-size: 1rem;
+  width: 70%;
 }
 
 .rating {

@@ -12,11 +12,10 @@ CREATE TABLE users (
 
 
 CREATE TABLE accounts (
-	account_id INTEGER NOT NULL,
+	account_id INTEGER NOT NULL UNIQUE,
 	--may add a "display name" later or something
 
 
-	CONSTRAINT PK_accounts PRIMARY KEY (account_id),
 	CONSTRAINT FK_accounts_users FOREIGN KEY (account_id) REFERENCES users (user_id)
 
 );
@@ -92,8 +91,6 @@ CREATE TABLE movie_to_genre (
 
 
 
-
-
 -- testing data -luke delete this later
 INSERT INTO movies (titleText, primaryImage, releaseDate, genres, runtime, plot, meterRanking, ratingsSummary, episodes)
 VALUES ('The Shawshank Redemption', 'https://i.kym-cdn.com/entries/icons/facebook/000/037/069/EyIdNM8XAAM5nd8.jpg', '1994-09-23', 'Drama', '2:22:00', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', '9.3', 'Rated R for language and prison violence', NULL);
@@ -130,5 +127,21 @@ VALUES ('Inception', 'inception.jpg', '2010-07-16', 'Action, Adventure, Sci-Fi',
 
 INSERT INTO movies (titleText, primaryImage, releaseDate, genres, runtime, plot, meterRanking, ratingsSummary, episodes)
 VALUES ('The Lord of the Rings: The Two Towers', 'lotr_two_towers.jpg', '2002-12-18', 'Action, Adventure, Drama', '2:59:00', 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron''s new ally, Saruman, and his hordes of Isengard.', '8.7', 'Rated PG-13 for epic battle sequences and scary images', NULL);
+
+
+
+--more test data
+INSERT INTO genres (genre_name) VALUES ('Horror');
+INSERT INTO genres (genre_name) VALUES ('Action');
+INSERT INTO genres (genre_name) VALUES ('Crime');
+INSERT INTO genres (genre_name) VALUES ('Comedy');
+INSERT INTO genres (genre_name) VALUES ('Romance');
+INSERT INTO genres (genre_name) VALUES ('Documentary');
+INSERT INTO genres (genre_name) VALUES ('Thriller');
+INSERT INTO genres (genre_name) VALUES ('Drama');
+
+
+
+
 --test data ends here
 COMMIT TRANSACTION;

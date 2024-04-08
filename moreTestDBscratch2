@@ -1,0 +1,32 @@
+SELECT user_id FROM users;
+SELECT account_id FROM accounts;
+
+select * from users;
+
+-- SELECT a.account_id, u.username, fm.
+
+
+SELECT * FROM favorites;
+
+SELECT * FROM accounts;
+
+SELECT * FROM MOVies;
+
+
+INSERT INTO favorites (account_id, movie_id) VALUES (1, 10);
+INSERT INTO favorites (account_id, movie_id) VALUES (1, 5);
+INSERT INTO favorites (account_id, movie_id) VALUES (1, 2);
+INSERT INTO favorites (account_id, movie_id) VALUES (1,4);
+
+select * from genres;
+INSERT INTO genres (genre_name) VALUES ('Horror');
+INSERT INTO genres (genre_name) VALUES ('Action');
+INSERT INTO genres (genre_name) VALUES ('Crime');
+INSERT INTO genres (genre_name) VALUES ('Comedy');
+INSERT INTO genres (genre_name) VALUES ('Romance');
+INSERT INTO genres (genre_name) VALUES ('Documentary');
+INSERT INTO genres (genre_name) VALUES ('Thriller');
+INSERT INTO genres (genre_name) VALUES ('Drama');
+
+select * from favorite_genres;
+INSERT INTO favorite_genres (account_id, genre_id) VALUES (1, 3);

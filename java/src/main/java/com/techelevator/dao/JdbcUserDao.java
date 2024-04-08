@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 import com.techelevator.exception.DaoException;
+import com.techelevator.model.Account;
 import com.techelevator.model.RegisterUserDto;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -75,17 +76,27 @@ public class JdbcUserDao implements UserDao {
     public User createUser(RegisterUserDto user) {
         User newUser = null;
         String insertUserSql = "INSERT INTO users (username, password_hash, role) values (LOWER(TRIM(?)), ?, ?) RETURNING user_id";
+        String sql2 = "INSERT INTO accounts(account_id) VALUES(?);";
         String password_hash = new BCryptPasswordEncoder().encode(user.getPassword());
         String ssRole = user.getRole().toUpperCase().startsWith("ROLE_") ? user.getRole().toUpperCase() : "ROLE_" + user.getRole().toUpperCase();
         try {
             int newUserId = jdbcTemplate.queryForObject(insertUserSql, int.class, user.getUsername(), password_hash, ssRole);
             newUser = getUserById(newUserId);
+            jdbcTemplate.update(sql2, newUserId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
         } catch (DataIntegrityViolationException e) {
             throw new DaoException("Data integrity violation", e);
         }
         return newUser;
+    }
+
+    @Override
+    public Account getUserAccountInfo(int id)
+    {
+        Account account = null;
+        String sql = "SELECT account_id, ";
+        return account;
     }
 
     private User mapRowToUser(SqlRowSet rs) {
@@ -96,5 +107,13 @@ public class JdbcUserDao implements UserDao {
         user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
         user.setActivated(true);
         return user;
+    }
+
+    private Account mapRowToAccount(SqlRowSet rs)
+    {
+        Account account = new Account(
+
+        );
+        return account;
     }
 }

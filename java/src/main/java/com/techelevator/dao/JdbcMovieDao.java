@@ -67,6 +67,25 @@ public class JdbcMovieDao implements MovieDao  {
         
     }
 
+    @Override
+    public List<Movie> getMoviesByUserFav() {
+//        List<Movie> movies = new ArrayList<>();
+//
+//        //remove the * when table is finalised
+//        String sql = "SELECT * FROM movies ORDER BY ? OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
+//        try {
+//            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, sortedBy, moviePerPage * (pageNumber-1) , moviePerPage);
+//            while (results.next()) {
+//                Movie movie = mapRowToMovie(results);
+//                movies.add(movie);
+//            }
+//        } catch (CannotGetJdbcConnectionException e) { //add another catch for sortedBy error
+//            throw new DaoException("Unable to connect to server or database", e);
+//        }catch (DataIntegrityViolationException e){
+//            throw new DaoException("Illegal arguments", e);
+//        }
+//        return movies;
+    }
 
 
     private Movie mapRowToMovie(SqlRowSet rs) {

@@ -10,4 +10,6 @@ public interface MovieDao {
     public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy);
 
     public Movie getMovieById(int id);
+
+    public List<Movie> getMoviesByUserFav();
 }

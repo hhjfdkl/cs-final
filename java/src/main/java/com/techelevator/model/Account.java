@@ -2,13 +2,14 @@ package com.techelevator.model;
 
 public class Account
 {
-    private final int user_id;
-    private final String username;
-    private final int[] favMovieIds;
-    private final int[] favGenreIds;
-    private final int[] reviewIds;
+    private  int user_id;
+    private  String username;
+    private  int[] favMovieIds;
+    private  int[] favGenreIds;
+    private  int[] reviewIds;
 
 
+    public Account(){}
 
     public Account(int user_id, String username, int[] favMovieIds, int[] favGenreIds, int[] reviewIds)
     {

@@ -9,6 +9,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('user3','user3','ROLE_US
 --adds values from prior users into account db also
 INSERT INTO accounts(account_id) VALUES (1);
 INSERT INTO accounts(account_id) VALUES (2);
+INSERT INTO accounts(account_id) VALUES (3);
 
 --user test data
 INSERT INTO favorites (account_id, movie_id) VALUES (1, 10);

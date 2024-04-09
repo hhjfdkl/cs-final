@@ -31,9 +31,13 @@ public class JdbcMovieDaoTests extends BaseDaoTests{
 
     @Test
     public void testing(){
-        int[] testG = {1,2};
-        System.out.println(sut.getMoviesByUserFav(4,1,"movie_id", testG).size());
-        sut.getMoviesByUserFav(4,1,"movie_id", testG);
+        System.out.println( sut.getMoviesByUserFavMovies(5,1,"movie_id", 1).size());
+
+
+
+//        int[] testG = {1,2};
+//        System.out.println(sut.getMoviesByUserFavGenre(4,1,"movie_id", testG).size());
+//        sut.getMoviesByUserFavGenre(4,1,"movie_id", testG);
 
     }
 

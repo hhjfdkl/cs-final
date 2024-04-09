@@ -24,6 +24,6 @@ public class JdbcAccountDaoTests extends BaseDaoTests
     {
         Assert.assertEquals(1, sut.getAccountById(1).getAccount_id());
     }
-    
+
 
 }

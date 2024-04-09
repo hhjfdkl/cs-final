@@ -7,8 +7,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
+@Component
 
 public class JdbcAccountDao implements AccountDao
 {
@@ -22,7 +24,7 @@ public class JdbcAccountDao implements AccountDao
     }
 
     @Override
-    public List<Account> getAccounts()
+    public List<Account> getAccounts()//remove this
     {
         return null;
     }
@@ -147,7 +149,6 @@ public class JdbcAccountDao implements AccountDao
         rs.beforeFirst();
         return size;
     }
-
 
 
 

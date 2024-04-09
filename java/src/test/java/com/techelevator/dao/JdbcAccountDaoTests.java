@@ -22,7 +22,16 @@ public class JdbcAccountDaoTests extends BaseDaoTests
     @Test
     public void get_account_by_id()
     {
+
+        System.out.println(sut.getAccountById(1));
         Assert.assertEquals(1, sut.getAccountById(1).getAccount_id());
+
+    }
+
+
+    @Test
+    public void testing(){
+        System.out.println(sut.getAccounts());
     }
 
 

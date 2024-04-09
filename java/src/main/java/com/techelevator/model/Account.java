@@ -1,5 +1,9 @@
 package com.techelevator.model;
 
+import org.apache.catalina.util.ToStringUtil;
+
+import java.util.Arrays;
+
 public class Account
 {
     private  final int account_id;
@@ -62,6 +66,23 @@ public class Account
     {
         return reviews;
     }
+
+    //add this tostring for testing -luke
+
+    @Override
+    public String toString() {
+        System.out.println(account_id);
+        return "Account{" +
+                "account_id=" + account_id +
+                ", username='" + username + '\'' +
+                ", favMovieIds=" + Arrays.toString(favMovieIds) +
+                ", favGenreIds=" + Arrays.toString(favGenreIds) +
+                ", reviews=" + Arrays.toString(reviews) +
+                '}';
+    }
+
+
+
 
     /*
        We aren't required to include a status/description per the PO, but we may have this functionality later

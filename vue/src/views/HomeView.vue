@@ -1,7 +1,7 @@
 <template>
-  <form @submit.prevent="searchMovies">
+  <form @submit.prevent="searchMovies" class="search-change">
     <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
-    <button type="submit">Change</button>
+    <button class="change" type="submit">Change</button>
   </form>
 
 

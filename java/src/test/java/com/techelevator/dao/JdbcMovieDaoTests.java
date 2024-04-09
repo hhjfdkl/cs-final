@@ -23,12 +23,21 @@ public class JdbcMovieDaoTests extends BaseDaoTests{
 
     @Test
     public void moviesskipoverpages(){
-        System.out.println();
 
         Assert.assertEquals("method should start at 5",5, sut.getGroupOfMovies(4,2,"id").get(0).getId());
         Assert.assertEquals("method should start at 5",6, sut.getGroupOfMovies(4,2,"id").get(1).getId());
     }
 
+
+    @Test
+    public void geting_fav_movies_return_4_movies_for_user_1(){
+        Assert.assertEquals("method should return 4 values",4,sut.getMoviesByUserFavMovies(5,1,"movie_id", 1).size());
+    }
+
+    @Test
+    public void geting_fav_movies_only_returns_page_size(){
+        Assert.assertEquals("method should return 1 values",1,sut.getMoviesByUserFavMovies(1,2,"movie_id", 1).size());
+    }
 
     @Test(expected = DaoException.class)
     public void illegalParamtersThrowDaoException (){

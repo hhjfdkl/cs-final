@@ -2,29 +2,47 @@ package com.techelevator.model;
 
 public class Account
 {
-    private  int user_id;
-    private  String username;
+    private  final int account_id;
+    private  final String username;
     private  int[] favMovieIds;
     private  int[] favGenreIds;
-    private  int[] reviewIds;
+    private  Review[] reviews;
 
 
-    public Account(){}
+//    public Account(){}
 
-    public Account(int user_id, String username, int[] favMovieIds, int[] favGenreIds, int[] reviewIds)
+    public Account(int account_id, String username)
     {
-        this.user_id = user_id;
+        this.account_id = account_id;
+        this.username = username;
+    }
+
+    public void setFavMovieIds(int[] favMovieIds) {
+        this.favMovieIds = favMovieIds;
+    }
+
+    public void setFavGenreIds(int[] favGenreIds) {
+        this.favGenreIds = favGenreIds;
+    }
+
+    public void setReviews(Review[] reviews) {
+        this.reviews = reviews;
+    }
+
+    public Account(int account_id, String username, int[] favMovieIds, int[] favGenreIds, Review[] reviews)
+    {
+        this.account_id = account_id;
         this.username = username;
         this.favMovieIds = favMovieIds;
         this.favGenreIds = favGenreIds;
-        this.reviewIds = reviewIds;
+        this.reviews = reviews;
     }
 
 
 
-    public int getUser_id()
+    public int getAccount_id()
     {
-        return user_id;
+        return account_id;
     }
     public String getUsername()
     {
@@ -40,9 +58,9 @@ public class Account
         return favGenreIds;
     }
 
-    public int[] getReviewIds()
+    public Review[] getReviewIds()
     {
-        return reviewIds;
+        return reviews;
     }
 
     /*

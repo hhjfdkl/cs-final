@@ -91,13 +91,7 @@ public class JdbcUserDao implements UserDao {
         return newUser;
     }
 
-    @Override
-    public Account getUserAccountInfo(int id)
-    {
-        Account account = null;
-        String sql = "SELECT account_id, ";
-        return account;
-    }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
@@ -109,11 +103,4 @@ public class JdbcUserDao implements UserDao {
         return user;
     }
 
-    private Account mapRowToAccount(SqlRowSet rs)
-    {
-        Account account = new Account(
-
-        );
-        return account;
-    }
 }

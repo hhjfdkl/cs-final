@@ -1,3 +1,4 @@
+
 <template>
   <div class="main-block">
     <img :src="movie.primaryImage" alt="movie img" class="movie-img">

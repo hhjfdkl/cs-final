@@ -141,6 +141,14 @@ INSERT INTO genres (genre_name) VALUES ('Thriller');
 INSERT INTO genres (genre_name) VALUES ('Drama');
 
 
+--more test data
+INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (1,1);
+INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (2,1);
+INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (3,1);
+INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (2,2);
+INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (3,2);
+
+
 
 
 --test data ends here

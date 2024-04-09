@@ -64,13 +64,15 @@ public class MovieController {
     @GetMapping("/movies/favorites/{moviePerPage}/{page}/{sortBy}")
     public List<Movie> getFavMovies(Principal principal , @PathVariable int moviePerPage , @PathVariable int page, @PathVariable String sortBy){
         User user = userDao.getUserByUsername(principal.getName());
+        System.out.println(  user.toString());
 
-        try {
+
+//        try {
             return movieDao.getMoviesByUserFavMovies(moviePerPage,page,sortBy,user.getId());
-        }
-        catch (DaoException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
-        }
+//        }
+//        catch (DaoException e) {
+//            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
+//        }
     }
 
 

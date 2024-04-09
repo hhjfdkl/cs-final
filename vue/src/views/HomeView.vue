@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="searchMovies" class="search-change">
     <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
-    <button class="change" type="submit">Change</button>
+    <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
   </form>
 
 
@@ -30,10 +30,11 @@ export default {
 
   },
 
-  updated() {
-    this.updateMovies();
-  },
 
+
+  watch: { //runs updateMovies when route changes
+    '$route': 'updateMovies'
+  },
   components: {
     MovieDetails,
   },
@@ -53,6 +54,7 @@ export default {
       this.updateMovies();
     },
     updateMovies() {
+      console.log("updating")
       MovieService.getMoviePage(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
         this.movies = response.data;
       });

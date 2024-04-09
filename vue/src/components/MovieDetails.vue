@@ -74,7 +74,76 @@ export default {
   color: #890304;
   font-size: 13px;
 }
-</style>
 
+@media screen and (max-width: 600px) {
+  .main-block {
+    flex-direction: column;
+    margin: auto;
+
+  }
+
+  .movie-img {
+    max-width: 100%;
+    max-height: 100%;
+
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .movie-title {
+    font-size: 1.5rem;
+  }
+
+  .release-genres {
+    font-size: .8rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .rating {
+    font-size: 13px;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+
+  .main-block {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .movie-img {
+    max-width: 35%;
+    max-height: 35%;
+
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .movie-title {
+    font-size: 1.5rem;
+  }
+
+  .release-genres {
+    font-size: .8rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .rating {
+    font-size: 13px;
+  }
+
+}
+</style>
 
 

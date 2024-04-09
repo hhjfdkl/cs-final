@@ -2,14 +2,32 @@ package com.techelevator.model;
 
 public class Account
 {
-    private  int account_id;
-    private  String username;
+    private  final int account_id;
+    private  final String username;
     private  int[] favMovieIds;
     private  int[] favGenreIds;
     private  Review[] reviews;
 
 
-    public Account(){}
+//    public Account(){}
+
+    public Account(int account_id, String username)
+    {
+        this.account_id = account_id;
+        this.username = username;
+    }
+
+    public void setFavMovieIds(int[] favMovieIds) {
+        this.favMovieIds = favMovieIds;
+    }
+
+    public void setFavGenreIds(int[] favGenreIds) {
+        this.favGenreIds = favGenreIds;
+    }
+
+    public void setReviews(Review[] reviews) {
+        this.reviews = reviews;
+    }
 
     public Account(int account_id, String username, int[] favMovieIds, int[] favGenreIds, Review[] reviews)
     {

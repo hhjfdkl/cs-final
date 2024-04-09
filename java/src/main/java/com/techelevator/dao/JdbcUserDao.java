@@ -103,11 +103,4 @@ public class JdbcUserDao implements UserDao {
         return user;
     }
 
-    private Account mapRowToAccount(SqlRowSet rs)
-    {
-        Account account = new Account(
-
-        );
-        return account;
-    }
 }

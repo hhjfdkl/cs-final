@@ -15,9 +15,9 @@
 
 
       <router-link v-bind:to="{ name: 'favorites', params: { pageSize: 5, page: 1, sort: 'movie_id' } }"
-        class="nav-button"> Favorites</router-link>
-      <router-link v-bind:to="{ name: 'movies', params: { pageSize: 5, page: 1, sort: 'movie_id' } }"
-        class="nav-button">Movies</router-link>
+        class="nav-button" v-if="$store.state.token != '' && $route.name != 'favorites'"> Favorites</router-link>
+      <router-link v-bind:to="{ name: 'movies', params: { pageSize: 5, page: 1, sort: 'movie_id' } }" class="nav-button"
+        v-if="$store.state.token != '' && $route.name != 'movies'">Movies</router-link>
 
 
 

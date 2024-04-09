@@ -30,15 +30,13 @@ public class JdbcMovieDaoTests extends BaseDaoTests{
 
 
     @Test
-    public void testing(){
-        System.out.println( sut.getMoviesByUserFavMovies(5,1,"movie_id", 1).size());
+    public void geting_fav_movies_return_4_movies_for_user_1(){
+        Assert.assertEquals("method should return 4 values",4,sut.getMoviesByUserFavMovies(5,1,"movie_id", 1).size());
+    }
 
-
-
-//        int[] testG = {1,2};
-//        System.out.println(sut.getMoviesByUserFavGenre(4,1,"movie_id", testG).size());
-//        sut.getMoviesByUserFavGenre(4,1,"movie_id", testG);
-
+    @Test
+    public void geting_fav_movies_only_returns_page_size(){
+        Assert.assertEquals("method should return 1 values",1,sut.getMoviesByUserFavMovies(1,2,"movie_id", 1).size());
     }
 
     @Test(expected = DaoException.class)

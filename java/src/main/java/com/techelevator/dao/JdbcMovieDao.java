@@ -29,6 +29,10 @@ public class JdbcMovieDao implements MovieDao  {
 
     public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy){
 
+        if(!checkSortBy(sortedBy)){
+            sortedBy = "movie_id";
+        }
+
         List<Movie> movies = new ArrayList<>();
 
         //remove the * when table is finalised
@@ -72,6 +76,7 @@ public class JdbcMovieDao implements MovieDao  {
         List<Movie> movies = new ArrayList<>();
         StringBuilder whereInBuilder = new StringBuilder();
 //        sortedBy = "movies." + sortedBy;
+
         System.out.println(sortedBy);
         whereInBuilder.append(genres_id[0]);
         for(int i = 1; genres_id.length > i; i++){
@@ -108,7 +113,7 @@ public class JdbcMovieDao implements MovieDao  {
         List<Movie> movies = new ArrayList<>();
 
         if(!checkSortBy(sortedBy)){
-            throw new DaoException("illegal sorting value!"); //change this later
+          sortedBy = "movie_id";
         }
 
 

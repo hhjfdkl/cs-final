@@ -73,7 +73,7 @@ body {
   /* padding: 1rem; */
   background-color: #890304;
   height: 100vh;
-
+  position: sticky;
   width: 80%;
   /* position: fixed; */
   /* added */

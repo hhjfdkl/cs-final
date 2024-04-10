@@ -95,7 +95,7 @@ public class JdbcMovieDao implements MovieDao  {
                 " WHERE "+ whereInBuilder.toString() + " Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
 
         try {
-            System.out.println(sql);
+
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, moviePerPage * (pageNumber-1) , moviePerPage);
             while (results.next()) {
                 Movie movie = mapRowToMovie(results);

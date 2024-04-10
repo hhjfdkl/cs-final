@@ -31,7 +31,7 @@ public class JdbcAccountDaoTests extends BaseDaoTests
 
     @Test
     public void testing(){
-        System.out.println(sut.getAccounts());
+        System.out.println(sut.getAccountById(1));
     }
 
 

@@ -1,7 +1,9 @@
 
 <template>
     <div class="main-block">
-        {{ Account.username }}
+        <div> {{ Account.username }} </div>
+        <!-- <div> {{ Account }} </div> -->
+
     </div>
 </template> 
   

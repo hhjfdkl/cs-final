@@ -76,7 +76,7 @@ const routes = [
     }
   },
   {
-    path: "/account"
+    path: "/account:pageSize/:page/:sort/"
     , name: "account"
     , component: AccountView
     , meta: {

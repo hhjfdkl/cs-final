@@ -1,5 +1,6 @@
 <template>
     <AccountDetails v-bind:Account="this.Account" />
+    <FavView />
 </template>
 
 
@@ -7,6 +8,7 @@
 <script>
 import AccountDetails from "../components/AccountDetails.vue";
 import AccountService from "../services/AccountService";
+import FavView from "../views/FavView.vue";
 
 
 
@@ -25,6 +27,8 @@ export default {
 
     components: {
         AccountDetails,
+        FavView
+
 
 
     },

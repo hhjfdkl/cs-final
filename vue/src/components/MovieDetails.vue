@@ -17,11 +17,11 @@
 
       <button v-show="!isFav" class="fav-button" @click="addFav">
 
-        fav
+        Favorite
       </button>
       <button v-show="isFav" class="fav-button" @click="removeFav">
 
-        un-fav
+        Unfavorite
       </button>
 
     </div>
@@ -121,6 +121,21 @@ export default {
   color: #890304;
   font-size: 13px;
 }
+
+.fav-button {
+  background-color: #890304;
+  color: #f8f2bf;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  font-family: 'league spartan';
+
+
+}
+
 
 @media screen and (max-width: 600px) {
   .main-block {

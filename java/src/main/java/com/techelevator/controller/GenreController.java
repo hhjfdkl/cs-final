@@ -19,7 +19,7 @@ public class GenreController {
         this.genreDao = genreDao;
     }
 
-    @GetMapping
+    @GetMapping("/genres")
     public List<Genre> getListOfGenres(){
         return genreDao.getListOfGenres();//add try catch
 

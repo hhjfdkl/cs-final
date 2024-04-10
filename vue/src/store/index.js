@@ -1,5 +1,6 @@
 import { createStore as _createStore } from 'vuex';
 import axios from 'axios';
+import AccountService from '../services/AccountService';
 
 export function createStore(currentToken, currentUser) {
   let store = _createStore({
@@ -24,6 +25,12 @@ export function createStore(currentToken, currentUser) {
         state.token = '';
         state.user = {};
         axios.defaults.headers.common = {};
+      },
+
+      UPDATE_GENRES(state) {
+        AccountService.getGenres().then(response => {
+          state.genres = response.data
+        });
       }
     },
   });

@@ -29,7 +29,7 @@ public class JdbcFavDao implements FavDao{
                  return true;
              }
 
-        } catch (CannotGetJdbcConnectionException e) { 
+        } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
         }catch (DataIntegrityViolationException e){
             throw new DaoException("Fav already exists", e);

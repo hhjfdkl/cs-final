@@ -43,7 +43,7 @@ export default {
         nextPage() {
             if (Number(this.$route.params.pageSize) > this.movies.length) return; //this doesn't work if the page was full
             this.$router.push({
-                name: "favorites",
+                name: this.$route.name,
                 params: {
                     pageSize: this.$route.params.pageSize,
                     page: Number(this.$route.params.page) + 1,
@@ -62,7 +62,7 @@ export default {
         previousPage() {
             if (Number(this.$route.params.page) <= 1) return;
             this.$router.push({
-                name: "favorites",
+                name: this.$route.name,
                 params: {
                     pageSize: this.$route.params.pageSize,
                     page: Number(this.$route.params.page) - 1,

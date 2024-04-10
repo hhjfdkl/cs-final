@@ -1,5 +1,6 @@
 <template>
     <AccountDetails v-bind:Account="this.Account" />
+    <GenreList :genres="this.Account.favGenreIds" />
     <FavView />
 </template>
 
@@ -9,6 +10,9 @@
 import AccountDetails from "../components/AccountDetails.vue";
 import AccountService from "../services/AccountService";
 import FavView from "../views/FavView.vue";
+import GenreList from "../components/GenreList.vue";
+
+
 
 
 
@@ -18,16 +22,18 @@ export default {
         return {
             Account: {}
         };
-    }
+    },
 
-    ,
+
+
     created() {
         this.updateAccount();
     },
 
     components: {
         AccountDetails,
-        FavView
+        FavView,
+        GenreList
 
 
 

@@ -57,7 +57,7 @@ export default {
 
     },
     updateFav: function () {
-      console.log("upp")
+
       MovieService.isFav(this.movie.id).then((response) => {
         this.isFav = response.data;
       });

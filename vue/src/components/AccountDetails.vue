@@ -2,7 +2,7 @@
 <template>
     <div class="main-block">
         <div id="name"> {{ Account.username }} </div>
-        <!-- <div> {{ Account }} </div> -->
+        <!-- <!?-- <div> {{ Account }} </div> -->
 
     </div>
 </template> 
@@ -19,7 +19,7 @@ export default {
 
 </script>
   
-<style>
+<style scoped>
 #name {
 
     font-size: 75px;
@@ -27,17 +27,17 @@ export default {
 }
 
 .movie-img {
-    max-width: 14%;
+    /* max-width: 14%;
     max-height: 14%;
-    margin: 5px;
+    margin: 5px; */
 }
 
 .main-block {
     display: flex;
     flex-direction: row;
     border: .001rem solid #890304;
-    width: 70%;
-    margin-left: 5%;
+    width: 30%;
+    /* margin-left: 5%; */
 }
 
 .column {

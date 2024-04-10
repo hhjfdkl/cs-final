@@ -1,9 +1,9 @@
 <template>
-  <form @submit.prevent="searchMovies" class="search-change">
+  <!-- <form @submit.prevent="searchMovies" class="search-change">
 
     <input class="mpp" type="number" v-model="usersPerPage" placeholder="Movies per page" />
     <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
-  </form>
+  </form> -->
 
   <div id="main-display">
     <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
@@ -90,15 +90,18 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #main-display {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
+
+  /*needs to be a row*/
+
+  /* justify-content: center; */
 
 }
 
-.main-block {}
 
 .home {
   color: #890304;

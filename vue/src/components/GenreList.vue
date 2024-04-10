@@ -1,14 +1,9 @@
 
 <template>
     <div class="main-block">
-
-
-
         <div v-for="genre in favGenreArray" :key="genre.id" class="main-block">
             {{ genre.name }}
         </div>
-
-
     </div>
 </template> 
   
@@ -58,7 +53,7 @@ export default {
 
 </script>
   
-<style>
+<style scoped>
 /* .movie-img {
     max-width: 14%;
     max-height: 14%;

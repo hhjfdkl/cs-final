@@ -48,4 +48,16 @@ public class FavController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "failed to remove fav");
         }
     }
+
+    @GetMapping("/favorites/{movie_id}")
+    public boolean isFav(@PathVariable int movie_id, Principal principal){
+        User user = userDao.getUserByUsername(principal.getName());
+
+        try {
+            return favDao.isFav(user.getId(),movie_id);
+        }
+        catch (DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "failed to find fav");
+        }
+    }
 }

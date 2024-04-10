@@ -13,18 +13,64 @@
       <div class="description">
         {{ movie.plot }}
       </div>
+
+
+      <button v-show="!isFav" class="fav-button" @click="addFav">
+
+        fav
+      </button>
+      <button v-show="isFav" class="fav-button" @click="removeFav">
+
+        un-fav
+      </button>
+
     </div>
   </div>
 </template> 
 
 <script>
 import { computed } from 'vue';
+import MovieService from '../services/MovieService';
 
 
 export default {
+  data() {
+    return {
+      isFav: false
+    }
+  },
   props: {
-    movie: Object
-  }
+    movie: Object,
+  },
+  methods: {
+    addFav: function () {
+      MovieService.addFav(this.movie.id).then(() => {
+        this.updateFav();
+      });
+
+
+    },
+    removeFav: function () {
+      MovieService.deleteFav(this.movie.id).then(() => {
+        this.updateFav();
+      });
+
+    },
+    updateFav: function () {
+      console.log("upp")
+      MovieService.isFav(this.movie.id).then((response) => {
+        this.isFav = response.data;
+      });
+    }
+  },
+  created: function () {
+    this.updateFav();
+  },
+  watch: {
+    '$route': 'updateFav'
+  },
+
+
 }
 
 </script>

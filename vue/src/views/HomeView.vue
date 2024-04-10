@@ -145,6 +145,5 @@ export default {
   border: none;
   box-shadow: 0 2px 4px #7B3911;
   margin-right: 1rem;
-  font-family: 'League Spartan';
 }
 </style>

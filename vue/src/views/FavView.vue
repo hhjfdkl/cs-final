@@ -1,5 +1,5 @@
 <template>
-    <h2>Favorites</h2>
+    <h2>Favorite Movies</h2>
     <form @submit.prevent="searchMovies" class="search-change">
         <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
         <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>

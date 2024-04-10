@@ -1,10 +1,7 @@
 <template>
-  <h2>Movies</h2>
   <form @submit.prevent="searchMovies" class="search-change">
-
     <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
     <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
-
   </form>
 
 
@@ -111,7 +108,7 @@ export default {
 }
 
 #prev {
-  margin-left: 5%;
+  margin-left: 15%;
   margin-right: 1%;
 }
 
@@ -135,6 +132,7 @@ export default {
 
 .search-change {
   margin: 10px;
-  margin-left: 5%;
+  margin-left: 15%;
+
 }
 </style>

@@ -23,14 +23,22 @@ export default {
 <style scoped>
 #titlepage {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.logo {
+    margin: auto;
 }
 
 p {
     font-size: 1.25rem;
-    margin: 1rem;
-    padding: 2rem;
     font-weight: 500;
     font-family: 'league Spartan';
+    width: 50%;
+    margin: auto;
+    color: #7B3911;
 }
 
 .link {

@@ -28,6 +28,7 @@
 
 
 
+
     </nav>
     <div id="outofnav">
       <router-view />
@@ -72,8 +73,8 @@ body {
   /* padding: 1rem; */
   background-color: #890304;
   height: 100vh;
-
-  width: 100%;
+  position: sticky;
+  width: 80%;
   /* position: fixed; */
   /* added */
   top: 0;
@@ -89,7 +90,6 @@ body {
 
 #nav-bar .logo {
   width: 100%;
-  height: auto;
 }
 
 
@@ -124,5 +124,62 @@ body {
   /* margin-left: 150px; */
   /* margin-left: 10%; */
 
+}
+
+@media screen and (max-width: 600px) {
+  #capstone-app {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "nav"
+      "main"
+    ;
+  }
+
+  #nav-bar {
+    height: auto;
+    padding: 1rem 0;
+    width: 100%;
+  }
+
+  #nav-bar .nav-button {
+    font-size: 1rem;
+  }
+
+  #nav-bar .logo {
+    width: 100%;
+    height: auto;
+  }
+
+  #outofnav {
+    margin-left: 0;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+
+  #capstone-app {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "nav"
+      "main"
+    ;
+  }
+
+  #nav-bar {
+    height: auto;
+    padding: 1rem 0;
+    width: 100%;
+  }
+
+  #nav-bar .nav-button {
+    font-size: 1rem;
+
+  }
+
+  #nav-bar .logo {
+    width: 100%;
+    height: auto;
+  }
 }
 </style>

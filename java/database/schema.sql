@@ -149,7 +149,5 @@ INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (2,2);
 INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (3,2);
 
 
-
-
 --test data ends here
 COMMIT TRANSACTION;

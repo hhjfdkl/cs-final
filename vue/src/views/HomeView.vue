@@ -5,9 +5,9 @@
     <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
   </form>
 
-
-  <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
-
+  <div id="main-display">
+    <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
+  </div>
   <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
   <button class="prev-next" @click="nextPage">Next Page</button>
 </template>
@@ -91,6 +91,15 @@ export default {
 </script>
 
 <style>
+#main-display {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+}
+
+.main-block {}
+
 .home {
   color: #890304;
 }

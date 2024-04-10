@@ -3,16 +3,29 @@
 
     <nav id="nav-bar">
       <router-link v-bind:to="{ name: 'title' }">
-        <img src="src\assets\Light Theme Logo.png" alt="BOB Light Logo" class="logo">
+
+        <img src="../src\assets\Light Theme Logo.png" alt="BOB Light Logo" class="logo">
+
+
         <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
       </router-link>
       <router-link v-bind:to="{ name: 'login' }" class="nav-button"
-        v-if="$store.state.token == ''">Login</router-link>&nbsp;&nbsp;
+        v-if="this.$store.state.token == ''">Login</router-link>&nbsp;&nbsp;
       <!-- <router-link v-bind:to="{ name: 'favorites' }" class="nav-button">fav</router-link> -->
-      <router-link v-bind:to="{ name: 'register' }" class="nav-button" v-if="$store.state.token == ''">Sign
+      <router-link v-bind:to="{ name: 'register' }" class="nav-button" v-if="this.$store.state.token == ''">Sign
         Up</router-link>
       <router-link v-bind:to="{ name: 'logout' }" class="nav-button" v-else>Log out</router-link>
-      <a href="#" v-show="$store.state.token" @click.prevent="goToFav" class="nav-button">favorites</a>
+
+
+      <router-link v-bind:to="{ name: 'favorites', params: { pageSize: 5, page: 1, sort: 'movie_id' } }"
+        class="nav-button" v-if="this.$store.state.token != '' && this.$route.name != 'favorites'">
+        Favorites</router-link>
+      <router-link v-bind:to="{ name: 'movies', params: { pageSize: 5, page: 1, sort: 'movie_id' } }" class="nav-button"
+        v-if="this.$store.state.token != '' && this.$route.name != 'movies'">Movies</router-link>
+
+      <router-link v-bind:to="{ name: 'account', params: { pageSize: 5, page: 1, sort: 'movie_id' } }" class="nav-button"
+        v-if="this.$store.state.token != '' && this.$route.name != 'account'">Account</router-link>
+
 
 
 
@@ -23,15 +36,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  methods: {
-    goToFav() {
-      this.$router.push({ name: "favorites" });
-    }
-  }
-}
-</script>
+
 
 <style>
 html {

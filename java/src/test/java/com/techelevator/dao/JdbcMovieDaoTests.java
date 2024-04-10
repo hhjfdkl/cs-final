@@ -36,6 +36,7 @@ public class JdbcMovieDaoTests extends BaseDaoTests{
 
     @Test
     public void geting_fav_movies_only_returns_page_size(){
+
         Assert.assertEquals("method should return 1 values",1,sut.getMoviesByUserFavMovies(1,2,"movie_id", 1).size());
     }
 

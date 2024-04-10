@@ -1,4 +1,5 @@
 <template>
+    <h2>Favorites</h2>
     <form @submit.prevent="searchMovies" class="search-change">
         <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
         <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
@@ -42,7 +43,7 @@ export default {
         nextPage() {
             if (Number(this.$route.params.pageSize) > this.movies.length) return; //this doesn't work if the page was full
             this.$router.push({
-                name: "favorites",
+                name: this.$route.name,
                 params: {
                     pageSize: this.$route.params.pageSize,
                     page: Number(this.$route.params.page) + 1,
@@ -61,7 +62,7 @@ export default {
         previousPage() {
             if (Number(this.$route.params.page) <= 1) return;
             this.$router.push({
-                name: "favorites",
+                name: this.$route.name,
                 params: {
                     pageSize: this.$route.params.pageSize,
                     page: Number(this.$route.params.page) - 1,
@@ -73,7 +74,7 @@ export default {
         ,
         searchMovies() {
             this.$router.push({
-                name: "favorites",
+                name: this.$route.name,
                 params: {
                     pageSize: this.usersPerPage,
                     page: 1,

@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.Arrays;
+
 public class Review
 {
     private final int account_id;
@@ -36,5 +38,16 @@ public class Review
         return movie_id;
     }
 
+    //add this tostring for testing -luke
 
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "account_id=" + account_id +
+                ", rating=" + rating +
+                ", review='" + review + '\'' +
+                ", movie_id=" + movie_id +
+                '}';
+    }
 }

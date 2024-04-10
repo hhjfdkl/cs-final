@@ -1,7 +1,7 @@
 
 <template>
     <div class="main-block">
-        <div> {{ Account.username }} </div>
+        <div id="name"> {{ Account.username }} </div>
         <!-- <div> {{ Account }} </div> -->
 
     </div>
@@ -20,6 +20,12 @@ export default {
 </script>
   
 <style>
+#name {
+
+    font-size: 75px;
+    font-weight: bold;
+}
+
 .movie-img {
     max-width: 14%;
     max-height: 14%;

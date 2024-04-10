@@ -54,4 +54,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+AccountDetails {
+    font-size: 120%;
+}
+</style>

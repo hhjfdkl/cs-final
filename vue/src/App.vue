@@ -126,6 +126,10 @@ body {
 
 }
 
+* {
+  font-family: 'League Spartan';
+}
+
 @media screen and (max-width: 600px) {
   #capstone-app {
     grid-template-columns: 1fr;

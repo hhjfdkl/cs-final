@@ -1,6 +1,7 @@
 <template>
   <form @submit.prevent="searchMovies" class="search-change">
-    <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
+
+    <input class="mpp" type="number" v-model="usersPerPage" placeholder="Movies per page" />
     <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
   </form>
 
@@ -134,5 +135,16 @@ export default {
   margin: 10px;
   margin-left: 15%;
 
+}
+
+
+.mpp {
+  width: 100px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 2px 4px #7B3911;
+  margin-right: 1rem;
+  font-family: 'League Spartan';
 }
 </style>

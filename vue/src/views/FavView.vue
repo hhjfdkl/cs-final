@@ -74,7 +74,7 @@ export default {
         ,
         searchMovies() {
             this.$router.push({
-                name: "favorites",
+                name: this.$route.name,
                 params: {
                     pageSize: this.usersPerPage,
                     page: 1,

@@ -18,12 +18,13 @@
 
 
       <router-link v-bind:to="{ name: 'favorites', params: { pageSize: 5, page: 1, sort: 'movie_id' } }"
-        class="nav-button" v-if="this.$store.state.token != '' && $route.name != 'favorites'"> Favorites</router-link>
+        class="nav-button" v-if="this.$store.state.token != '' && this.$route.name != 'favorites'">
+        Favorites</router-link>
       <router-link v-bind:to="{ name: 'movies', params: { pageSize: 5, page: 1, sort: 'movie_id' } }" class="nav-button"
-        v-if="this.$store.state.token != '' && $route.name != 'movies'">Movies</router-link>
+        v-if="this.$store.state.token != '' && this.$route.name != 'movies'">Movies</router-link>
 
-      <router-link v-bind:to="{ name: 'account' }" class="nav-button"
-        v-if="this.$store.state.token != '' && $route.name != 'account'">Account</router-link>
+      <router-link v-bind:to="{ name: 'account', params: { pageSize: 5, page: 1, sort: 'movie_id' } }" class="nav-button"
+        v-if="this.$store.state.token != '' && this.$route.name != 'account'">Account</router-link>
 
 
 

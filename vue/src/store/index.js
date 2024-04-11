@@ -7,7 +7,10 @@ export function createStore(currentToken, currentUser) {
     state: {
       token: currentToken || '',
       user: currentUser || {},
-      genres: []
+      genres: [],
+      filteredGenres: [],
+      filteredYears: [],
+      filteredRating: []
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
@@ -31,6 +34,16 @@ export function createStore(currentToken, currentUser) {
         AccountService.getGenres().then(response => {
           state.genres = response.data
         });
+      },
+
+      FILTER_GENRES(state, genres) {
+        state.filteredGenres = genres
+      },
+      FILTER_YEARS(state, years) {
+        state.filteredYears = years
+      },
+      FILTER_RATINGS(state, ratings) {
+        state.filteredRating = ratings
       }
     },
   });

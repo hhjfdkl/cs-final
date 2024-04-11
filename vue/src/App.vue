@@ -167,12 +167,10 @@ body {
 
 }
 
-<<<<<<< HEAD
-=======
+
 * {
   font-family: 'League Spartan';
 }
->>>>>>> fe0cef552c9caa6898712c225ba7845f27e9e0ff
 
 @media screen and (max-width: 600px) {
   #capstone-app {
@@ -218,6 +216,7 @@ body {
     height: auto;
     padding: 1rem 0;
     width: 100%;
+    max-width: 30%;
   }
 
   #nav-bar .nav-button {

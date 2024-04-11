@@ -2,6 +2,8 @@ package com.techelevator.model;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Arrays;
+
 public class FilterDto {
     int[] genres;
     String[] mpaas;
@@ -35,5 +37,15 @@ public class FilterDto {
 
     public void setYears(int[] years) {
         this.years = years;
+    }
+
+
+    @Override
+    public String toString() {
+        return "FilterDto{" +
+                "genres=" + Arrays.toString(genres) +
+                ", mpaas=" + Arrays.toString(mpaas) +
+                ", years=" + Arrays.toString(years) +
+                '}';
     }
 }

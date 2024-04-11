@@ -76,8 +76,10 @@ public class MovieController {
 
     @PostMapping("/movies/filter/{moviePerPage}/{page}/{sortBy}")
     public List<Movie> getFilteredMovies(@PathVariable int moviePerPage , @PathVariable int page, @PathVariable String sortBy , @RequestBody FilterDto filterDto){
-
-
+        if(filterDto.getMpaas() == null){
+            filterDto.setMpaas(new String[] {});
+        }
+        System.out.println(filterDto);
 
 
         try {

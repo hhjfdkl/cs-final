@@ -1,5 +1,6 @@
 
 
+
 CREATE TABLE articles(
 	article_id SERIAL,
 	title VARCHAR(70) NOT NULL,

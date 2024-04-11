@@ -1,15 +1,13 @@
 <template>
     <div id="titlepage">
         <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
-        <img class="logo" src="src\assets\Dark Theme Logo.png" alt="BOB Dark LogoLogo">
+        <img class="logo" src="src\assets\Box_ffice__5_-removebg-preview.png" alt="BOB Dark LogoLogo">
         <p>Welcome to Box Office Buzz! Box Office Buzz is your ultimate destination for all things cinema. From the latest
             blockbuster hits to hidden gems, our curated recommendations and in-depth reviews ensure you're always in the
             know about what's worth watching. Whether you're a casual moviegoer or a dedicated cinephile, let Box Office
             Buzz guide you to your next cinematic adventure. </p>
 
-        <router-link v-bind:to="{ name: 'login' }" class="link" v-if="$store.state.token == ''">Login</router-link>
-        <br>
-        <router-link v-bind:to="{ name: 'register' }" class="link" v-if="$store.state.token == ''">Register</router-link>
+
 
     </div>
 </template>

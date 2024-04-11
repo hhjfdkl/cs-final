@@ -115,7 +115,7 @@ body {
   background-color: #890304;
   height: 100vh;
   position: sticky;
-  width: 80%;
+  width: 225px;
   /* position: fixed; */
   /* added */
   top: 0;
@@ -137,7 +137,9 @@ body {
 #nav-bar .nav-button {
   display: inline-block;
   padding: 0.5rem 1rem;
+  margin-bottom: 10px;
   min-width: 2rem;
+  width: 50%;
   text-align: center;
 
   font-family: 'League Spartan';
@@ -162,12 +164,12 @@ body {
 #outofnav {
   /* grid-area: main; */
 
-  /* margin-left: 150px; */
-  /* margin-left: 10%; */
+  /* margin-left: 150px;
+  margin-left: 10%; */
 
 }
 
-* {
+<<<<<<< HEAD=======>>>>>>>21e68033017a00166f3ef7ef2478639becc1cf2b * {
   font-family: 'League Spartan';
 }
 
@@ -215,6 +217,7 @@ body {
     height: auto;
     padding: 1rem 0;
     width: 100%;
+    max-width: 30%;
   }
 
   #nav-bar .nav-button {

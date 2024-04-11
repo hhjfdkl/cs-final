@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <img src="src\assets\Dark Theme Logo.png" alt="BOB Dark Logo" class="logo">
+    <img src="src\assets\Box_ffice__5_-removebg-preview.png" alt="BOB Dark Logo" class="logo">
     <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <form v-on:submit.prevent="login">
       <h1>Please Sign In</h1>
@@ -48,7 +48,7 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/movies/5/1/movie_id");
+            this.$router.push("/movies/9/1/movie_id");
           }
         })
         .catch(error => {

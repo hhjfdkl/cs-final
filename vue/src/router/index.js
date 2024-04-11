@@ -9,6 +9,7 @@ import RegisterView from '../views/RegisterView.vue';
 import TitlepageView from '../views/TitlepageView.vue';
 import FavView from '../views/FavView.vue';
 import AccountView from '../views/AccountView.vue';
+import AdvanceFilter from '../components/AdvanceFilter.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -82,6 +83,15 @@ const routes = [
     , meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: "/filter",
+    name: "filterSearch",
+    component: AdvanceFilter,
+    meta: {
+      requiresAuth: true
+    }
+
   }
 ];
 

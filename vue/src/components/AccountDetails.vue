@@ -2,7 +2,7 @@
 <template>
     <div class="main-block">
         <div id="name"> {{ Account.username }} </div>
-        <!-- <!?-- <div> {{ Account }} </div> -->
+
 
     </div>
 </template> 

@@ -91,12 +91,12 @@ public class JdbcMovieDao implements MovieDao  {
 
 
         String sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
-                ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM movies Join movie_to_genre\n" +
+                ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM movies LEFT Join movie_to_genre\n" +
                 "as mg on mg.movie_id = movies.movie_id" +
                 " WHERE "+ whereInBuilder.toString() + " Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         if(genres.length == 0 && years.length == 0 && mpaa.length ==0 ){
             sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
-                    ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM movies Join movie_to_genre\n" +
+                    ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM movies LEFT Join movie_to_genre\n" +
                     "as mg on mg.movie_id = movies.movie_id" +
                     "  Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         }

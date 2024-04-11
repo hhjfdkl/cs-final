@@ -33,8 +33,8 @@ public class JdbcAccountDao implements AccountDao
     public Account getAccountById(int accountId)
     {
         Account account = null;
-        int[] favMovies;
-        int[] favGenres;
+        int[] favMovies = new int[0];
+        int[] favGenres = new int[0];
         Review[] reviews;
         String nameAndIdQuery = "SELECT a.account_id, u.username\n" +
                 "FROM accounts AS a\n" +

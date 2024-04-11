@@ -76,6 +76,12 @@ export default {
     computed: {
         favGenreArray: function () {
             let out = [];
+            console.log(this.genres);
+            // if (this.genres == null) {
+
+
+            //     this.genres = [];
+            // }
             for (let i = 0; i < this.$store.state.genres.length; i++) {
                 if (this.genres.includes(this.$store.state.genres[i].id)) {
                     out.push(this.$store.state.genres[i])

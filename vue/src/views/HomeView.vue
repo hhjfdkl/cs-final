@@ -56,7 +56,7 @@ export default {
     },
     updateMovies() {
       console.log("updating")
-      MovieService.getMoviePage(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
+      MovieService.getFilterMovies(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, [], [], [2008, 2009]).then((response) => {
         this.movies = response.data;
       });
     },

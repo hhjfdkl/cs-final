@@ -18,18 +18,22 @@
 
 
       <router-link v-bind:to="{ name: 'favorites', params: { pageSize: 9, page: 1, sort: 'movie_id' } }"
-        class="nav-button" v-if="this.$store.state.token != '' && this.$route.name != 'favorites'">
-        Favorites</router-link>
+        class="nav-button" v-if="this.$store.state.token != ''">
+        Favorites
+      </router-link>
       <router-link v-bind:to="{ name: 'movies', params: { pageSize: 9, page: 1, sort: 'movie_id' } }" class="nav-button"
-        v-if="this.$store.state.token != '' && this.$route.name != 'movies'">Movies</router-link>
-
+        v-if="this.$store.state.token != ''">
+        Movies
+      </router-link>
       <router-link v-bind:to="{ name: 'account', params: { pageSize: 9, page: 1, sort: 'movie_id' } }" class="nav-button"
-        v-if="this.$store.state.token != '' && this.$route.name != 'account'">Account</router-link>
+        v-if="this.$store.state.token != ''">
+        Account
+      </router-link>
     </nav>
 
     <nav class="top-bar">
       <form class="top-bar-search" @submit.prevent="searchMovies">
-        <input type="text" v-model="searchTerm" placeholder="Search movies">
+        <input class="search" type="text" v-model="searchTerm" placeholder="Search movies">
         <button class="search-submit" type="submit">Search
         </button>
       </form>
@@ -48,15 +52,18 @@ html {
 }
 
 .search-submit {
-  width: 5rem;
-  height: 1.5rem;
+  width: 55px;
+  height: 25px;
+  font-size: 14px;
   border: none;
 
 }
 
 .search {
-  width: 30rem;
-  height: 1.5rem;
+  width: 6000px;
+  margin-right: 10px;
+  height: 25px;
+  font-size: 14px;
 }
 
 
@@ -65,7 +72,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  width: 1100px;
+  height: 25px;
   font-size: 14px;
 
 }
@@ -115,7 +123,7 @@ body {
   background-color: #890304;
   height: 100vh;
   position: sticky;
-  width: 225px;
+  width: 400px;
   /* position: fixed; */
   /* added */
   top: 0;
@@ -169,7 +177,7 @@ body {
 
 }
 
-#outofnav * {
+* {
   font-family: 'League Spartan';
 }
 

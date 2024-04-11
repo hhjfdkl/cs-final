@@ -2,7 +2,6 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Movie;
-import com.techelevator.model.User;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Component
 public class JdbcMovieDao implements MovieDao  {
@@ -25,7 +23,8 @@ public class JdbcMovieDao implements MovieDao  {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Movie> filterMovies(int genres[], String[] mpaa , int[] years , int moviePerPage, int pageNumber, String sortedBy){
+    @Override
+    public List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy){
 
         if(!checkSortBy(sortedBy)){ //add a check for mpaa
             sortedBy = "movie_id";

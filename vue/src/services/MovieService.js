@@ -17,6 +17,15 @@ export default {
     },
     deleteFav(movieId) {
         return axios.delete(`/favorites/${movieId}`);
+    },
+    getFilterMovies(moviePerPage, page, sortBy, genres, mpaas, years) {
+
+        return axios.post(`/movies/filter/${moviePerPage}/${page}/${sortBy}`, {
+            genres: genres,
+            mpaas: mpaas,
+            years: years
+
+        });
     }
 
 

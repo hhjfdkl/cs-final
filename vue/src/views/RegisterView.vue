@@ -1,6 +1,6 @@
 <template>
   <div id="register" class="text-center">
-    <img src="src\assets\Dark Theme Logo.png" alt="BOB Dark Logo" class="logo">
+    <img src="src\assets\Box_ffice__5_-removebg-preview.png" alt="BOB Dark Logo" class="logo">
     <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <form v-on:submit.prevent="register">
       <h1>Create Account</h1>

@@ -35,18 +35,18 @@ export default {
                 this.Account = response.data;
             });
         },
-        addGenre(event) {
-            console.log(event.target.dataset.genreId);
-            const genreId = event.target.dataset.genreId;
-            this.AccountService.addGenre(genreId);
-        }
-        ,
-        created() {
-            this.$root.$on('add', this.addGenre);
-        },
-        beforeUnmount() {
-            this.$root.$off('update-account', this.handleEvent);
-        }
+        // addGenre(event) {
+        //     console.log(event.target.dataset.genreId);
+        //     const genreId = event.target.dataset.genreId;
+        //     this.AccountService.addGenre(genreId);
+        // }
+        // ,
+        // created() {
+        //     this.$root.$on('add', this.addGenre);
+        // },
+        // beforeUnmount() {
+        //     this.$root.$off('update-account', this.handleEvent);
+        // }
 
 
 

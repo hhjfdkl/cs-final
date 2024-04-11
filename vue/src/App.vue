@@ -119,7 +119,7 @@ body {
   background-color: #890304;
   height: 100vh;
   position: sticky;
-  width: 80%;
+  width: 225px;
   /* position: fixed; */
   /* added */
   top: 0;
@@ -168,8 +168,8 @@ body {
 #outofnav {
   /* grid-area: main; */
 
-  /* margin-left: 150px; */
-  /* margin-left: 10%; */
+  /* margin-left: 150px;
+  margin-left: 10%; */
 
 }
 

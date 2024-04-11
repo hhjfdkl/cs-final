@@ -1,9 +1,9 @@
 <template>
-  <form @submit.prevent="searchMovies" class="search-change">
+  <!-- <form @submit.prevent="searchMovies" class="search-change">
 
     <input class="mpp" type="number" v-model="usersPerPage" placeholder="Movies per page" />
     <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
-  </form>
+  </form> -->
 
   <div id="main-display">
     <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />

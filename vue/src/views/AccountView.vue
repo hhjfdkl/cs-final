@@ -33,6 +33,9 @@ export default {
         updateAccount() {
             AccountService.getAccount().then((response) => {
                 this.Account = response.data;
+                if (this.Account.favGenreIds == null) {
+                    this.Account.favGenreIds = [];
+                }
             });
         },
         // addGenre(event) {

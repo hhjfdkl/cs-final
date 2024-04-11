@@ -160,27 +160,39 @@ VALUES
 ('Philosophy of a Knife', 'https://m.media-amazon.com/images/M/MV5BMTYzMTEwNjY1OV5BMl5BanBnXkFtZTcwNjY0ODA0Mg@@._V1_FMjpg_UX1000_.jpg', '2008-06-15', 'Drama, History, Horror', '04:09:00', 'A group of Japanese soldiers are tortured by the KGB during World War II.', 4.9, 'R - Restricted. Under 17 requires accompanying parent or adult guardian.', NULL),
 ('Scream', 'https://m.media-amazon.com/images/M/MV5BMjA2NjU5MTg5OF5BMl5BanBnXkFtZTgwOTkyMzQxMDE@._V1_FMjpg_UX1000_.jpg', '1996-12-20', 'Horror, Mystery', '01:51:00', 'A year after the murder of her mother, a teenage girl is terrorized by a new killer, who targets the girl and her friends by using horror films as part of a deadly game.', 7.2, 'R - Restricted. Under 17 requires accompanying parent or adult guardian.', NULL),
 ('All the Old Knives', 'https://m.media-amazon.com/images/M/MV5BNTZhNDM0MGItYjIwYS00NTMzLWIxYmUtZjIwM2Q4NDhjY2EyXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_FMjpg_UX1000_.jpg', '2022-04-08', 'Action, Drama, Thriller', '01:41:00', 'Two CIA operatives, and former lovers, reunite at idyllic Carmel-by-the-Sea to re-examine a mission six years ago in Vienna where a fellow agent might have been compromised.', NULL, 'PG-13 - Parents Strongly Cautioned. Some material may be inappropriate for children under 13.', NULL),
-('Ice Age', 'https://m.media-amazon.com/images/M/MV5BM2JmZGJkNzAtOWI0MC00ZmE5LWIwMjYtODU0OGUxNDg4ZDkwXkEyXkFqcGdeQXVyMTA5ODEyNTc5._V1_FMjpg_UX1000_.jpg', '2002-03-15', 'Animation, Adventure, Comedy', '01:21:00', 'Set during the Ice Age, a sabertooth tiger, a sloth, and a wooly mammoth find a lost human infant, and they try to return him to his tribe.', 7.5, 'PG - Parental Guidance Suggested. Some material may not be suitable for children.', 6);
+('Ice Age', 'https://m.media-amazon.com/images/M/MV5BM2JmZGJkNzAtOWI0MC00ZmE5LWIwMjYtODU0OGUxNDg4ZDkwXkEyXkFqcGdeQXVyMTA5ODEyNTc5._V1_FMjpg_UX1000_.jpg', '2002-03-15', 'Animation, Adventure, Comedy', '01:21:00', 'Set during the Ice Age, a sabertooth tiger, a sloth, and a wooly mammoth find a lost human infant, and they try to return him to his tribe.', 7.5, 'PG - Parental Guidance Suggested. Some material may not be suitable for children.', 6),
+('Roundhay Garden Scene', 'https://m.media-amazon.com/images/M/MV5BOGE3YjczMTQtZTAwNi00Y2ZkLWIxZjYtZGFkMWY2ZTM3YTU5XkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_FMjpg_UX1000_.jpg', '1888-11-16', '', '00:00:02', 'In the garden, a man asks his friends to do something silly for him to record on film.', '8.8', 'Not Rated', NULL);
 
 
 
 --more test data
-INSERT INTO genres (genre_name) VALUES ('Horror');
-INSERT INTO genres (genre_name) VALUES ('Action');
-INSERT INTO genres (genre_name) VALUES ('Crime');
-INSERT INTO genres (genre_name) VALUES ('Comedy');
-INSERT INTO genres (genre_name) VALUES ('Romance');
-INSERT INTO genres (genre_name) VALUES ('Documentary');
-INSERT INTO genres (genre_name) VALUES ('Thriller');
-INSERT INTO genres (genre_name) VALUES ('Drama');
+INSERT INTO genres (genre_name) VALUES
+('Horror'),     --1
+('Action'),     --2
+('Romance'),    --3
+('Crime'),      --4
+('Thriller'),   --5
+('Documentary'),--6
+('Comedy'),     --7
+('Drama'),      --8
+('Sci-Fi'),     --9
+('Family'),     --10
+('Adventure'),  --11
+('Fantasy'),    --12
+('Music'),      --13
+('Biography'),  --14
+('Mystery'),    --15
+('History');    --16
 
 
 --more test data
-INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (1,1);
-INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (2,1);
-INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (3,1);
-INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (2,2);
-INSERT INTO movie_to_genre (movie_id, genre_id) VALUES (3,2);
+INSERT INTO movie_to_genre (movie_id, genre_id) VALUES
+(1,8),(2,4),(2,8),(3,2),(3,4),(3,8),(4,8),(5,8),(5,14),(5,16),(6,2),(6,8),(6,11),(7,4),(7,8),(8,2),(8,8),(8,11),(9,8),(9,3),(10,8),(11,2),(11,9),(12,2),(12,8),
+(13,2),(13,11),(13,4),(14,2),(14,4),(14,5),(15,8),(16,7),(16,8),(16,12),(17,2),(17,7),(17,5),(18,7),(18,8),(18,9),(19,2),
+(19,11),(19,7),(20,7),(20,8),(20,3),(21,8),(22,2),(22,9),(23,8),(23,13),(24,14),(24,7),(24,8),(25,14),(25,4),(25,8),
+(26,2),(26,11),(26,4),(27,11),(27,7),(27,12),(28,2),(28,11),(28,9),(29,8),(30,7),(30,8),(31,7),(31,10),(31,12),(32,2),(32,12),
+(33,7),(34,4),(34,8),(34,9),(35,7),(35,4),(35,15),(36,6),(37,8),(37,12),(38,10),(38,11),(38,7),(39,7),(39,4),(39,8),
+(40,8),(40,16),(40,1),(41,1),(41,15),(42,2),(42,8),(42,5),(43,10),(43,11),(43,7);
 
 
 --test data ends here

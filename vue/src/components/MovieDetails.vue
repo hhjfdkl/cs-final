@@ -1,6 +1,6 @@
 
 <template>
-  <div class="main-block">
+  <div class="movie">
     <img :src="movie.primaryImage" alt="movie img" class="movie-img">
     <div class="column">
       <header>
@@ -75,19 +75,24 @@ export default {
 
 </script>
 
-<style>
+<style  scoped>
 .movie-img {
-  max-width: 14%;
-  max-height: 14%;
+  max-width: 75%;
+  max-height: 75%;
   margin: 5px;
 }
 
-.main-block {
-  display: flex;
-  flex-direction: row;
+
+
+div .movie {
+  /* display: flex; */
+  /* flex-direction: row; */
+  text-align: center;
   border: .001rem solid #890304;
-  width: 70%;
-  margin-left: 5%;
+  width: 25%;
+  padding: 5px;
+
+  /* margin-left: 5%; */
 }
 
 .column {
@@ -114,7 +119,7 @@ export default {
   color: #890304;
   margin-bottom: 5px;
   font-size: 1rem;
-  width: 70%;
+  /* width: 70%; */
 }
 
 .rating {
@@ -123,6 +128,7 @@ export default {
 }
 
 .fav-button {
+
   background-color: #890304;
   color: #f8f2bf;
   border: none;
@@ -135,6 +141,9 @@ export default {
 
 
 }
+
+
+
 
 
 @media screen and (max-width: 600px) {
@@ -176,7 +185,7 @@ export default {
 
   .main-block {
     flex-direction: column;
-    width: 90%;
+    width: 30%;
   }
 
   .movie-img {

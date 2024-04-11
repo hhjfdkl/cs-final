@@ -10,7 +10,6 @@ export default {
         return axios.get(`/movies/favorites/${moviePerPage}/${page}/${sortBy}`);
     },
     addFav(movieId) {
-        console.log(movieId)
         return axios.post(`/favorites/${movieId}`);
     },
     isFav(movieId) {

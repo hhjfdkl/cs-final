@@ -137,7 +137,9 @@ body {
 #nav-bar .nav-button {
   display: inline-block;
   padding: 0.5rem 1rem;
+  margin-bottom: 10px;
   min-width: 2rem;
+  width: 50%;
   text-align: center;
 
   font-family: 'League Spartan';
@@ -167,8 +169,7 @@ body {
 
 }
 
-
-* {
+<<<<<<< HEAD=======>>>>>>>21e68033017a00166f3ef7ef2478639becc1cf2b * {
   font-family: 'League Spartan';
 }
 

@@ -14,7 +14,7 @@
                 <div v-for="(year, index) in years" :key="year" class="year-box">
                     <input type="number" v-model.number="years[index]" @keyup.enter="addSelectedYear(years[index])" />
 
-                    <button @click="addSelectedYear(years[index])">+</button>
+                    <button @click.prevent="addSelectedYear(years[index])">+</button>
                 </div>
             </div>
             <div v-for="(year, index) in selectedYears" :key="index" class="year-box">
@@ -77,9 +77,7 @@ export default {
                 }
             })
         },
-        addYear() {
-            this.years.value.push(1900);
-        },
+
         removeYear(index) {
             this.years.value.splice(index, 1);
         },

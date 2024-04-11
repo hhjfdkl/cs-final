@@ -29,6 +29,10 @@
         v-if="this.$store.state.token != ''">
         Account
       </router-link>
+
+      <router-link v-bind:to="{ name: 'filterSearch' }" class="nav-button" v-if="this.$store.state.token != ''">
+        Filter
+      </router-link>
     </nav>
 
     <nav class="top-bar">

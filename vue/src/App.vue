@@ -169,7 +169,7 @@ body {
 
 }
 
-<<<<<<< HEAD=======>>>>>>>21e68033017a00166f3ef7ef2478639becc1cf2b * {
+* {
   font-family: 'League Spartan';
 }
 

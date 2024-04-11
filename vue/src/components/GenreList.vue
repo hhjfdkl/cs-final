@@ -1,47 +1,92 @@
 
 <template>
     <div class="main-block">
+        <h3>Your Fav</h3>
         <div v-for="genre in favGenreArray" :key="genre.id" class="main-block">
             {{ genre.name }}
+
+            <button @click="removeGenre(genre.id)">Remove</button>
+        </div>
+
+        <h3>Add to your Fav</h3>
+        <div v-for="genre in unfavGenreArray" :key="genre.id" class="main-block">
+            {{ genre.name }}
+
+            <button @click="addGenre(genre.id)">Add</button>
         </div>
     </div>
 </template> 
   
 <script>
 import { computed } from 'vue';
+import AccountService from '../services/AccountService';
 
 
 export default {
+    // data() {
+    //     return {
+    //         genres: [1]
+    //     }
+    // },
     props: {
         genres: {
             type: Array,
             required: true
+        },
+        AccountService: {
+            type: Object,
         }
     },
     created() {
+
         this.$store.commit("UPDATE_GENRES");
     },
     methods: {
         convertToGenreString(genre) {
-            console.log("test");
+
 
             for (let i = 0; i < genre.length; i++) {
-                console.log(i)
+
                 if (genre[i].id) {
                     return genre[i].name
                 }
             }
             return "??"
 
-        }
+        },
+        addGenre(id) {
+
+            AccountService.addGenre(id);
+            // eslint-disable-next-line vue/no-mutating-props
+            this.genres.push(id);
+
+
+        },
+
+        removeGenre(id) {
+
+            AccountService.removeGenre(id);
+            // eslint-disable-next-line vue/no-mutating-props
+            this.genres.splice(this.genres.indexOf(id), 1);
+
+        },
+
 
     },
     computed: {
         favGenreArray: function () {
             let out = [];
             for (let i = 0; i < this.$store.state.genres.length; i++) {
-                console.log(i)
                 if (this.genres.includes(this.$store.state.genres[i].id)) {
+                    out.push(this.$store.state.genres[i])
+                }
+            }
+            return out
+        },
+        unfavGenreArray: function () {
+            let out = [];
+            for (let i = 0; i < this.$store.state.genres.length; i++) {
+                if (!this.genres.includes(this.$store.state.genres[i].id)) {
                     out.push(this.$store.state.genres[i])
                 }
             }

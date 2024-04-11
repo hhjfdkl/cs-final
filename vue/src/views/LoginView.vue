@@ -48,7 +48,7 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/movies/5/1/movie_id");
+            this.$router.push("/movies/9/1/movie_id");
           }
         })
         .catch(error => {

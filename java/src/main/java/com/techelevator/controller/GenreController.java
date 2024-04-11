@@ -27,11 +27,16 @@ public class GenreController {
 
     @GetMapping("/genres")
     public List<Genre> getListOfGenres(){
-        return genreDao.getListOfGenres();//add try catch
+        try {
+        return genreDao.getListOfGenres();
+    }
+        catch (DaoException e) {
+        throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "failed to find genres");
+    }
 
     }
 
-    @PostMapping("/genre/{genre_id}")
+    @PostMapping("/genres/{genre_id}")
     public boolean addGenre(@PathVariable int genre_id, Principal principal){
         User user = userDao.getUserByUsername(principal.getName());
 
@@ -40,6 +45,18 @@ public class GenreController {
         }
         catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "failed to add genre");
+        }
+    }
+
+    @DeleteMapping("/genres/{genre_id}")
+    public boolean removeGenre(@PathVariable int genre_id, Principal principal){
+        User user = userDao.getUserByUsername(principal.getName());
+
+        try {
+            return genreDao.removeGenre(user.getId(),genre_id);
+        }
+        catch (DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "failed to remove genre");
         }
     }
 }

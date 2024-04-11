@@ -11,10 +11,10 @@
             <br />
             <label for="years">Years</label>
             <div id="year-boxes">
-                <div v-for="(year, index) in years" :key="year" class="year-box">
-                    <input type="number" v-model.number="years[index]" @keyup.enter="addSelectedYear(years[index])" />
+                <div class="year-box">
+                    <input type="number" v-model.number="years" @keyup.enter="addSelectedYear(years)" />
 
-                    <button @click.prevent="addSelectedYear(years[index])">+</button>
+                    <button @click.prevent="addSelectedYear(years)">+</button>
                 </div>
             </div>
             <div v-for="(year, index) in selectedYears" :key="index" class="year-box">
@@ -58,7 +58,7 @@ export default {
 
             ratings: ["G", "PG", "PG-13", "R", "NC-17"],
             selectedGenres: [],
-            years: ref([1900]),
+            years: ref(2000),
             selectedYears: [],
             selectedRating: [], //change this?
         }
@@ -89,17 +89,17 @@ export default {
             this.selectedYears.splice(index, 1);
         }
     },
-    watch: {
-        years(newVal, oldVal) {
-            newVal.forEach(year => {
-                if (!this.selectedYears.value.includes(year)) {
-                    this.addSelectedYear(year);
-                }
-            });
-            this.selectedYears.value = this.selectedYears.value.filter(year => newVal.includes(year));
-        }
-    }
-    , created() {
+    // watch: {
+    //     years(newVal, oldVal) {
+
+    //         // if (!this.selectedYears.value.includes(newVal)) {
+    //         //     this.addSelectedYear(this.years);
+    //         // }
+
+    //         // this.selectedYears.value = this.selectedYears.value.filter(year => newVal.includes(year));
+    //     }
+    // }
+    created() {
 
         this.$store.commit("UPDATE_GENRES");
     }, computed: {
@@ -135,4 +135,5 @@ export default {
   
   
   
+
 

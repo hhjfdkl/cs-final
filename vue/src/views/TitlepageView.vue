@@ -7,9 +7,7 @@
             know about what's worth watching. Whether you're a casual moviegoer or a dedicated cinephile, let Box Office
             Buzz guide you to your next cinematic adventure. </p>
 
-        <router-link v-bind:to="{ name: 'login' }" class="link" v-if="$store.state.token == ''">Login</router-link>
-        <br>
-        <router-link v-bind:to="{ name: 'register' }" class="link" v-if="$store.state.token == ''">Register</router-link>
+
 
     </div>
 </template>

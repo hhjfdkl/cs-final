@@ -167,12 +167,9 @@ body {
 
 }
 
-<<<<<<< HEAD
-=======
 * {
   font-family: 'League Spartan';
 }
->>>>>>> fe0cef552c9caa6898712c225ba7845f27e9e0ff
 
 @media screen and (max-width: 600px) {
   #capstone-app {

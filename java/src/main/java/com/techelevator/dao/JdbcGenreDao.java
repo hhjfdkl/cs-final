@@ -2,7 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Genre;
-import com.techelevator.model.User;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -38,6 +38,51 @@ public class JdbcGenreDao implements GenreDao{
         }
         return genres;
 
+    }
+
+
+    @Override
+    public boolean addGenre(int genre_id, int movie_id){
+
+        String sql = "INSERT INTO favorite_genres(\n" +
+                "\taccount_id, genre_id)\n" +
+                "\tVALUES (?, ?);";
+
+        try {
+
+            if(jdbcTemplate.update(sql, genre_id ,movie_id) == 1){
+                return true;
+            }
+
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }catch (DataIntegrityViolationException e){
+            throw new DaoException("unable to add genre", e);
+        }
+
+        return false;
+
+    }
+
+    @Override
+    public  boolean removeGenre(int genre_id,  int movie_id){
+
+        String sql = "DELETE FROM favorite_genres\n" +
+                "\tWHERE account_id = ? AND genre_id = ?;";
+
+        try {
+
+            if(jdbcTemplate.update(sql, genre_id ,movie_id) == 1){
+                return true;
+            }
+
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }catch (DataIntegrityViolationException e){
+            throw new DaoException("unable to remove genre", e);
+        }
+
+        return false;
     }
 
     private Genre mapRowToGenre(SqlRowSet rs) {

@@ -25,10 +25,14 @@
 
       <router-link v-bind:to="{ name: 'account', params: { pageSize: 5, page: 1, sort: 'movie_id' } }" class="nav-button"
         v-if="this.$store.state.token != '' && this.$route.name != 'account'">Account</router-link>
+    </nav>
 
-
-
-
+    <nav class="top-bar">
+      <form class="top-bar-search" @submit.prevent="searchMovies">
+        <input type="text" v-model="searchTerm" placeholder="Search movies">
+        <button class="search-submit" type="submit">Search
+        </button>
+      </form>
     </nav>
     <div id="outofnav">
       <router-view />
@@ -43,6 +47,43 @@ html {
   background-color: #fff0cb;
 }
 
+.search-submit {
+  width: 5rem;
+  height: 1.5rem;
+  border: none;
+
+}
+
+.search {
+  width: 30rem;
+  height: 1.5rem;
+}
+
+
+
+.top-bar-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  font-size: 14px;
+
+}
+
+.top-bar {
+
+  background-color: #890304;
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
 body {
   margin: 0px;
   padding: 0px;
@@ -51,9 +92,9 @@ body {
 
 #capstone-app {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 16fr;
   grid-template-areas:
-
+    "top top"
     "nav main"
   ;
   /* grid-area */
@@ -96,7 +137,7 @@ body {
 #nav-bar .nav-button {
   display: inline-block;
   padding: 0.5rem 1rem;
-  min-width: 20rem;
+  min-width: 2rem;
   text-align: center;
 
   font-family: 'League Spartan';
@@ -125,6 +166,7 @@ body {
   /* margin-left: 10%; */
 
 }
+
 
 @media screen and (max-width: 600px) {
   #capstone-app {
@@ -181,5 +223,6 @@ body {
     width: 100%;
     height: auto;
   }
+
 }
 </style>

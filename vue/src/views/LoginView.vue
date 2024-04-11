@@ -89,7 +89,7 @@ input[type=password] {
   padding: 0.5rem;
   border-radius: 4px;
   border: none;
-  box-shadow: 0 2px 4px #00113a;
+  box-shadow: 0 2px 4px #7B3911;
   width: 20rem;
   margin-right: 1rem;
 }

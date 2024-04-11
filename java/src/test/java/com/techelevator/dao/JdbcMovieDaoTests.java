@@ -51,8 +51,11 @@ public class JdbcMovieDaoTests extends BaseDaoTests{
 
 
 
-//    @Test public void simpletest(){
-//        System.out.println(sut.getGroupOfMovies(3,2,"id").get(0).toString());
-//
-//    }
+    @Test public void simpletest(){
+        int[] genres = {1,2,3,4,5};
+        String[] mpaa = {"ss", "dd","dd"};
+        int[] years = {1999, 2000,20001};
+        System.out.println(sut.filterMovies(genres, mpaa, years, 5,1,"movie_id").size());
+
+    }
 }

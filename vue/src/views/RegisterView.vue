@@ -61,7 +61,7 @@ export default {
             const response = error.response;
             this.registrationErrors = true;
             if (response.status === 400) {
-              this.registrationErrorMsg = 'Bad Request: Validation Errors';
+              this.registrationErrorMsg = 'Bad Request: Account probably already exists. Try again.';
             }
           });
       }

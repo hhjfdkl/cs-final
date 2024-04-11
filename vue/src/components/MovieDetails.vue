@@ -1,6 +1,6 @@
 
 <template>
-  <div class="main-block">
+  <div class="movie">
     <img :src="movie.primaryImage" alt="movie img" class="movie-img">
     <div class="column">
       <header>
@@ -13,35 +13,86 @@
       <div class="description">
         {{ movie.plot }}
       </div>
+
+
+      <button v-show="!isFav" class="fav-button" @click="addFav">
+
+        Favorite
+      </button>
+      <button v-show="isFav" class="fav-button" @click="removeFav">
+
+        Unfavorite
+      </button>
+
     </div>
   </div>
 </template> 
 
 <script>
 import { computed } from 'vue';
+import MovieService from '../services/MovieService';
 
 
 export default {
+  data() {
+    return {
+      isFav: false
+    }
+  },
   props: {
-    movie: Object
-  }
+    movie: Object,
+  },
+  methods: {
+    addFav: function () {
+      MovieService.addFav(this.movie.id).then(() => {
+        this.updateFav();
+      });
+
+
+    },
+    removeFav: function () {
+      MovieService.deleteFav(this.movie.id).then(() => {
+        this.updateFav();
+      });
+
+    },
+    updateFav: function () {
+      console.log("upp")
+      MovieService.isFav(this.movie.id).then((response) => {
+        this.isFav = response.data;
+      });
+    }
+  },
+  created: function () {
+    this.updateFav();
+  },
+  watch: {
+    '$route': 'updateFav'
+  },
+
+
 }
 
 </script>
 
-<style>
+<style  scoped>
 .movie-img {
-  max-width: 14%;
-  max-height: 14%;
+  max-width: 75%;
+  max-height: 75%;
   margin: 5px;
 }
 
-.main-block {
-  display: flex;
-  flex-direction: row;
+
+
+div .movie {
+  /* display: flex; */
+  /* flex-direction: row; */
+  text-align: center;
   border: .001rem solid #890304;
-  width: 70%;
-  margin-left: 5%;
+  width: 25%;
+  padding: 5px;
+
+  /* margin-left: 5%; */
 }
 
 .column {
@@ -68,13 +119,32 @@ export default {
   color: #890304;
   margin-bottom: 5px;
   font-size: 1rem;
-  width: 70%;
+  /* width: 70%; */
 }
 
 .rating {
   color: #890304;
   font-size: 13px;
 }
+
+.fav-button {
+
+  background-color: #890304;
+  color: #f8f2bf;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  font-family: 'league spartan';
+
+
+}
+
+
+
+
 
 @media screen and (max-width: 600px) {
   .main-block {
@@ -115,7 +185,7 @@ export default {
 
   .main-block {
     flex-direction: column;
-    width: 90%;
+    width: 30%;
   }
 
   .movie-img {

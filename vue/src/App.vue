@@ -17,13 +17,13 @@
       <router-link v-bind:to="{ name: 'logout' }" class="nav-button" v-else>Log out</router-link>
 
 
-      <router-link v-bind:to="{ name: 'favorites', params: { pageSize: 5, page: 1, sort: 'movie_id' } }"
+      <router-link v-bind:to="{ name: 'favorites', params: { pageSize: 9, page: 1, sort: 'movie_id' } }"
         class="nav-button" v-if="this.$store.state.token != '' && this.$route.name != 'favorites'">
         Favorites</router-link>
-      <router-link v-bind:to="{ name: 'movies', params: { pageSize: 5, page: 1, sort: 'movie_id' } }" class="nav-button"
+      <router-link v-bind:to="{ name: 'movies', params: { pageSize: 9, page: 1, sort: 'movie_id' } }" class="nav-button"
         v-if="this.$store.state.token != '' && this.$route.name != 'movies'">Movies</router-link>
 
-      <router-link v-bind:to="{ name: 'account', params: { pageSize: 5, page: 1, sort: 'movie_id' } }" class="nav-button"
+      <router-link v-bind:to="{ name: 'account', params: { pageSize: 9, page: 1, sort: 'movie_id' } }" class="nav-button"
         v-if="this.$store.state.token != '' && this.$route.name != 'account'">Account</router-link>
     </nav>
 
@@ -160,13 +160,19 @@ body {
 }
 
 #outofnav {
-  grid-area: main;
+  /* grid-area: main; */
 
   /* margin-left: 150px; */
   /* margin-left: 10%; */
 
 }
 
+<<<<<<< HEAD
+=======
+* {
+  font-family: 'League Spartan';
+}
+>>>>>>> fe0cef552c9caa6898712c225ba7845f27e9e0ff
 
 @media screen and (max-width: 600px) {
   #capstone-app {

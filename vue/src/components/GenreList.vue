@@ -1,13 +1,9 @@
 
 <template>
     <div class="main-block">
-
-        <div v-for="genre in genres" :key="genre" class="main-block">
-            {{ genre }}
-
+        <div v-for="genre in favGenreArray" :key="genre.id" class="main-block">
+            {{ genre.name }}
         </div>
-
-
     </div>
 </template> 
   
@@ -21,12 +17,43 @@ export default {
             type: Array,
             required: true
         }
+    },
+    created() {
+        this.$store.commit("UPDATE_GENRES");
+    },
+    methods: {
+        convertToGenreString(genre) {
+            console.log("test");
+
+            for (let i = 0; i < genre.length; i++) {
+                console.log(i)
+                if (genre[i].id) {
+                    return genre[i].name
+                }
+            }
+            return "??"
+
+        }
+
+    },
+    computed: {
+        favGenreArray: function () {
+            let out = [];
+            for (let i = 0; i < this.$store.state.genres.length; i++) {
+                console.log(i)
+                if (this.genres.includes(this.$store.state.genres[i].id)) {
+                    out.push(this.$store.state.genres[i])
+                }
+            }
+            return out
+        }
     }
+
 }
 
 </script>
   
-<style>
+<style scoped>
 /* .movie-img {
     max-width: 14%;
     max-height: 14%;

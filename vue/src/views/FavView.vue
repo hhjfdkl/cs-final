@@ -1,13 +1,15 @@
 <template>
-    <h2>Favorite Movies</h2>
-    <form @submit.prevent="searchMovies" class="search-change">
-        <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
+    <h2>
+        Favorite Movies
+    </h2>
+    <!-- <form @submit.prevent="searchMovies" class="search-change">
+        <input class="mpp" type="number" v-model="usersPerPage" placeholder="Movies per page" />
         <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
-    </form>
+    </form> -->
 
-
-    <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
-
+    <div id="main-display">
+        <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
+    </div>
     <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
     <button class="prev-next" @click="nextPage">Next Page</button>
 </template>
@@ -89,7 +91,13 @@ export default {
 };
 </script>
   
-<style>
+<style scoped>
+#main-display {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
 .home {
     color: #890304;
 }
@@ -133,6 +141,15 @@ export default {
 .search-change {
     margin: 10px;
     margin-left: 5%;
+}
+
+.mpp {
+    width: 100px;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 2px 4px #7B3911;
+    margin-right: 1rem;
 }
 </style>
   

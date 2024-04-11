@@ -169,7 +169,7 @@ body {
 
 }
 
-* {
+#outofnav * {
   font-family: 'League Spartan';
 }
 

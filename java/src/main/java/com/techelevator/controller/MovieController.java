@@ -79,16 +79,28 @@ public class MovieController {
         if(filterDto.getMpaas() == null){
             filterDto.setMpaas(new String[] {});
         }
-        System.out.println(filterDto);
+
 
 
         try {
             return movieDao.filterMovies(filterDto.getGenres(),filterDto.getMpaas(),filterDto.getYears(),moviePerPage,page,sortBy);
         }
         catch (DaoException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Filter failed.");
         }
     }
+
+    @GetMapping("/movies")
+    public List<Movie> getMoviesFilteredByTitle(@RequestParam int moviePerPage , @RequestParam int page, @RequestParam String sortBy, @RequestParam String titleContains ){
+
+        try {
+            return movieDao.filterMoviesByTitle(moviePerPage,page,sortBy,titleContains);
+        }
+        catch (DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Filter failed.");
+        }
+    }
+
 
 
 

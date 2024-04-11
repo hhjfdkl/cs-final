@@ -167,6 +167,32 @@ public class JdbcMovieDao implements MovieDao  {
     }
 
     @Override
+    public List<Movie> filterMoviesByTitle(int moviePerPage, int pageNumber, String sortedBy, String titleSearch){
+        if(!checkSortBy(sortedBy)){
+            sortedBy = "movie_id";
+        }
+
+        List<Movie> movies = new ArrayList<>();
+
+        //remove the * when table is finalised
+        String sql = "SELECT * FROM movies WHERE titletext ILIKE '%?%'  ORDER BY ? OFFSET ? ROWS FETCH NEXT ? ROWS ONLY ;";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, titleSearch, sortedBy, moviePerPage * (pageNumber-1) , moviePerPage);
+            while (results.next()) {
+                Movie movie = mapRowToMovie(results);
+                movies.add(movie);
+            }
+        } catch (CannotGetJdbcConnectionException e) { //add another catch for sortedBy error
+            throw new DaoException("Unable to connect to server or database", e);
+        }catch (DataIntegrityViolationException e){
+            throw new DaoException("Illegal arguments", e);
+        }
+        return movies;
+
+
+    }
+
+    @Override
     public List<Movie> getMoviesByUserFavGenre(int moviePerPage, int pageNumber, String sortedBy,int[] genres_id ) {
         List<Movie> movies = new ArrayList<>();
         StringBuilder whereInBuilder = new StringBuilder();

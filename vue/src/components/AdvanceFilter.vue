@@ -12,7 +12,7 @@
             <label for="years">Years</label>
             <div id="year-boxes">
                 <div v-for="(year, index) in years" :key="year" class="year-box">
-                    <input type="number" v-model.number="years[index]" @keyup.enter="addSelectedYear(1900)" />
+                    <input type="number" v-model.number="years[index]" @keyup.enter="addSelectedYear(years[index])" />
 
                     <button @click="addSelectedYear(years[index])">+</button>
                 </div>
@@ -23,10 +23,27 @@
             </div>
             <br />
             <label for="ratings">MPAA Ratings</label>
-            <select id="ratings" v-model="selectedRating">
+            <ul>
+
+
+                <li v-for="rating in ratings" :key="rating">
+
+                    <input type="checkbox" :id="'rating-' + rating" :value="rating" v-model="selectedRating" />
+                    <label :for="'rating-' + rating"> {{ rating }}</label>
+                </li>
+            </ul>
+            <!-- <select id="ratings" v-model="selectedRating">
                 <option v-for="rating in ratings" :key="rating" :value="rating">{{ rating }}</option>
-            </select>
+            </select> -->
             <br />
+            <!-- <router-link :to="{ name: 'filterMovies', params: { pageSize: 9, page: 1, sort: 'movie_id' } }" v-bind:props="{
+                years: selectedYears,
+                genres: selectedGenres,
+                mpaas: selectedRating
+            }">
+                Link Text
+            </router-link> -->
+
             <button type="submit">Search</button>
         </form>
     </div>
@@ -43,14 +60,22 @@ export default {
             selectedGenres: [],
             years: ref([1900]),
             selectedYears: [],
-            selectedRating: "",
+            selectedRating: [], //change this?
         }
     },
     methods: {
         submitForm() {
-            console.log(this.selectedGenres);
-            console.log(this.selectedYears);
-            console.log(this.selectedRating);
+            this.$store.commit("FILTER_GENRES", this.selectedGenres);
+            this.$store.commit("FILTER_RATINGS", this.selectedRating);
+            this.$store.commit("FILTER_YEARS", this.selectedYears);
+            this.$router.push({
+                name: "filterMovies",
+                params: {
+                    pageSize: 9,
+                    page: 1,
+                    sort: "movie_id"
+                }
+            })
         },
         addYear() {
             this.years.value.push(1900);
@@ -112,3 +137,4 @@ export default {
   
   
   
+

@@ -33,7 +33,7 @@
 
     <nav class="top-bar">
       <form class="top-bar-search" @submit.prevent="searchMovies">
-        <input type="text" v-model="searchTerm" placeholder="Search movies">
+        <input class="search" type="text" v-model="searchTerm" placeholder="Search movies">
         <button class="search-submit" type="submit">Search
         </button>
       </form>
@@ -52,15 +52,18 @@ html {
 }
 
 .search-submit {
-  width: 5rem;
-  height: 1.5rem;
+  width: 55px;
+  height: 25px;
+  font-size: 14px;
   border: none;
 
 }
 
 .search {
-  width: 30rem;
-  height: 1.5rem;
+  width: 6000px;
+  margin-right: 10px;
+  height: 25px;
+  font-size: 14px;
 }
 
 
@@ -69,7 +72,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  width: 1100px;
+  height: 25px;
   font-size: 14px;
 
 }
@@ -173,7 +177,7 @@ body {
 
 }
 
-#outofnav * {
+* {
   font-family: 'League Spartan';
 }
 

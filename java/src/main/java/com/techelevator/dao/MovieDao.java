@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface MovieDao {
 
+    List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy);
+
     //    public List<Movie> getMovies();
     public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy);
 

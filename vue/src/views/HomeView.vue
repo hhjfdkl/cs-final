@@ -125,6 +125,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-evenly;
 
   /*needs to be a row*/
 

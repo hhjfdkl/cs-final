@@ -33,6 +33,7 @@ CREATE TABLE movies(
     meterRanking varchar(10) ,
     ratingsSummary varchar(100) , --??
     episodes numeric,
+    avgRating numeric,
 --    series
     CONSTRAINT PK_movies PRIMARY KEY (movie_id)
 );

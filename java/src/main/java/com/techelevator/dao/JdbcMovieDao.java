@@ -303,13 +303,16 @@ public class JdbcMovieDao implements MovieDao  {
     }
 
     public boolean checkSortBy(String sortedBy){
-        if(sortedBy.equals("movie_id")){
+        if(sortedBy.equalsIgnoreCase("movie_id")){
             return true;
         }
-        if(sortedBy.equals("releasedate")){
+        if(sortedBy.equalsIgnoreCase("releasedate")){
             return true;
         }
-        if(sortedBy.equals("runtime")){
+        if(sortedBy.equalsIgnoreCase("runtime")){
+            return true;
+        }
+        if(sortedBy.equalsIgnoreCase("titletext")){
             return true;
         }
         //add one for avg rating

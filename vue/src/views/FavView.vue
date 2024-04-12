@@ -6,14 +6,15 @@
         <input class="mpp" type="number" v-model="usersPerPage" placeholder="Movies per page" />
         <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
     </form> -->
-
+    <div id="fav-upper">
+        <ChangeOrder />
+    </div>
     <div id="main-display">
         <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
     </div>
-    <div id="bottom-buttons">
-        <ChangeOrder />
+    <div id="fav-bottom">
         <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
-        <button class="prev-next" @click="nextPage">Next Page</button>
+        <button class="prev-next" id="next" @click="nextPage">Next Page</button>
     </div>
 </template>
   
@@ -101,10 +102,21 @@ export default {
 </script>
   
 <style scoped>
+h2 {
+    color: #7B3911;
+    margin-left: 5%;
+}
+
+#fav-upper {
+    margin-left: 5%;
+
+}
+
 #main-display {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .home {
@@ -116,9 +128,10 @@ export default {
     text-decoration-thickness: 2px
 }
 
-#bottom-buttons {
+#fav-bottom {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 25px;
 }
 
 .prev-next {
@@ -126,13 +139,23 @@ export default {
     color: #890304;
     border: 1px solid #890304;
     margin-top: 10px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    font-family: 'league spartan';
 
 }
 
 #prev {
     margin-left: 5%;
     margin-right: 1%;
+}
 
+#next {
+    margin-right: 5%;
+    margin-left: 1%;
 }
 
 .prev-next:hover {

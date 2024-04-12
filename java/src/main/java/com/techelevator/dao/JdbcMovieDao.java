@@ -9,6 +9,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -83,7 +84,7 @@ public class JdbcMovieDao implements MovieDao  {
             }
 
 
-            whereInBuilder.append("meterRanking IN ( ");
+            whereInBuilder.append(" meterRanking IN ( ");
 
             whereInBuilder.append("\'" + mpaa[0] + "\'");
             for (int i = 1; mpaa.length > i; i++) {
@@ -100,7 +101,7 @@ public class JdbcMovieDao implements MovieDao  {
 
             }
 
-            whereInBuilder.append("EXTRACT(year from releasedate) IN ( ");
+            whereInBuilder.append(" EXTRACT(year from releasedate) IN ( ");
 
             whereInBuilder.append(years[0]);
             for (int i = 1; years.length > i; i++) {
@@ -110,18 +111,20 @@ public class JdbcMovieDao implements MovieDao  {
             whereInBuilder.append(" ) ");
 
         }
-
+        System.out.println(Arrays.toString(mpaa));
 
         String sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
                 ", genres, runtime, plot, meterranking, ratingssummary, episodes , avgRating FROM "+ removingAlreadyReview + " LEFT Join movie_to_genre\n" +
                 "as mg on mg.movie_id = movies.movie_id" +
                 " WHERE "+ whereInBuilder.toString() + " Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         if(genres.length == 0 && years.length == 0 && mpaa.length ==0 ){
+            System.out.println("  nothing");
             sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
-                    ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM "+ removingAlreadyReview + " LEFT Join movie_to_genre\n" +
+                    ", genres, runtime, plot, meterranking, ratingssummary, episodes , avgRating FROM "+ removingAlreadyReview + " LEFT Join movie_to_genre\n" +
                     "as mg on mg.movie_id = movies.movie_id" +
                     "  Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         }
+        System.out.println(sql);
         try {
 
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql,userId, moviePerPage * (pageNumber-1) , moviePerPage);

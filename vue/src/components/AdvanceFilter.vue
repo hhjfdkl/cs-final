@@ -75,6 +75,7 @@ export default {
     },
     methods: {
         submitForm() {
+            console.log(this.selectedRating);
             this.$store.commit("FILTER_GENRES", this.selectedGenres);
             this.$store.commit("FILTER_RATINGS", this.selectedRating);
             this.$store.commit("FILTER_YEARS", this.selectedYears);

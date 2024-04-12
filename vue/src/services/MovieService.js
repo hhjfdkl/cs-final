@@ -22,6 +22,7 @@ export default {
         return axios.delete(`/favorites/${movieId}`);
     },
     getFilterMovies(moviePerPage, page, sortBy, genres, mpaas, years) {
+        console.log(mpaas)
 
         return axios.post(`/movies/filter/${moviePerPage}/${page}/${sortBy}`, {
             genres: genres,

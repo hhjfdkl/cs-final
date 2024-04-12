@@ -105,6 +105,7 @@ export default {
 h2 {
     color: #7B3911;
     margin-left: 5%;
+    font-size: 50px;
 }
 
 #fav-upper {

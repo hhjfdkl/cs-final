@@ -2,13 +2,17 @@
     <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <div class="main-block">
         <form @submit.prevent="submitForm">
-            <label for="genres">Genres</label>
+            <label id=section-title for="genres">GENRES</label>
 
             <div id="genre-boxes">
-                <div v-for="genre in genres" :key="genre.id">
-                    <img id="genre-img" :src="getGenrePng(genre.name)" :alt="genre.name">
-                    <input type="checkbox" :id="'genre-' + genre.id" :value="genre.id" v-model="selectedGenres" />
-                    <label :for="'genre-' + genre.id">{{ genre.name }}</label>
+                <div v-for="genre in genres" :key="genre.id" class="genre-item">
+                    <label :for="'genre-' + genre.id" :class="{ 'selected': !selectedGenres.includes(genre.id) }"
+                        class="genre-label">
+                        <img id=genre-img :src="getGenrePng(genre.name)" :alt="genre.name" class="genre-image">
+                        <input type="checkbox" :id="'genre-' + genre.id" :value="genre.id" v-model="selectedGenres"
+                            class="genre-checkbox" />
+                        <span class="genre-name">{{ genre.name }}</span>
+                    </label>
                 </div>
             </div>
 
@@ -137,6 +141,7 @@ export default {
 #genre-img {
     width: 11rem;
     margin-right: 0.5rem;
+
 }
 
 #genre-boxes {
@@ -145,6 +150,40 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
     justify-content: start;
+}
+
+.genre-item {
+    margin: 5px;
+}
+
+.genre-label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.genre-checkbox {
+    display: none;
+}
+
+.genre-name {
+    display: none;
+}
+
+.genre-label.selected .genre-image {
+
+    filter: brightness(75%)
+}
+
+.genre-label.selected .genre-name {
+    font-weight: bold;
+}
+
+#section-title {
+    margin-right: 0.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'League Spartan';
+    color: #7B3911;
 }
 </style>
   

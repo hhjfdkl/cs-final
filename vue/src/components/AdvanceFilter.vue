@@ -1,10 +1,8 @@
 <template>
     <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <div class="main-block">
         <form @submit.prevent="submitForm">
             <label id=section-title for="genres">GENRES</label>
-
             <div id="genre-boxes">
                 <div v-for="genre in genres" :key="genre.id" class="genre-item">
                     <label :for="'genre-' + genre.id" :class="{ 'selected': !selectedGenres.includes(genre.id) }"
@@ -18,7 +16,7 @@
             </div>
 
             <br />
-            <label for="years">Years</label>
+            <label id=section-title for="years">Years</label>
             <div id="year-boxes">
                 <div class="year-box">
                     <input type="number" v-model.number="years" @keyup.enter="addSelectedYear(years)" />
@@ -31,7 +29,7 @@
                 <button @click="removeSelectedYear(index)">X</button>
             </div>
             <br />
-            <label for="ratings">MPAA Ratings</label>
+            <label id=section-title for="ratings">MPAA Ratings</label>
             <div id="mpaa-rating-boxes">
                 <div v-for="rating in ratings" :key="rating">
                     <label :for="'rating-' + rating" class="rating-label">
@@ -175,7 +173,7 @@ export default {
     display: none;
 }
 
-.genre-label.selected .genre-image {
+.selected .genre-image {
     filter: brightness(75%)
 }
 
@@ -213,10 +211,24 @@ export default {
 }
 
 .buttons {
-    margin-left: 5px;
-    background-color: #fff0cb;
-    color: #890304;
-    border: 1px solid #890304;
+    background-color: #890304;
+    color: #f8f2bf;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    /* display: block; */
+    margin: 0 auto;
+    font-family: 'league spartan';
+}
+
+.rating-label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.rating-label.selected .mpaa-rating-image {
+    filter: brightness(50%)
 }
 </style>
   

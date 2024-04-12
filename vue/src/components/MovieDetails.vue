@@ -91,6 +91,11 @@ div .movie {
   border: .001rem solid #890304;
   width: 25%;
   padding: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px #7B3911;
+  background-color: #e8e5c3;
+
 
   /* margin-left: 5%; */
 }
@@ -99,7 +104,7 @@ div .movie {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  justify-content: start;
+
 }
 
 .movie-title {
@@ -150,6 +155,7 @@ div .movie {
   .main-block {
     flex-direction: column;
     margin: auto;
+
 
   }
 

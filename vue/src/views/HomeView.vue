@@ -10,18 +10,23 @@
   </div>
   <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
   <button class="prev-next" @click="nextPage">Next Page</button>
+  <ChangeOrder />
 </template>
 
 <script>
 import MovieDetails from "../components/MovieDetails.vue";
 
 import MovieService from "../services/MovieService";
+import ChangeOrder from "../components/ChangeOrder.vue";
 
 export default {
   data() {
     return {
       movies: [],
-      usersPerPage: ""
+      usersPerPage: "",
+      selectedOrder: "",
+      selectedDirection: ""
+
     };
   }
 
@@ -38,10 +43,12 @@ export default {
   },
   components: {
     MovieDetails,
+    ChangeOrder
   },
 
   methods: {
     nextPage() {
+
       if (Number(this.$route.params.pageSize) > this.movies.length) return; //this doesn't work if the page was full
       this.$router.push({
         name: "movies",
@@ -49,16 +56,33 @@ export default {
           pageSize: this.$route.params.pageSize,
           page: Number(this.$route.params.page) + 1,
           sort: this.$route.params.sort
-        }
+        }, query: { asc: new URLSearchParams(window.location.search).get('asc') }
       });
 
       this.updateMovies();
     },
     updateMovies() {
-      console.log("updating")
-      MovieService.getMoviePage(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
-        this.movies = response.data;
-      });
+      let urlParams = new URLSearchParams(window.location.search);
+
+      let title = urlParams.get('title');
+
+
+      let ascOrDesc = urlParams.get('asc');
+      if (ascOrDesc == undefined) {
+        ascOrDesc = true;
+      }
+
+
+      if (title == null) {
+        MovieService.getMoviePageOrdered(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, ascOrDesc).then((response) => {
+          this.movies = response.data;
+        });
+      } else {
+        MovieService.filterMoviesByTitle(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, title).then((response) => {
+          this.movies = response.data;
+        });
+      }
+
     },
     previousPage() {
       if (Number(this.$route.params.page) <= 1) return;
@@ -68,8 +92,10 @@ export default {
           pageSize: this.$route.params.pageSize,
           page: Number(this.$route.params.page) - 1,
           sort: this.$route.params.sort
-        }
+        }, query: { asc: new URLSearchParams(window.location.search).get('asc') }
+
       });
+
     }
 
     ,
@@ -80,9 +106,13 @@ export default {
           pageSize: this.usersPerPage,
           page: 1,
           sort: this.$route.params.sort
-        }
+        },
+
       });
-    }
+    },
+
+
+
 
   }
 
@@ -159,3 +189,4 @@ export default {
   margin-right: 1rem;
 }
 </style>
+

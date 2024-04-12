@@ -6,6 +6,9 @@ export default {
     getMoviePage(moviePerPage, page, sortBy) {
         return axios.get(`/movies/${moviePerPage}/${page}/${sortBy}`);
     },
+    getMoviePageOrdered(moviePerPage, page, sortBy, asc) {
+        return axios.get(`/movies/${moviePerPage}/${page}/${sortBy}?asc=${asc}`);
+    },
     getUserFavMovie(moviePerPage, page, sortBy) {
         return axios.get(`/movies/favorites/${moviePerPage}/${page}/${sortBy}`);
     },
@@ -26,6 +29,11 @@ export default {
             years: years
 
         });
+    },
+    filterMoviesByTitle(moviePerPage, page, sortBy, title) {
+
+        return axios.get(`http://localhost:9000/movies?moviePerPage=${moviePerPage}&page=${page}&sortBy=${sortBy}&titleContains=${title}`);
+
     }
 
 

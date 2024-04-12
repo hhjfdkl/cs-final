@@ -25,15 +25,17 @@ public class MovieController {
     }
 
     @GetMapping("/movies/{moviePerPage}/{page}/{sortBy}")
-    public List<Movie> getGroupOfMovies(@PathVariable int moviePerPage , @PathVariable int page, @PathVariable String sortBy){
+    public List<Movie> getGroupOfMovies(@PathVariable int moviePerPage , @PathVariable int page, @PathVariable String sortBy ,@RequestParam( defaultValue = "true") boolean asc ){
         
         try {
-            return movieDao.getGroupOfMovies(moviePerPage, page,sortBy);
+            return movieDao.getGroupOfMovies(moviePerPage, page,sortBy, asc);
         }
         catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
         }
     }
+
+
 
 //    @GetMapping("/movies")
 //    public List<Movie> getGroupOfMoviesDefult(){
@@ -74,21 +76,36 @@ public class MovieController {
     }
 
 
+
     @PostMapping("/movies/filter/{moviePerPage}/{page}/{sortBy}")
     public List<Movie> getFilteredMovies(@PathVariable int moviePerPage , @PathVariable int page, @PathVariable String sortBy , @RequestBody FilterDto filterDto){
         if(filterDto.getMpaas() == null){
             filterDto.setMpaas(new String[] {});
         }
-        System.out.println(filterDto);
+
 
 
         try {
             return movieDao.filterMovies(filterDto.getGenres(),filterDto.getMpaas(),filterDto.getYears(),moviePerPage,page,sortBy);
         }
         catch (DaoException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Filter failed.");
         }
     }
+
+    @GetMapping("/movies")
+    public List<Movie> getMoviesFilteredByTitle(@RequestParam int  moviePerPage , @RequestParam int page, @RequestParam String sortBy, @RequestParam String titleContains ){
+
+        try {
+            return movieDao.filterMoviesByTitle(moviePerPage,page,sortBy,titleContains);
+        }
+        catch (DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Filter failed.");
+        }
+
+
+    }
+
 
 
 

@@ -7,7 +7,7 @@
         <img src="src\assets\Logos\Light Theme Logo.png" alt="BOB Light Logo" class="logo">
 
 
-        <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
+
       </router-link>
       <router-link v-bind:to="{ name: 'login' }" class="nav-button"
         v-if="this.$store.state.token == ''">Login</router-link>&nbsp;&nbsp;
@@ -17,16 +17,19 @@
       <router-link v-bind:to="{ name: 'logout' }" class="nav-button" v-else>Log out</router-link>
 
 
-      <router-link v-bind:to="{ name: 'favorites', params: { pageSize: 9, page: 1, sort: 'movie_id' } }"
+      <router-link
+        v-bind:to="{ name: 'favorites', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { asc: true } }"
         class="nav-button" v-if="this.$store.state.token != ''">
         Favorites
       </router-link>
-      <router-link v-bind:to="{ name: 'movies', params: { pageSize: 9, page: 1, sort: 'movie_id' } }" class="nav-button"
-        v-if="this.$store.state.token != ''">
+      <router-link
+        v-bind:to="{ name: 'movies', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { asc: true } }"
+        class="nav-button" v-if="this.$store.state.token != ''">
         Movies
       </router-link>
-      <router-link v-bind:to="{ name: 'account', params: { pageSize: 9, page: 1, sort: 'movie_id' } }" class="nav-button"
-        v-if="this.$store.state.token != ''">
+      <router-link
+        v-bind:to="{ name: 'account', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { asc: true } }"
+        class="nav-button" v-if="this.$store.state.token != ''">
         Account
       </router-link>
 
@@ -47,6 +50,23 @@
     </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  name: 'app',
+  data() {
+    return {
+      searchTerm: '',
+    }
+  },
+  methods: {
+    searchMovies() {
+      this.$router.push({ name: 'movies', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { title: this.searchTerm } })
+    }
+  }
+}
+</script>
 
 
 
@@ -88,13 +108,10 @@ html {
   grid-area: top;
   display: flex;
   align-items: center;
-  padding-left: 400px;
+
+
+
 }
-
-
-
-
-
 
 body {
   margin: 0px;
@@ -104,9 +121,10 @@ body {
 
 #capstone-app {
   display: grid;
-  grid-template-rows: 1fr 16fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 250px 1fr;
   grid-template-areas:
-    "top top"
+    "nav top"
     "nav main"
   ;
   /* grid-area */
@@ -127,7 +145,7 @@ body {
   background-color: #890304;
   height: 100vh;
   position: sticky;
-  width: 400px;
+
   /* position: fixed; */
   /* added */
   top: 0;
@@ -174,10 +192,9 @@ body {
 }
 
 #outofnav {
-  /* grid-area: main; */
+  padding-left: 15px;
+  padding-top: 15px;
 
-  /* margin-left: 150px;
-  margin-left: 10%; */
 
 }
 

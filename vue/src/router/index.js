@@ -92,7 +92,6 @@ const routes = [
     meta: {
       requiresAuth: true
     }
-
   },
   {
     path: "/filterMovies/:pageSize/:page/:sort/",
@@ -102,7 +101,15 @@ const routes = [
       requiresAuth: true
     }
 
-  }
+  },
+  // {
+  //   path: "/movies/:pageSize/:page/:sort/:search/",
+  //   name: "moviesTitleSearch",
+  //   component: HomeView,
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // }
 ];
 
 // Create the router

@@ -34,11 +34,12 @@
             <label for="ratings">MPAA Ratings</label>
             <div id="mpaa-rating-boxes">
                 <div v-for="rating in ratings" :key="rating">
-                    <img id=mpaa-rating :src="getMPAARatingPng(rating)" alt="rating" class="mpaa-rating-image">
-                    <input type="checkbox" :id="'rating-' + rating" :value="rating" v-model="selectedRating"
-                        class="mpaa-rating-checkbox" />
-                    <label :for="'rating-' + rating"> {{ rating }}</label>
-                    <!-- <span class="rating-name">{{ rating }}</span> -->
+                    <label :for="'rating-' + rating" class="rating-label">
+                        <img :src="getMPAARatingPng(rating)" alt="rating" class="mpaa-rating-image">
+                        <input type="checkbox" :id="'rating-' + rating" :value="rating" v-model="selectedRating"
+                            class="mpaa-rating-checkbox" />
+                        <span class="rating-name">{{ rating }}</span>
+                    </label>
                 </div>
             </div>
             <!-- <select id="ratings" v-model="selectedRating">
@@ -53,7 +54,7 @@
                 Link Text
             </router-link> -->
 
-            <button type="submit">Search</button>
+            <button class=buttons type="submit">Search</button>
         </form>
     </div>
 </template>
@@ -101,7 +102,7 @@ export default {
             return "src\\assets\\Genre Cards\\" + genreName + ".png";
         },
         getMPAARatingPng(rating) {
-            return "src\\assets\\MPAA Ratings\\" + rating + ".png";
+            return "src\\assets\\MPAA Rating\\" + rating + ".png";
         }
     },
     // watch: {
@@ -197,13 +198,25 @@ export default {
     justify-content: start;
 }
 
-.mpaa-rating-name {
+.rating-name {
     display: none;
 }
 
-/* .mpaa-rating-checkbox {
+.mpaa-rating-image {
+    width: 11rem;
+    margin-right: 0.5rem;
+}
+
+.mpaa-rating-checkbox {
     display: none;
-} */
+}
+
+.buttons {
+    margin-left: 5px;
+    background-color: #fff0cb;
+    color: #890304;
+    border: 1px solid #890304;
+}
 </style>
   
   

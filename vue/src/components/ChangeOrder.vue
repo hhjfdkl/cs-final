@@ -6,8 +6,8 @@
             <option value="runtime">Runtime</option>
         </select>
         <select id="asc-desc" v-model="selectedDirection">
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
+            <option value="true">Ascending</option>
+            <option value="false">Descending</option>
         </select>
         <button @click="changeOrder">Change Order</button>
     </div>
@@ -24,9 +24,13 @@ export default {
     },
     methods: {
         changeOrder() {
-            console.log(this.selectedOrder, this.selectedDirection);
+
             if (this.selectedOrder == "") {
                 this.selectedOrder = this.$route.params.sort;
+            }
+
+            if (this.selectedDirection == "") {
+                this.selectedDirection = "asc";
             }
             this.$router.push({
                 name: this.$route.name,
@@ -34,7 +38,8 @@ export default {
                     pageSize: this.$route.params.pageSize,
                     page: 1,
                     sort: this.selectedOrder
-                }
+                },
+                query: { asc: this.selectedDirection }
             });
         },
     },

@@ -92,7 +92,6 @@ const routes = [
     meta: {
       requiresAuth: true
     }
-
   },
   {
     path: "/filterMovies/:pageSize/:page/:sort/",

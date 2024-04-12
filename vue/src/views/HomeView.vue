@@ -48,6 +48,7 @@ export default {
 
   methods: {
     nextPage() {
+
       if (Number(this.$route.params.pageSize) > this.movies.length) return; //this doesn't work if the page was full
       this.$router.push({
         name: "movies",
@@ -55,7 +56,7 @@ export default {
           pageSize: this.$route.params.pageSize,
           page: Number(this.$route.params.page) + 1,
           sort: this.$route.params.sort
-        }
+        }, query: { asc: new URLSearchParams(window.location.search).get('asc') }
       });
 
       this.updateMovies();
@@ -66,8 +67,14 @@ export default {
       let title = urlParams.get('title');
 
 
+      let ascOrDesc = urlParams.get('asc');
+      if (ascOrDesc == undefined) {
+        ascOrDesc = true;
+      }
+
+
       if (title == null) {
-        MovieService.getMoviePage(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
+        MovieService.getMoviePageOrdered(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, ascOrDesc).then((response) => {
           this.movies = response.data;
         });
       } else {
@@ -85,8 +92,10 @@ export default {
           pageSize: this.$route.params.pageSize,
           page: Number(this.$route.params.page) - 1,
           sort: this.$route.params.sort
-        }
+        }, query: { asc: new URLSearchParams(window.location.search).get('asc') }
+
       });
+
     }
 
     ,
@@ -97,7 +106,8 @@ export default {
           pageSize: this.usersPerPage,
           page: 1,
           sort: this.$route.params.sort
-        }
+        },
+
       });
     },
 

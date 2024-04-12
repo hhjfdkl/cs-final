@@ -10,6 +10,7 @@
     <div id="main-display">
         <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
     </div>
+    <ChangeOrder />
     <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
     <button class="prev-next" @click="nextPage">Next Page</button>
 </template>
@@ -18,6 +19,7 @@
 import MovieDetails from "../components/MovieDetails.vue";
 
 import MovieService from "../services/MovieService";
+import ChangeOrder from "../components/ChangeOrder.vue";
 
 export default {
     data() {
@@ -39,6 +41,7 @@ export default {
 
     components: {
         MovieDetails,
+        ChangeOrder
     },
 
     methods: {
@@ -50,14 +53,16 @@ export default {
                     pageSize: this.$route.params.pageSize,
                     page: Number(this.$route.params.page) + 1,
                     sort: this.$route.params.sort
-                }
+                },
+                query: { asc: new URLSearchParams(window.location.search).get('asc') }
             });
 
             this.updateMovies();
         },
         updateMovies() {
 
-            MovieService.getUserFavMovie(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
+            MovieService.getMoviePageOrdered(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, new URLSearchParams(window.location.search).get('asc')).then((response) => {
+                console.log("ff");
                 this.movies = response.data;
             });
         },
@@ -69,7 +74,8 @@ export default {
                     pageSize: this.$route.params.pageSize,
                     page: Number(this.$route.params.page) - 1,
                     sort: this.$route.params.sort
-                }
+                },
+                query: { asc: new URLSearchParams(window.location.search).get('asc') }
             });
         }
 
@@ -81,7 +87,8 @@ export default {
                     pageSize: this.usersPerPage,
                     page: 1,
                     sort: this.$route.params.sort
-                }
+                },
+                query: { asc: new URLSearchParams(window.location.search).get('asc') }
             });
         }
 

@@ -4,7 +4,7 @@
     <nav id="nav-bar">
       <router-link v-bind:to="{ name: 'title' }">
 
-        <img src="src\assets\Logos\Light Theme Logo.png" alt="BOB Light Logo" class="logo">
+        <img src="../src\assets\Logos\Light Theme Logo.png" alt="BOB Light Logo" class="logo">
 
 
 

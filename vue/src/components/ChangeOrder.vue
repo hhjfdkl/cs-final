@@ -2,7 +2,7 @@
     <div>
         <select id="order-select" v-model="selectedOrder">
             <option value="releasedate">Release Date</option>
-            <option value="title">Title</option>
+            <option value="titleText">Title</option>
             <option value="runtime">Runtime</option>
         </select>
         <select id="asc-desc" v-model="selectedDirection">

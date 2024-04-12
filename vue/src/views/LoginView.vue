@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <img src="src\assets\Logos\Box_ffice__5_-removebg-preview.png" alt="BOB Dark Logo" class="logo">
+    <img src="../src\assets\Logos\Box_ffice__5_-removebg-preview.png" alt="BOB Dark Logo" class="logo">
     <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <form v-on:submit.prevent="login">
       <h1>Please Sign In</h1>

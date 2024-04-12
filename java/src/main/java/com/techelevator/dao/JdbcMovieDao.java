@@ -292,6 +292,8 @@ public class JdbcMovieDao implements MovieDao  {
     public List<Movie> getMoviesByUserFavMovies(int moviePerPage, int pageNumber, String sortedBy, int userId) {
 
         List<Movie> movies = new ArrayList<>();
+        System.out.println(userId);
+        System.out.println("ppp");
 
         if(!checkSortBy(sortedBy)){     //prevent sql injection
           sortedBy = "movie_id";

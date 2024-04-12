@@ -53,6 +53,7 @@ public class FavController {
     public boolean isFav(@PathVariable int movie_id, Principal principal){
         User user = userDao.getUserByUsername(principal.getName());
 
+
         try {
             return favDao.isFav(user.getId(),movie_id);
         }

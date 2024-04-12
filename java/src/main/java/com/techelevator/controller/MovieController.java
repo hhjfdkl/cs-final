@@ -65,6 +65,8 @@ public class MovieController {
     @GetMapping("/movies/favorites/{moviePerPage}/{page}/{sortBy}")
     public List<Movie> getFavMovies(Principal principal , @PathVariable int moviePerPage , @PathVariable int page, @PathVariable String sortBy){
         User user = userDao.getUserByUsername(principal.getName());
+        System.out.println("tttttttttttt");
+
 
 
 

@@ -7,7 +7,7 @@
         <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
     </form> -->
     <div id="fav-upper">
-        <ChangeOrder />
+        <!-- <ChangeOrder /> -->
     </div>
     <div id="main-display">
         <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
@@ -64,7 +64,7 @@ export default {
         },
         updateMovies() {
 
-            MovieService.getMoviePageOrdered(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, new URLSearchParams(window.location.search).get('asc')).then((response) => {
+            MovieService.getUserFavMovie(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
                 console.log("ff");
                 this.movies = response.data;
             });

@@ -5,7 +5,7 @@
     <div class="column">
       <header>
         <h1 class="movie-title">{{ movie.titleText }}</h1>
-        {{ movie.id }}
+
       </header>
 
       <div class="release-genres">

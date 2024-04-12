@@ -8,9 +8,11 @@
   <div id="main-display">
     <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
   </div>
-  <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
-  <button class="prev-next" @click="nextPage">Next Page</button>
-  <ChangeOrder />
+  <div id="bottom-buttons">
+    <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+    <button class="prev-next" @click="nextPage">Next Page</button>
+    <ChangeOrder />
+  </div>
 </template>
 
 <script>
@@ -127,6 +129,7 @@ export default {
   flex-direction: row;
   justify-content: space-evenly;
 
+
   /*needs to be a row*/
 
   /* justify-content: center; */
@@ -151,9 +154,8 @@ export default {
 
 }
 
-#prev {
-  margin-left: 15%;
-  margin-right: 1%;
+#bottom-buttons {
+  justify-content: space-between;
 }
 
 .prev-next:hover {

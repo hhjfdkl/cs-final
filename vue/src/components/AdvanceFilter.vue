@@ -1,14 +1,19 @@
 <template>
     <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <div class="main-block">
         <form @submit.prevent="submitForm">
-            <label for="genres">Genres</label>
+            <label id=section-title for="genres">GENRES</label>
 
             <div id="genre-boxes">
-                <div v-for="genre in genres" :key="genre.id">
-                    <img id="genre-img" :src="getGenrePng(genre.name)" :alt="genre.name">
-                    <input type="checkbox" :id="'genre-' + genre.id" :value="genre.id" v-model="selectedGenres" />
-                    <label :for="'genre-' + genre.id">{{ genre.name }}</label>
+                <div v-for="genre in genres" :key="genre.id" class="genre-item">
+                    <label :for="'genre-' + genre.id" :class="{ 'selected': !selectedGenres.includes(genre.id) }"
+                        class="genre-label">
+                        <img id=genre-img :src="getGenrePng(genre.name)" :alt="genre.name" class="genre-image">
+                        <input type="checkbox" :id="'genre-' + genre.id" :value="genre.id" v-model="selectedGenres"
+                            class="genre-checkbox" />
+                        <span class="genre-name">{{ genre.name }}</span>
+                    </label>
                 </div>
             </div>
 
@@ -27,15 +32,15 @@
             </div>
             <br />
             <label for="ratings">MPAA Ratings</label>
-            <ul>
-
-
-                <li v-for="rating in ratings" :key="rating">
-
-                    <input type="checkbox" :id="'rating-' + rating" :value="rating" v-model="selectedRating" />
+            <div id="mpaa-rating-boxes">
+                <div v-for="rating in ratings" :key="rating">
+                    <img id=mpaa-rating :src="getMPAARatingPng(rating)" alt="rating" class="mpaa-rating-image">
+                    <input type="checkbox" :id="'rating-' + rating" :value="rating" v-model="selectedRating"
+                        class="mpaa-rating-checkbox" />
                     <label :for="'rating-' + rating"> {{ rating }}</label>
-                </li>
-            </ul>
+                    <!-- <span class="rating-name">{{ rating }}</span> -->
+                </div>
+            </div>
             <!-- <select id="ratings" v-model="selectedRating">
                 <option v-for="rating in ratings" :key="rating" :value="rating">{{ rating }}</option>
             </select> -->
@@ -94,6 +99,9 @@ export default {
         },
         getGenrePng(genreName) {
             return "src\\assets\\Genre Cards\\" + genreName + ".png";
+        },
+        getMPAARatingPng(rating) {
+            return "src\\assets\\MPAA Ratings\\" + rating + ".png";
         }
     },
     // watch: {
@@ -137,6 +145,7 @@ export default {
 #genre-img {
     width: 11rem;
     margin-right: 0.5rem;
+
 }
 
 #genre-boxes {
@@ -146,6 +155,55 @@ export default {
     justify-content: space-between;
     justify-content: start;
 }
+
+.genre-item {
+    margin: 5px;
+}
+
+.genre-label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.genre-checkbox {
+    display: none;
+}
+
+.genre-name {
+    display: none;
+}
+
+.genre-label.selected .genre-image {
+    filter: brightness(75%)
+}
+
+.genre-label.selected .genre-name {
+    font-weight: bold;
+}
+
+#section-title {
+    margin-right: 0.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'League Spartan';
+    color: #7B3911;
+}
+
+#mpaa-rating-boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: start;
+}
+
+.mpaa-rating-name {
+    display: none;
+}
+
+/* .mpaa-rating-checkbox {
+    display: none;
+} */
 </style>
   
   

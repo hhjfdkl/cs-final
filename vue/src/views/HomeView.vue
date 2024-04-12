@@ -10,18 +10,23 @@
   </div>
   <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
   <button class="prev-next" @click="nextPage">Next Page</button>
+  <ChangeOrder />
 </template>
 
 <script>
 import MovieDetails from "../components/MovieDetails.vue";
 
 import MovieService from "../services/MovieService";
+import ChangeOrder from "../components/ChangeOrder.vue";
 
 export default {
   data() {
     return {
       movies: [],
-      usersPerPage: ""
+      usersPerPage: "",
+      selectedOrder: "",
+      selectedDirection: ""
+
     };
   }
 
@@ -38,6 +43,7 @@ export default {
   },
   components: {
     MovieDetails,
+    ChangeOrder
   },
 
   methods: {
@@ -93,7 +99,10 @@ export default {
           sort: this.$route.params.sort
         }
       });
-    }
+    },
+
+
+
 
   }
 
@@ -170,3 +179,4 @@ export default {
   margin-right: 1rem;
 }
 </style>
+

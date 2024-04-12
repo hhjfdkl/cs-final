@@ -123,17 +123,51 @@ public class JdbcMovieDao implements MovieDao  {
 
 
     public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy){
+        return getGroupOfMovies(moviePerPage,pageNumber,sortedBy,true);
+
+//        if(!checkSortBy(sortedBy)){
+//            sortedBy = "movie_id";
+//        }
+//
+//        List<Movie> movies = new ArrayList<>();
+//
+//        //remove the * when table is finalised
+//        String sql = "SELECT * FROM movies ORDER BY ? OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
+//        try {
+//            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, sortedBy, moviePerPage * (pageNumber-1) , moviePerPage);
+//            while (results.next()) {
+//                Movie movie = mapRowToMovie(results);
+//                movies.add(movie);
+//            }
+//        } catch (CannotGetJdbcConnectionException e) { //add another catch for sortedBy error
+//            throw new DaoException("Unable to connect to server or database", e);
+//        }catch (DataIntegrityViolationException e){
+//            throw new DaoException("Illegal arguments", e);
+//        }
+//        return movies;
+
+
+    }
+
+    @Override
+    public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy, boolean ascending){
+        System.out.println(sortedBy);
 
         if(!checkSortBy(sortedBy)){
             sortedBy = "movie_id";
+        }
+        System.out.println(sortedBy);
+        String direction = "ASC";
+        if(!ascending){
+            direction = "DESC";
         }
 
         List<Movie> movies = new ArrayList<>();
 
         //remove the * when table is finalised
-        String sql = "SELECT * FROM movies ORDER BY ? OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
+        String sql = "SELECT * FROM movies ORDER BY "+ sortedBy +  " " + direction +" OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, sortedBy, moviePerPage * (pageNumber-1) , moviePerPage);
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, moviePerPage * (pageNumber-1) , moviePerPage);
             while (results.next()) {
                 Movie movie = mapRowToMovie(results);
                 movies.add(movie);
@@ -232,6 +266,7 @@ public class JdbcMovieDao implements MovieDao  {
 
     @Override
     public List<Movie> getMoviesByUserFavMovies(int moviePerPage, int pageNumber, String sortedBy, int userId) {
+
         List<Movie> movies = new ArrayList<>();
 
         if(!checkSortBy(sortedBy)){     //prevent sql injection
@@ -271,6 +306,13 @@ public class JdbcMovieDao implements MovieDao  {
         if(sortedBy.equals("movie_id")){
             return true;
         }
+        if(sortedBy.equals("releasedate")){
+            return true;
+        }
+        if(sortedBy.equals("runtime")){
+            return true;
+        }
+        //add one for avg rating
         //add other possable sorts
         return false;
 

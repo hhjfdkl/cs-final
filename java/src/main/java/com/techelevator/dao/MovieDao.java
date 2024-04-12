@@ -11,6 +11,8 @@ public interface MovieDao {
     //    public List<Movie> getMovies();
     public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy);
 
+    List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy, boolean ascending);
+
     public Movie getMovieById(int id);
 
     List<Movie> filterMoviesByTitle(int moviePerPage, int pageNumber, String sortedBy, String titleSearch);

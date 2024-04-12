@@ -1,15 +1,17 @@
 <template>
     <div>
         <select id="order-select" v-model="selectedOrder">
+            <option value="" selected disabled>Filter By</option>
             <option value="releasedate">Release Date</option>
             <option value="titleText">Title</option>
             <option value="runtime">Runtime</option>
         </select>
         <select id="asc-desc" v-model="selectedDirection">
+            <option value="" selected disabled>Sort By</option>
             <option value="true">Ascending</option>
             <option value="false">Descending</option>
         </select>
-        <button @click="changeOrder">Change Order</button>
+        <button id="change-order-button" @click="changeOrder">Change Order</button>
     </div>
 </template>
 
@@ -45,3 +47,32 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+#order-select {
+    margin-right: 10px;
+    height: 25px;
+    width: 150px;
+}
+
+#asc-desc {
+    margin-right: 10px;
+    height: 25px;
+    width: 150px
+}
+
+#change-order-button {
+    height: 25px;
+    align-content: center;
+    background-color: #890304;
+    color: #f8f2bf;
+    border: none;
+
+    border-radius: 4px;
+
+
+
+    font-family: 'league spartan';
+
+}
+</style>

@@ -23,6 +23,28 @@ public class JdbcMovieDao implements MovieDao  {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+//    @Override
+    public double updateAvgRating(int movie_id){
+        String sql = "\n" +
+                "UPDATE movies\n" +
+                "\tSET  avgrating= (SELECT AVG(rating)\n" +
+                "\tFROM reviews WHERE movie_id = ?)\n" +
+                "\tWHERE movie_id = ? Returning avgrating;";
+
+        double results = 0;
+        try {
+
+            results = jdbcTemplate.queryForObject(sql,double.class, movie_id,movie_id);
+
+        } catch (CannotGetJdbcConnectionException e) { //add another catch for sortedBy error
+            throw new DaoException("Unable to connect to server or database", e);
+        }catch (DataIntegrityViolationException e){
+            throw new DaoException("Illegal arguments", e);
+        }
+
+        return results;
+    }
+
     @Override
     public List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy){
 
@@ -91,7 +113,7 @@ public class JdbcMovieDao implements MovieDao  {
 
 
         String sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
-                ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM movies LEFT Join movie_to_genre\n" +
+                ", genres, runtime, plot, meterranking, ratingssummary, episodes , avgRating FROM movies LEFT Join movie_to_genre\n" +
                 "as mg on mg.movie_id = movies.movie_id" +
                 " WHERE "+ whereInBuilder.toString() + " Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         if(genres.length == 0 && years.length == 0 && mpaa.length ==0 ){
@@ -244,7 +266,7 @@ public class JdbcMovieDao implements MovieDao  {
         System.out.println(whereInBuilder.toString());
         //remove the * when table is finalised
         String sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
-                ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM movies Join movie_to_genre\n" +
+                ", genres, runtime, plot, meterranking, ratingssummary, episodes, avgRating FROM movies Join movie_to_genre\n" +
                 "as mg on mg.movie_id = movies.movie_id" +
                 " where genre_id in ("+ whereInBuilder.toString() + ") Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         try {
@@ -264,6 +286,8 @@ public class JdbcMovieDao implements MovieDao  {
         return movies;
     }
 
+
+
     @Override
     public List<Movie> getMoviesByUserFavMovies(int moviePerPage, int pageNumber, String sortedBy, int userId) {
 
@@ -278,7 +302,7 @@ public class JdbcMovieDao implements MovieDao  {
 
 
         String sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate " +
-                "  , genres, runtime, plot, meterranking, ratingssummary, episodes " +
+                "  , genres, runtime, plot, meterranking, ratingssummary, episodes, avgRating " +
                 " FROM movies Join favorites" +
                 "    on favorites.movie_id = movies.movie_id" +
 
@@ -350,7 +374,8 @@ public class JdbcMovieDao implements MovieDao  {
                 rs.getInt("movie_id"),
                 rs.getString("primaryImage"), rs.getDate("releaseDate").toLocalDate(),
                 rs.getString("genres"), rs.getTime("runtime"), rs.getString("plot"),
-                rs.getString("meterRanking"), rs.getString("ratingsSummary"), rs.getInt("episodes") );
+                rs.getString("meterRanking"), rs.getString("ratingsSummary"), rs.getInt("episodes"),
+                rs.getDouble("avgRating"));
 
         return movie;
     }

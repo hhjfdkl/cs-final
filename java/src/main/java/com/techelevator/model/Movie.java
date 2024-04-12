@@ -16,8 +16,9 @@ public class Movie {
     String meterRanking;
     String ratingsSummary;
     int episodes;
+    double avgRating;
 
-    public Movie(String titleText, int id, String primaryImage, LocalDate releaseDate, String genres, Time runtime, String plot, String meterRanking, String ratingsSummary, int episodes) {
+    public Movie(String titleText, int id, String primaryImage, LocalDate releaseDate, String genres, Time runtime, String plot, String meterRanking, String ratingsSummary, int episodes, double avgRating) {
         this.titleText = titleText;
         this.id = id;
         this.primaryImage = primaryImage;
@@ -28,6 +29,7 @@ public class Movie {
         this.meterRanking = meterRanking;
         this.ratingsSummary = ratingsSummary;
         this.episodes = episodes;
+        this.avgRating = avgRating;
     }
 
     public String getTitleText() {
@@ -70,6 +72,12 @@ public class Movie {
         return episodes;
     }
 
+    public double getAvgRating() {
+        return avgRating;
+    }
+
+
+
     @Override
     public String toString() {
         return "Movie{" +
@@ -85,4 +93,5 @@ public class Movie {
                 ", episodes=" + episodes +
                 '}';
     }
+
 }

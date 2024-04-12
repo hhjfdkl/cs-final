@@ -23,11 +23,7 @@ import AccountService from '../services/AccountService';
 
 
 export default {
-    // data() {
-    //     return {
-    //         genres: [1]
-    //     }
-    // },
+
     props: {
         genres: {
             type: Array,
@@ -40,6 +36,8 @@ export default {
     created() {
 
         this.$store.commit("UPDATE_GENRES");
+
+
     },
     methods: {
         convertToGenreString(genre) {
@@ -75,8 +73,12 @@ export default {
     },
     computed: {
         favGenreArray: function () {
+            if (this.genres == undefined) {
+                return []
+            }
+
             let out = [];
-            console.log(this.genres);
+
             // if (this.genres == null) {
 
 
@@ -90,6 +92,9 @@ export default {
             return out
         },
         unfavGenreArray: function () {
+            if (this.genres == undefined) {
+                return []
+            }
             let out = [];
             for (let i = 0; i < this.$store.state.genres.length; i++) {
                 if (!this.genres.includes(this.$store.state.genres[i].id)) {

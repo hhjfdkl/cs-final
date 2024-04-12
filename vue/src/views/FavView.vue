@@ -10,9 +10,11 @@
     <div id="main-display">
         <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
     </div>
-    <ChangeOrder />
-    <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
-    <button class="prev-next" @click="nextPage">Next Page</button>
+    <div id="bottom-buttons">
+        <ChangeOrder />
+        <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+        <button class="prev-next" @click="nextPage">Next Page</button>
+    </div>
 </template>
   
 <script>
@@ -114,6 +116,11 @@ export default {
     text-decoration-thickness: 2px
 }
 
+#bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .prev-next {
     background-color: #fff0cb;
     color: #890304;
@@ -125,6 +132,7 @@ export default {
 #prev {
     margin-left: 5%;
     margin-right: 1%;
+
 }
 
 .prev-next:hover {

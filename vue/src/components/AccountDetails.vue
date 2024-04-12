@@ -24,6 +24,7 @@ export default {
 
     font-size: 75px;
     font-weight: bold;
+    color: #7b3911;
 }
 
 .movie-img {

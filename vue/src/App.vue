@@ -27,8 +27,9 @@
         class="nav-button" v-if="this.$store.state.token != ''">
         Movies
       </router-link>
-      <router-link v-bind:to="{ name: 'account', params: { pageSize: 9, page: 1, sort: 'movie_id' } }" class="nav-button"
-        v-if="this.$store.state.token != ''">
+      <router-link
+        v-bind:to="{ name: 'account', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { asc: true } }"
+        class="nav-button" v-if="this.$store.state.token != ''">
         Account
       </router-link>
 

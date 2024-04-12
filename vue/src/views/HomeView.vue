@@ -55,10 +55,21 @@ export default {
       this.updateMovies();
     },
     updateMovies() {
-      console.log("updating")
-      MovieService.getMoviePage(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
-        this.movies = response.data;
-      });
+      let urlParams = new URLSearchParams(window.location.search);
+
+      let title = urlParams.get('title');
+
+
+      if (title == null) {
+        MovieService.getMoviePage(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
+          this.movies = response.data;
+        });
+      } else {
+        MovieService.filterMoviesByTitle(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, title).then((response) => {
+          this.movies = response.data;
+        });
+      }
+
     },
     previousPage() {
       if (Number(this.$route.params.page) <= 1) return;

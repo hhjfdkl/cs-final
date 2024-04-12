@@ -171,11 +171,12 @@ public class JdbcMovieDao implements MovieDao  {
         if(!checkSortBy(sortedBy)){
             sortedBy = "movie_id";
         }
+        titleSearch = "%" + titleSearch + "%";
 
         List<Movie> movies = new ArrayList<>();
 
         //remove the * when table is finalised
-        String sql = "SELECT * FROM movies WHERE titletext ILIKE '%?%'  ORDER BY ? OFFSET ? ROWS FETCH NEXT ? ROWS ONLY ;";
+        String sql = "SELECT * FROM movies WHERE titletext ILIKE ?  ORDER BY ? OFFSET ? ROWS FETCH NEXT ? ROWS ONLY ;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, titleSearch, sortedBy, moviePerPage * (pageNumber-1) , moviePerPage);
             while (results.next()) {

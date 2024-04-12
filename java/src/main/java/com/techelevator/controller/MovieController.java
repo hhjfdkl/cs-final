@@ -91,14 +91,16 @@ public class MovieController {
     }
 
     @GetMapping("/movies")
-    public List<Movie> getMoviesFilteredByTitle(@RequestParam int moviePerPage , @RequestParam int page, @RequestParam String sortBy, @RequestParam String titleContains ){
+    public List<Movie> getMoviesFilteredByTitle(@RequestParam int  moviePerPage , @RequestParam int page, @RequestParam String sortBy, @RequestParam String titleContains ){
 
-        try {
+//        try {
             return movieDao.filterMoviesByTitle(moviePerPage,page,sortBy,titleContains);
-        }
-        catch (DaoException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Filter failed.");
-        }
+//        }
+//        catch (DaoException e) {
+//            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Filter failed.");
+//        }
+
+
     }
 
 

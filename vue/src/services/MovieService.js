@@ -26,6 +26,11 @@ export default {
             years: years
 
         });
+    },
+    filterMoviesByTitle(moviePerPage, page, sortBy, title) {
+
+        return axios.get(`http://localhost:9000/movies?moviePerPage=${moviePerPage}&page=${page}&sortBy=${sortBy}&titleContains=${title}`);
+
     }
 
 

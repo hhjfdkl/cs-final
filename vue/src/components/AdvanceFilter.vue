@@ -1,5 +1,6 @@
 <template>
     <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <div class="main-block">
         <form @submit.prevent="submitForm">
             <label id=section-title for="genres">GENRES</label>
@@ -31,15 +32,15 @@
             </div>
             <br />
             <label for="ratings">MPAA Ratings</label>
-            <ul>
-
-
-                <li v-for="rating in ratings" :key="rating">
-
-                    <input type="checkbox" :id="'rating-' + rating" :value="rating" v-model="selectedRating" />
+            <div id="mpaa-rating-boxes">
+                <div v-for="rating in ratings" :key="rating">
+                    <img id=mpaa-rating :src="getMPAARatingPng(rating)" alt="rating" class="mpaa-rating-image">
+                    <input type="checkbox" :id="'rating-' + rating" :value="rating" v-model="selectedRating"
+                        class="mpaa-rating-checkbox" />
                     <label :for="'rating-' + rating"> {{ rating }}</label>
-                </li>
-            </ul>
+                    <!-- <span class="rating-name">{{ rating }}</span> -->
+                </div>
+            </div>
             <!-- <select id="ratings" v-model="selectedRating">
                 <option v-for="rating in ratings" :key="rating" :value="rating">{{ rating }}</option>
             </select> -->
@@ -98,6 +99,9 @@ export default {
         },
         getGenrePng(genreName) {
             return "src\\assets\\Genre Cards\\" + genreName + ".png";
+        },
+        getMPAARatingPng(rating) {
+            return "src\\assets\\MPAA Ratings\\" + rating + ".png";
         }
     },
     // watch: {
@@ -170,7 +174,6 @@ export default {
 }
 
 .genre-label.selected .genre-image {
-
     filter: brightness(75%)
 }
 
@@ -185,6 +188,22 @@ export default {
     font-family: 'League Spartan';
     color: #7B3911;
 }
+
+#mpaa-rating-boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: start;
+}
+
+.mpaa-rating-name {
+    display: none;
+}
+
+/* .mpaa-rating-checkbox {
+    display: none;
+} */
 </style>
   
   

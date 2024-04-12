@@ -49,6 +49,23 @@
 </template>
 
 
+<script>
+export default {
+  name: 'app',
+  data() {
+    return {
+      searchTerm: '',
+    }
+  },
+  methods: {
+    searchMovies() {
+      this.$router.push({ name: 'movies', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { title: this.searchTerm } })
+    }
+  }
+}
+</script>
+
+
 
 <style>
 html {

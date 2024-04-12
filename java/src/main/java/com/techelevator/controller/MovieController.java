@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -83,6 +84,8 @@ public class MovieController {
     @PostMapping("/movies/filter/{moviePerPage}/{page}/{sortBy}")
     public List<Movie> getFilteredMovies(@PathVariable int moviePerPage , @PathVariable int page, @PathVariable String sortBy , @RequestBody FilterDto filterDto, Principal principal){
         User user = userDao.getUserByUsername(principal.getName());
+
+        System.out.println(Arrays.toString(filterDto.getMpaas()));
         if(filterDto.getMpaas() == null){
             filterDto.setMpaas(new String[] {});
         }

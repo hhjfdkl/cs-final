@@ -67,7 +67,7 @@ export default {
         },
         updateMovies() {
 
-            MovieService.getFilterMovies(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, this.$store.state.filteredGenres, this.$store.state.filteredRatings, this.$store.state.filteredYears).then((response) => {
+            MovieService.getFilterMovies(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, this.$store.state.filteredGenres, this.$store.state.filteredRating, this.$store.state.filteredYears).then((response) => {
                 this.movies = response.data;
             });
         },

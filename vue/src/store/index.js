@@ -43,6 +43,7 @@ export function createStore(currentToken, currentUser) {
         state.filteredYears = years
       },
       FILTER_RATINGS(state, ratings) {
+        confirm("--" + ratings)
         state.filteredRating = ratings
       }
     },

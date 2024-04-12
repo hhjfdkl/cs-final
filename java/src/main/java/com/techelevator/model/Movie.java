@@ -80,7 +80,7 @@ public class Movie {
                 ", genres='" + genres + '\'' +
                 ", runtime=" + runtime +
                 ", plot='" + plot + '\'' +
-                ", meterRanking='" + meterRanking + '\'' +
+                ", MPAA='" + meterRanking + '\'' +
                 ", ratingsSummary='" + ratingsSummary + '\'' +
                 ", episodes=" + episodes +
                 '}';

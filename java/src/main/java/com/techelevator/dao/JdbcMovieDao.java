@@ -15,7 +15,7 @@ import java.util.List;
 public class JdbcMovieDao implements MovieDao  {
 
 
-
+    private String removingAlreadyReview = " (SELECT * FROM movies where  movie_id IN (Select  movie_id  From Movies where movie_id  NOT IN (select movie_id from reviews where account_id = ?))) as movies ";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -23,7 +23,7 @@ public class JdbcMovieDao implements MovieDao  {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-//    @Override
+   @Override
     public double updateAvgRating(int movie_id){
         String sql = "\n" +
                 "UPDATE movies\n" +
@@ -46,7 +46,7 @@ public class JdbcMovieDao implements MovieDao  {
     }
 
     @Override
-    public List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy){
+    public List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy , int userId){
 
 
         if(!checkSortBy(sortedBy)){ //add a check for mpaa
@@ -113,18 +113,18 @@ public class JdbcMovieDao implements MovieDao  {
 
 
         String sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
-                ", genres, runtime, plot, meterranking, ratingssummary, episodes , avgRating FROM movies LEFT Join movie_to_genre\n" +
+                ", genres, runtime, plot, meterranking, ratingssummary, episodes , avgRating FROM "+ removingAlreadyReview + " LEFT Join movie_to_genre\n" +
                 "as mg on mg.movie_id = movies.movie_id" +
                 " WHERE "+ whereInBuilder.toString() + " Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         if(genres.length == 0 && years.length == 0 && mpaa.length ==0 ){
             sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
-                    ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM movies LEFT Join movie_to_genre\n" +
+                    ", genres, runtime, plot, meterranking, ratingssummary, episodes FROM "+ removingAlreadyReview + " LEFT Join movie_to_genre\n" +
                     "as mg on mg.movie_id = movies.movie_id" +
                     "  Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         }
         try {
 
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, moviePerPage * (pageNumber-1) , moviePerPage);
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql,userId, moviePerPage * (pageNumber-1) , moviePerPage);
             while (results.next()) {
                 Movie movie = mapRowToMovie(results);
                 movies.add(movie);
@@ -144,8 +144,8 @@ public class JdbcMovieDao implements MovieDao  {
 
 
 
-    public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy){
-        return getGroupOfMovies(moviePerPage,pageNumber,sortedBy,true);
+    public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy, int userId){
+        return getGroupOfMovies(moviePerPage,pageNumber,sortedBy,true, userId);
 
 //        if(!checkSortBy(sortedBy)){
 //            sortedBy = "movie_id";
@@ -172,7 +172,7 @@ public class JdbcMovieDao implements MovieDao  {
     }
 
     @Override
-    public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy, boolean ascending){
+    public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy, boolean ascending, int userId){
         System.out.println(sortedBy);
 
         if(!checkSortBy(sortedBy)){
@@ -187,9 +187,9 @@ public class JdbcMovieDao implements MovieDao  {
         List<Movie> movies = new ArrayList<>();
 
         //remove the * when table is finalised
-        String sql = "SELECT * FROM movies ORDER BY "+ sortedBy +  " " + direction +" OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
+        String sql = "SELECT * FROM  " + removingAlreadyReview +  "  ORDER BY "+ sortedBy +  " " + direction +" OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, moviePerPage * (pageNumber-1) , moviePerPage);
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, moviePerPage * (pageNumber-1) , moviePerPage);
             while (results.next()) {
                 Movie movie = mapRowToMovie(results);
                 movies.add(movie);

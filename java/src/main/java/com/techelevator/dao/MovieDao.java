@@ -6,12 +6,14 @@ import java.util.List;
 
 public interface MovieDao {
 
-    List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy);
+    double updateAvgRating(int movie_id);
+
+    List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy, int userId);
 
     //    public List<Movie> getMovies();
-    public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy);
+    public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy, int userId);
 
-    List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy, boolean ascending);
+    List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy, boolean ascending, int userId);
 
     public Movie getMovieById(int id);
 

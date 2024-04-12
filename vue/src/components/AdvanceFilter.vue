@@ -1,13 +1,17 @@
 <template>
+    <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <div class="main-block">
         <form @submit.prevent="submitForm">
             <label for="genres">Genres</label>
-            <ul>
-                <li v-for="genre in genres" :key="genre.id">
+
+            <div id="genre-boxes">
+                <div v-for="genre in genres" :key="genre.id">
+                    <img id="genre-img" :src="getGenrePng(genre.name)" :alt="genre.name">
                     <input type="checkbox" :id="'genre-' + genre.id" :value="genre.id" v-model="selectedGenres" />
                     <label :for="'genre-' + genre.id">{{ genre.name }}</label>
-                </li>
-            </ul>
+                </div>
+            </div>
+
             <br />
             <label for="years">Years</label>
             <div id="year-boxes">
@@ -87,6 +91,9 @@ export default {
         },
         removeSelectedYear(index) {
             this.selectedYears.splice(index, 1);
+        },
+        getGenrePng(genreName) {
+            return "src\\assets\\Genre Cards\\" + genreName + ".png";
         }
     },
     // watch: {
@@ -113,6 +120,10 @@ export default {
 </script>
   
 <style scoped>
+.main-block {
+    font-family: 'League Spartan';
+}
+
 .year-box {
     display: flex;
     align-items: center;
@@ -121,6 +132,19 @@ export default {
 
 .year-box button {
     margin-left: 0.5rem;
+}
+
+#genre-img {
+    width: 11rem;
+    margin-right: 0.5rem;
+}
+
+#genre-boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: start;
 }
 </style>
   

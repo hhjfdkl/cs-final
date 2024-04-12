@@ -7,7 +7,7 @@
         <img src="../src\assets\Light Theme Logo.png" alt="BOB Light Logo" class="logo">
 
 
-        <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
+
       </router-link>
       <router-link v-bind:to="{ name: 'login' }" class="nav-button"
         v-if="this.$store.state.token == ''">Login</router-link>&nbsp;&nbsp;
@@ -108,13 +108,10 @@ html {
   grid-area: top;
   display: flex;
   align-items: center;
-  padding-left: 400px;
+
+
+
 }
-
-
-
-
-
 
 body {
   margin: 0px;
@@ -124,9 +121,10 @@ body {
 
 #capstone-app {
   display: grid;
-  grid-template-rows: 1fr 16fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 250px 1fr;
   grid-template-areas:
-    "top top"
+    "nav top"
     "nav main"
   ;
   /* grid-area */
@@ -147,7 +145,7 @@ body {
   background-color: #890304;
   height: 100vh;
   position: sticky;
-  width: 400px;
+
   /* position: fixed; */
   /* added */
   top: 0;
@@ -194,10 +192,9 @@ body {
 }
 
 #outofnav {
-  /* grid-area: main; */
+  padding-left: 15px;
+  padding-top: 15px;
 
-  /* margin-left: 150px;
-  margin-left: 10%; */
 
 }
 

@@ -25,6 +25,10 @@
 
         Unfavorite
       </button>
+      <router-link v-bind:to="{ name: 'fullMovieDetails', params: { movieId: movie.id } }">
+        More Info
+      </router-link>
+
 
     </div>
   </div>

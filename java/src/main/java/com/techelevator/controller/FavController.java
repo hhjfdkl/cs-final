@@ -51,6 +51,7 @@ public class FavController {
 
     @GetMapping("/favorites/{movie_id}")
     public boolean isFav(@PathVariable int movie_id, Principal principal){
+        
         User user = userDao.getUserByUsername(principal.getName());
 
 

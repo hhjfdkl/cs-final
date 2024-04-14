@@ -11,6 +11,7 @@ import FavView from '../views/FavView.vue';
 import AccountView from '../views/AccountView.vue';
 import AdvanceFilter from '../components/AdvanceFilter.vue';
 import FilteredMovie from '../views/FilteredMovieView.vue';
+import FullMovieDetail from '../views/FullMovieDetailView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -102,6 +103,14 @@ const routes = [
     }
 
   },
+  {
+    path: "/movies/view/:movieId/",
+    name: "fullMovieDetails",
+    component: FullMovieDetail,
+    meta: {
+      requiresAuth: true
+    }
+  }
   // {
   //   path: "/movies/:pageSize/:page/:sort/:search/",
   //   name: "moviesTitleSearch",

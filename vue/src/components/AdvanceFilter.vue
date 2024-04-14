@@ -204,6 +204,7 @@ export default {
 .mpaa-rating-image {
     width: 11rem;
     margin-right: 0.5rem;
+
 }
 
 .mpaa-rating-checkbox {
@@ -220,15 +221,6 @@ export default {
     /* display: block; */
     margin: 0 auto;
     font-family: 'league spartan';
-}
-
-.rating-label {
-    display: inline-block;
-    cursor: pointer;
-}
-
-.rating-label.selected .mpaa-rating-image {
-    filter: brightness(50%)
 }
 </style>
   

@@ -27,6 +27,11 @@
                 Unfavorite
             </button>
 
+            <ReviewList :movieId="movie.id" />
+
+
+            <CreateReview />
+
         </div>
     </div>
 </template> 
@@ -34,6 +39,8 @@
 <script>
 import { computed } from 'vue';
 import MovieService from '../services/MovieService';
+import ReviewList from './ReviewList.vue';
+import CreateReview from './CreateReview.vue';
 
 
 export default {
@@ -44,6 +51,11 @@ export default {
     },
     props: {
         movie: Object,
+
+    },
+    components: {
+        ReviewList,
+        CreateReview
     },
     methods: {
         addFav: function () {

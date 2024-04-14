@@ -6,9 +6,12 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcReviewDao implements ReviewDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -44,15 +47,16 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public List<Review> getReviewsByMovieId(int movieId) {
-        List<Review> reviews = null;
+        List<Review> reviews = new ArrayList<>();
         String sql =
                 "SELECT account_id, rating, review, movie_id\n" +
                         "FROM reviews\n" +
                         "WHERE movie_id = ? ORDER BY rating DESC;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, movieId);
-            while (results.next())
+            while (results.next()) {
                 reviews.add(mapRowToReview(results));
+            }
 
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
@@ -127,6 +131,25 @@ public class JdbcReviewDao implements ReviewDao {
         }
 
         return reviews;
+    }
+
+    @Override
+    public boolean createReview(int account_id , int rating, String reviewText, int movie_id){
+
+        String sql = "INSERT INTO reviews(\n" +
+                "\taccount_id, rating, review, movie_id)\n" +
+                "\tVALUES (?, ?, ?, ?);";
+        try {
+            int out = jdbcTemplate.update(sql, account_id, rating , reviewText ,movie_id);
+            if(out == 1){
+                return true;
+            }
+        }catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Illegal arguments", e);
+        }
+        return false;
     }
 
 

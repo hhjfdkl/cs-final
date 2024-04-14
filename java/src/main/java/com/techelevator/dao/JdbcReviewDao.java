@@ -133,6 +133,25 @@ public class JdbcReviewDao implements ReviewDao {
         return reviews;
     }
 
+    @Override
+    public boolean createReview(int account_id , int rating, String reviewText, int movie_id){
+
+        String sql = "INSERT INTO reviews(\n" +
+                "\taccount_id, rating, review, movie_id)\n" +
+                "\tVALUES (?, ?, ?, ?);";
+        try {
+            int out = jdbcTemplate.update(sql, account_id, rating , reviewText ,movie_id);
+            if(out == 1){
+                return true;
+            }
+        }catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Illegal arguments", e);
+        }
+        return false;
+    }
+
 
     private Review mapRowToReview(SqlRowSet rs) {
         return new Review(

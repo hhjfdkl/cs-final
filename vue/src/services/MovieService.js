@@ -40,6 +40,15 @@ export default {
     },
     getReviewsByMovieId(id) {
         return axios.get(`/reviews/${id}`);
+    },
+
+    addReview(movieId, review, rating) {
+        return axios.post(`/reviews`, {
+            rating: rating,
+            review: review,
+            movie_id: movieId
+
+        })
     }
 
 

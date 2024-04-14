@@ -18,4 +18,5 @@ public interface ReviewDao {
     Review getReviewByKey(int acctId, int movieId);
 
 
+    boolean createReview(int account_id, int rating, String reviewText, int movie_id);
 }

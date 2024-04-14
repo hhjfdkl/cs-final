@@ -36,7 +36,7 @@ export default {
 .main-block {
     display: flex;
     flex-direction: row;
-    border: .001rem solid #890304;
+
     width: 30%;
     /* margin-left: 5%; */
 }

@@ -6,7 +6,7 @@
     <div v-for="mpaa in mpaas" :key="mpaa"> {{ mpaa }}</div> -->
     <form @submit.prevent="searchMovies" class="search-change">
 
-        <input class="mpp" type="number" v-model="usersPerPage" placeholder="Movies per page" />
+
         <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
     </form>
 

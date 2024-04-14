@@ -1,7 +1,9 @@
 
 <template>
   <div class="movie">
-    <img :src="movie.primaryImage" alt="movie img" class="movie-img">
+    <router-link :to="{ name: 'fullMovieDetails', params: { movieId: movie.id } }">
+      <img :src="movie.primaryImage" alt="movie img" class="movie-img">
+    </router-link>
     <div class="column">
       <header>
         <h1 class="movie-title">{{ movie.titleText }}</h1>
@@ -16,7 +18,6 @@
         {{ movie.plot }}
       </div>
 
-
       <button v-show="!isFav" class="fav-button" @click="addFav">
 
         Favorite
@@ -25,10 +26,6 @@
 
         Unfavorite
       </button>
-      <router-link v-bind:to="{ name: 'fullMovieDetails', params: { movieId: movie.id } }">
-        More Info
-      </router-link>
-
 
     </div>
   </div>
@@ -151,11 +148,17 @@ div .movie {
   margin: 0 auto;
   font-family: 'league spartan';
 
-
 }
 
-
-
+#more-info {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  font-family: 'league spartan';
+  margin-top: 5px;
+}
 
 
 @media screen and (max-width: 600px) {

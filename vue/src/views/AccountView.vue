@@ -1,11 +1,13 @@
 <template>
-    <section class="account">
+    <h2 id="account">
         <AccountDetails v-bind:Account="Account" />
+    </h2>
+    <div id="account-info">
         <GenreList :genres="Account.favGenreIds" :AccountService="AccountService" />
+    </div>
+    <div>
         <FavView />
-
-
-    </section>
+    </div>
 </template>
 
 <script>
@@ -58,6 +60,17 @@ export default {
 </script>
 
 <style>
+#account {
+    color: #7B3911;
+    margin-left: 5%;
+    font-size: 50px;
+}
+
+#account-info {
+    color: #7B3911;
+    margin-left: 5%;
+}
+
 AccountDetails {
     font-size: 120%;
 }

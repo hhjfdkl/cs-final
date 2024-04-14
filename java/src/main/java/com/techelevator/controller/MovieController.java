@@ -33,7 +33,7 @@ public class MovieController {
             return movieDao.getGroupOfMovies(moviePerPage, page,sortBy, asc, user.getId());
         }
         catch (DaoException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "retrieving movies failed failed.");
         }
     }
 

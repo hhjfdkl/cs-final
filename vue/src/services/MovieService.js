@@ -37,6 +37,9 @@ export default {
     },
     getMovieById(id) {
         return axios.get(`/movies/${id}`);
+    },
+    getReviewsByMovieId(id) {
+        return axios.get(`/reviews/${id}`);
     }
 
 

@@ -1,8 +1,9 @@
 <template>
     <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     <div class="main-block">
+        <h1>Advance Filter</h1>
         <form @submit.prevent="submitForm">
-            <label id=section-title for="genres">GENRES</label>
+            <label id=section-title for="genres">By Genre:</label>
             <div id="genre-boxes">
                 <div v-for="genre in genres" :key="genre.id" class="genre-item">
                     <label :for="'genre-' + genre.id" :class="{ 'selected': !selectedGenres.includes(genre.id) }"
@@ -14,25 +15,12 @@
                     </label>
                 </div>
             </div>
-
             <br />
-            <label id=section-title for="years">Years</label>
-            <div id="year-boxes">
-                <div class="year-box">
-                    <input type="number" v-model.number="years" @keyup.enter="addSelectedYear(years)" />
-
-                    <button @click.prevent="addSelectedYear(years)">+</button>
-                </div>
-            </div>
-            <div v-for="(year, index) in selectedYears" :key="index" class="year-box">
-                {{ year }}
-                <button @click="removeSelectedYear(index)">X</button>
-            </div>
-            <br />
-            <label id=section-title for="ratings">MPAA Ratings</label>
+            <label id=section-title for="ratings">By MPAA Rating:</label>
             <div id="mpaa-rating-boxes">
-                <div v-for="rating in ratings" :key="rating">
-                    <label :for="'rating-' + rating" class="rating-label">
+                <div v-for="rating in ratings" :key="rating" class="mpaa-rating-item">
+                    <label :for="'rating-' + rating" :class="{ 'selected': !selectedRating.includes(rating) }"
+                        class="rating-label">
                         <img :src="getMPAARatingPng(rating)" alt="rating" class="mpaa-rating-image">
                         <input type="checkbox" :id="'rating-' + rating" :value="rating" v-model="selectedRating"
                             class="mpaa-rating-checkbox" />
@@ -40,17 +28,21 @@
                     </label>
                 </div>
             </div>
-            <!-- <select id="ratings" v-model="selectedRating">
-                <option v-for="rating in ratings" :key="rating" :value="rating">{{ rating }}</option>
-            </select> -->
+
             <br />
-            <!-- <router-link :to="{ name: 'filterMovies', params: { pageSize: 9, page: 1, sort: 'movie_id' } }" v-bind:props="{
-                years: selectedYears,
-                genres: selectedGenres,
-                mpaas: selectedRating
-            }">
-                Link Text
-            </router-link> -->
+            <label id=section-title for="years">By Release Year:</label>
+            <div id="year-boxes">
+                <div class="year-box-search">
+                    <input type="number" v-model.number="years" @keyup.enter="addSelectedYear(years)" />
+
+                    <button class="year-box-button" @click.prevent="addSelectedYear(years)">+</button>
+                </div>
+            </div>
+            <div v-for="(year, index) in selectedYears" :key="index" class="year-box">
+                {{ year }}
+                <button class=year-box-button-x @click="removeSelectedYear(index)">X</button>
+            </div>
+            <br />
 
             <button class=buttons type="submit">Search</button>
         </form>
@@ -136,10 +128,46 @@ export default {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 7px;
 }
 
-.year-box button {
+.year-box-button {
     margin-left: 0.5rem;
+    background-color: #7B3911;
+    color: #f8f2bf;
+    border: none;
+    padding: 0.2rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    /* margin: 0 auto; */
+    font-family: 'league spartan';
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.year-box-button-x {
+    margin-left: none;
+    background-color: #f8f2bf;
+    color: #d60000c7;
+    border: none;
+    /* padding: 0.5rem 1.5rem; */
+    /* border-radius: 4px; */
+    cursor: pointer;
+    display: block;
+    /* margin: 0 auto; */
+    font-family: 'league spartan';
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.year-box-search {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 7px;
 }
 
 #genre-img {
@@ -154,6 +182,7 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
     justify-content: start;
+    margin-top: 0.5rem;
 }
 
 .genre-item {
@@ -183,18 +212,22 @@ export default {
 
 #section-title {
     margin-right: 0.5rem;
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     font-family: 'League Spartan';
     color: #7B3911;
+    margin-left: 7px;
 }
 
 #mpaa-rating-boxes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    justify-content: start;
+    /* justify-content: space-between; */
+    /* justify-content: start; */
+    gap: 14px;
+    margin-top: 0.5rem;
+    margin-left: 7px;
 }
 
 .rating-name {
@@ -221,6 +254,26 @@ export default {
     /* display: block; */
     margin: 0 auto;
     font-family: 'league spartan';
+    margin-left: 7px;
+}
+
+.rating-label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.selected .mpaa-rating-image {
+    filter: brightness(75%);
+}
+
+h1 {
+    font-size: 2rem;
+    color: #7B3911;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-family: 'League Spartan';
+    font-weight: bold;
 }
 </style>
   

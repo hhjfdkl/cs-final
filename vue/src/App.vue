@@ -99,7 +99,6 @@ html {
   width: 1100px;
   height: 25px;
   font-size: 14px;
-
 }
 
 .top-bar {

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>full movie details</h3>
+        <h3>Full Movie Details</h3>
 
         <FullMovieDetail :movie="movie" />
 
@@ -29,3 +29,6 @@ export default {
 </script>
 
 <style scoped></style>
+
+
+

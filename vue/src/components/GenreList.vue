@@ -5,14 +5,14 @@
         <div v-for="genre in favGenreArray" :key="genre.id" class="main-block">
             {{ genre.name }}
 
-            <button @click="removeGenre(genre.id)">Remove</button>
+            <button id="remove-button" @click="removeGenre(genre.id)">Remove</button>
         </div>
 
         <h3>Add to your Fav</h3>
         <div v-for="genre in unfavGenreArray" :key="genre.id" class="main-block">
             {{ genre.name }}
 
-            <button @click="addGenre(genre.id)">Add</button>
+            <button id="add-button" @click="addGenre(genre.id)">Add</button>
         </div>
     </div>
 </template> 
@@ -138,6 +138,27 @@ export default {
 </script>
   
 <style scoped>
+#remove-button {
+    margin-left: 5px;
+    background-color: #890304;
+    color: #fff0cb;
+    border: 1px solid #890304;
+    border-radius: 4px;
+    font-family: 'league spartan';
+    margin-bottom: 5px;
+
+}
+
+#add-button {
+    margin-left: 5px;
+    background-color: #890304;
+    color: #fff0cb;
+    border: 1px solid #890304;
+    border-radius: 4px;
+    font-family: 'league spartan';
+    margin-bottom: 5px;
+}
+
 /* .movie-img {
     max-width: 14%;
     max-height: 14%;

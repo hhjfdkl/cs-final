@@ -25,18 +25,19 @@
             </button>
         </div>
         <div>
+            <div class="section-title">Plot Summary</div>
             <div class="description">
                 {{ movie.plot }}
             </div>
+            <div class="section-title">
+                User Reviews
+            </div>
+            <div class="section-title">Write A Review</div>
             <div id="review">
                 <ReviewList :movieId="movie.id" />
-
-
                 <CreateReview />
             </div>
         </div>
-
-
     </div>
 </template> 
   
@@ -129,6 +130,7 @@ export default {
 #review {
     margin-left: 10px;
     margin-top: 10px;
+
 }
 
 .fav-button {
@@ -140,6 +142,13 @@ export default {
     margin-top: 15px;
     margin-bottom: 15px;
     height: 25px;
+}
+
+.section-title {
+    color: #7B3911;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 5px;
 }
 </style>
   

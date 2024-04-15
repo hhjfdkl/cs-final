@@ -3,38 +3,34 @@
     <div class="movie">
         <div class="column">
             <img :src="movie.primaryImage" alt="movie img" class="movie-img">
-
-            <header>
-                <h1 class="movie-title">{{ movie.titleText }}</h1>
-
-            </header>
-
-            <div class="release-genres">
-                <div>{{ movie.releaseDate.substr(0, 4) }}</div>
-                <div>{{ movie.genres }}</div>
-            </div>
-
-
             <button v-show="!isFav" class="fav-button" @click="addFav">
-
                 Favorite
             </button>
             <button v-show="isFav" class="fav-button" @click="removeFav">
-
                 Unfavorite
             </button>
         </div>
         <div>
+            <header>
+                <h1 class="movie-title">{{ movie.titleText }}</h1>
+            </header>
+            <div class="release-genres">
+                <div>{{ movie.releaseDate.substr(0, 4) }}</div>
+                <div>{{ movie.genres }}</div>
+            </div>
             <div class="section-title">Plot Summary</div>
             <div class="description">
                 {{ movie.plot }}
             </div>
+
+        </div>
+        <div>
             <div class="section-title">
                 User Reviews
             </div>
-            <div class="section-title">Write A Review</div>
             <div id="review">
                 <ReviewList :movieId="movie.id" />
+                <div class="section-title">Write A Review</div>
                 <CreateReview />
             </div>
         </div>
@@ -97,8 +93,12 @@ export default {
 
 <style scoped>
 .movie {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "img title"
+        "review review"
+    ;
     margin-left: 5%;
     margin-top: 4%;
 }
@@ -121,16 +121,18 @@ export default {
 }
 
 .description {
-    color: #7B3911;
+    color: #002263;
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
+    font-size: 1.2rem;
 }
 
 #review {
     margin-left: 10px;
     margin-top: 10px;
-
+    color: #002263;
+    font-size: 1.2rem;
 }
 
 .fav-button {
@@ -141,12 +143,15 @@ export default {
     font-family: 'league spartan';
     margin-top: 15px;
     margin-bottom: 15px;
-    height: 25px;
+    width: 300px;
+    height: 30px;
+    box-shadow: #a52600 1px 1px 2px;
+    cursor: pointer;
 }
 
 .section-title {
     color: #7B3911;
-    font-size: 20px;
+    font-size: 2rem;
     margin-left: 10px;
     margin-top: 5px;
 }

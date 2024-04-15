@@ -101,6 +101,7 @@ div .movie {
   box-shadow: 0 2px 4px #7B3911;
   background-color: #e8e5c3;
   /* margin-left: 5%; */
+  border-radius: .5rem;
 }
 
 .column {

@@ -26,12 +26,14 @@ export default {
 
             console.log(this.review);
 
-            MovieService.addReview(this.$route.params.movieId, this.review).then(() => {
+            MovieService.addReview(this.$route.params.movieId, this.review.details, this.review.rating).then(() => {
                 //nothing right now
             })
 
             this.rating = null;
             this.details = "";
+
+            window.location.reload();
         }
     }
 }

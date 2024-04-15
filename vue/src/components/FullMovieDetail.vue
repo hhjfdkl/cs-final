@@ -24,7 +24,7 @@
             </div>
 
         </div>
-        <div>
+        <div id="reviews">
             <div class="section-title">
                 User Reviews
             </div>
@@ -94,13 +94,19 @@ export default {
 <style scoped>
 .movie {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 400px 1fr;
     grid-template-areas:
         "img title"
-        "review review"
+        "reviews reviews"
     ;
     margin-left: 5%;
     margin-top: 4%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    grid-area: img;
 }
 
 .movie-img {
@@ -128,7 +134,8 @@ export default {
     font-size: 1.2rem;
 }
 
-#review {
+#reviews {
+    grid-area: reviews;
     margin-left: 10px;
     margin-top: 10px;
     color: #002263;

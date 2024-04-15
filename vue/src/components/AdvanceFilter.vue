@@ -84,7 +84,11 @@ export default {
         },
         addSelectedYear(year) {
 
-            this.selectedYears.push(year);
+            if (!this.selectedYears.includes(year)) {
+                this.selectedYears.push(year);
+            }
+
+
         },
         removeSelectedYear(index) {
             this.selectedYears.splice(index, 1);

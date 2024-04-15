@@ -54,6 +54,8 @@ public class MovieController {
     @GetMapping("/movies/{id}")
     public Movie getMovieById(@PathVariable int id){
 
+        movieDao.updateAvgRating(id); //this  is ineffecent
+
         try {
             return movieDao.getMovieById(id);
         }

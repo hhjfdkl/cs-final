@@ -12,6 +12,7 @@
             <div class="release-genres">
                 <div>{{ movie.releaseDate.substr(0, 4) }}</div>
                 <div>{{ movie.genres }}</div>
+                <div>{{ movie.avgRating }}</div>
             </div>
 
 

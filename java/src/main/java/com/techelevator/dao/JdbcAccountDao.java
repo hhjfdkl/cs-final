@@ -102,6 +102,11 @@ public class JdbcAccountDao implements AccountDao
             reviews.beforeFirst();
             account.setReviews(mapRowsToReviews(reviews));
         }
+
+        if(account.getFavGenreIds() == null){
+            account.setFavGenreIds(new int[] {});
+        }
+
         return account;
     }
 

@@ -17,6 +17,10 @@ export default {
     }, removeGenre(id) {
 
         return axios.delete(`/genres/${id}`)
+    },
+    getReviews() {
+
+        return axios.get(`/reviews`)
     }
 
 }

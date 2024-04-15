@@ -26,7 +26,7 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public List<Review> getReviewsByAccountId(int acctId) //shows on user profile
     {
-        List<Review> reviews = null;
+        List<Review> reviews = new ArrayList<>();
         String sql =
                 "SELECT r.account_id, r.rating, r.review, r.movie_id\n" +
                         "FROM reviews AS r\n" +

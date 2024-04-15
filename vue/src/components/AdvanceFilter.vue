@@ -40,7 +40,7 @@
             </div>
             <div v-for="(year, index) in selectedYears" :key="index" class="year-box">
                 {{ year }}
-                <button class=year-box-button-x @click="removeSelectedYear(index)">X</button>
+                <div class=year-box-button-x @click="removeSelectedYear(index)" @submit.prevent="">X</div>
             </div>
             <br />
 

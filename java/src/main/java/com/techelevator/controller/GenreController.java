@@ -28,11 +28,11 @@ public class GenreController {
     @GetMapping("/genres")
     public List<Genre> getListOfGenres(){
         try {
-        return genreDao.getListOfGenres();
-    }
+            return genreDao.getListOfGenres();
+        }
         catch (DaoException e) {
-        throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "failed to find genres");
-    }
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "failed to find genres");
+         }
 
     }
 

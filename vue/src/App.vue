@@ -36,6 +36,9 @@
       <router-link v-bind:to="{ name: 'filterSearch' }" class="nav-button" v-if="this.$store.state.token != ''">
         Filter
       </router-link>
+      <router-link v-bind:to="{ name: 'reviews' }" class="nav-button" v-if="this.$store.state.token != ''">
+        My Reviews
+      </router-link>
     </nav>
 
     <nav class="top-bar">

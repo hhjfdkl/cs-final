@@ -10,6 +10,10 @@
   <div id="fav-upper">
     <ChangeOrder />
   </div>
+  <div id="fav-bottom">
+    <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+    <button class="prev-next" id="next" @click="nextPage">Next Page</button>
+  </div>
   <div id="main-display">
     <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
   </div>
@@ -135,6 +139,9 @@ h2 {
 
 #fav-upper {
   margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 #main-display {

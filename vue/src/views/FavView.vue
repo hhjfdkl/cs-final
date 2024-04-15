@@ -6,8 +6,9 @@
         <input class="mpp" type="number" v-model="usersPerPage" placeholder="Movies per page" />
         <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
     </form> -->
-    <div id="fav-upper">
-        <!-- <ChangeOrder /> -->
+    <div id="fav-bottom">
+        <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+        <button class="prev-next" id="next" @click="nextPage">Next Page</button>
     </div>
     <div id="main-display">
         <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
@@ -127,6 +128,12 @@ h2 {
 .home-border {
     text-decoration-line: underline;
     text-decoration-thickness: 2px
+}
+
+#fav-upper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
 }
 
 #fav-bottom {

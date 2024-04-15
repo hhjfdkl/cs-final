@@ -49,11 +49,11 @@ try{
         try{
             return reviewDao.createReview(user.getId(), reviewDto.getRating(), reviewDto.getReview(), reviewDto.getMovie_id());
         }
-        catch (
-                DaoException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "retrieving movies failed failed.");
+        catch (DaoException
+                 e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "user likely already created a review for this movie");
         }
 
-//        return false;
+
     }
 }

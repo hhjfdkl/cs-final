@@ -32,8 +32,14 @@ export function createStore(currentToken, currentUser) {
 
       UPDATE_GENRES(state) {
         AccountService.getGenres().then(response => {
+
           state.genres = response.data
+          if (response == null) {
+            state.genres = []
+          }
+
         });
+
       },
 
       FILTER_GENRES(state, genres) {

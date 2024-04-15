@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h3 id="movie-details">Full Movie Details</h3>
 
         <FullMovieDetail :movie="movie" />
 

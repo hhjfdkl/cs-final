@@ -67,7 +67,7 @@ export default {
 }
 
 #account-info {
-    color: #7B3911;
+    color: #002263;
     margin-left: 5%;
 }
 

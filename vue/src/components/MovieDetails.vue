@@ -83,6 +83,7 @@ export default {
   max-width: 75%;
   max-height: 75%;
   margin: 5px;
+  border-radius: .5rem;
 }
 
 
@@ -99,8 +100,6 @@ div .movie {
   margin-top: 25px;
   box-shadow: 0 2px 4px #7B3911;
   background-color: #e8e5c3;
-
-
   /* margin-left: 5%; */
 }
 
@@ -159,7 +158,6 @@ div .movie {
   font-family: 'league spartan';
   margin-top: 5px;
 }
-
 
 @media screen and (max-width: 600px) {
   .main-block {

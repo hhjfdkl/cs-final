@@ -15,9 +15,11 @@ import java.util.List;
 public class JdbcReviewDao implements ReviewDao {
 
     private JdbcTemplate jdbcTemplate;
+    private UserDao userDao;
 
-    public JdbcReviewDao(JdbcTemplate jdbcTemplate) {
+    public JdbcReviewDao(JdbcTemplate jdbcTemplate, UserDao userDao) {
         this.jdbcTemplate = jdbcTemplate;
+        this.userDao =userDao;
     }
 
 
@@ -134,7 +136,7 @@ public class JdbcReviewDao implements ReviewDao {
     }
 
     @Override
-    public boolean createReview(int account_id , int rating, String reviewText, int movie_id){
+    public boolean createReview(int account_id, int rating, String reviewText, int movie_id){
 
         String sql = "INSERT INTO reviews(\n" +
                 "\taccount_id, rating, review, movie_id)\n" +
@@ -154,11 +156,17 @@ public class JdbcReviewDao implements ReviewDao {
 
 
     private Review mapRowToReview(SqlRowSet rs) {
+
+        int accountId  =rs.getInt("account_id");
+
+
+
         return new Review(
-                rs.getInt("account_id"),
+                accountId
+                ,
                 rs.getInt("rating"),
                 rs.getString("review"),
-                rs.getInt("movie_id")
-        );
+                rs.getInt("movie_id"),
+                userDao.getUserById(accountId).getUsername());
     }
 }

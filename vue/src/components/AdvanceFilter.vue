@@ -134,7 +134,7 @@ export default {
 
 .year-box-button {
     margin-left: 0.5rem;
-    background-color: #7B3911;
+    background-color: #890304;
     color: #f8f2bf;
     border: none;
     padding: 0.2rem 1rem;
@@ -143,7 +143,7 @@ export default {
     display: block;
     /* margin: 0 auto; */
     font-family: 'league spartan';
-    font-size: larger;
+    font-size: 20px;
     font-weight: bolder;
 }
 
@@ -269,11 +269,12 @@ export default {
 h1 {
     font-size: 2rem;
     color: #7B3911;
-    text-align: center;
+    text-align: left;
     margin-bottom: 1rem;
     margin-top: 1rem;
     font-family: 'League Spartan';
     font-weight: bold;
+    margin-left: 7px;
 }
 </style>
   

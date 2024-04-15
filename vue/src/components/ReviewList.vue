@@ -2,7 +2,9 @@
     <div>
         <div v-for="review in reviews" v-bind:key="review.account_id">
             <div>review: </div>
+            <div>{{ review.username }}</div>
             <div>{{ review.rating }}</div>
+            <div>{{ review.review }}</div>
         </div>
 
     </div>

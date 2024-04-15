@@ -18,6 +18,7 @@ public class JdbcAccountDao implements AccountDao
 
 
     private final JdbcTemplate jdbcTemplate;
+    private String username;
 
     public JdbcAccountDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -28,6 +29,8 @@ public class JdbcAccountDao implements AccountDao
     {
         return null;
     }
+
+
 
     @Override
     public Account getAccountById(int accountId)
@@ -85,6 +88,7 @@ public class JdbcAccountDao implements AccountDao
                                     SqlRowSet favGenres,
                                     SqlRowSet reviews)
     {
+        username = nameAndId.getString("username");
         Account account = new Account(nameAndId.getInt("account_id"),
                 nameAndId.getString("username"));
         if(favMovies.next())
@@ -102,6 +106,11 @@ public class JdbcAccountDao implements AccountDao
             reviews.beforeFirst();
             account.setReviews(mapRowsToReviews(reviews));
         }
+
+        if(account.getFavGenreIds() == null){
+            account.setFavGenreIds(new int[] {});
+        }
+
         return account;
     }
 
@@ -130,7 +139,7 @@ public class JdbcAccountDao implements AccountDao
                 reviews[i] = new Review(reviewSet.getInt("account_id"),
                         reviewSet.getInt("rating"),
                         reviewSet.getString("review"),
-                        reviewSet.getInt("movie_id"));
+                        reviewSet.getInt("movie_id"), this.username );
 
             }
         }

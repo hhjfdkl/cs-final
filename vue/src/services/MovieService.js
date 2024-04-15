@@ -43,6 +43,7 @@ export default {
     },
 
     addReview(movieId, review, rating) {
+
         return axios.post(`/reviews`, {
             rating: rating,
             review: review,

@@ -137,7 +137,6 @@ div .movie {
 }
 
 .fav-button {
-
   background-color: #890304;
   color: #f8f2bf;
   border: none;

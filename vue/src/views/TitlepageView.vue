@@ -37,9 +37,8 @@ import 'swiper/css/autoplay';
 
 const photos = [
     'Arrest.png',
-    'Commando.png',
     'Seagal.png',
-
+    'Commando.png',
 
 ];
 

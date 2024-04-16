@@ -13,6 +13,7 @@ import AdvanceFilter from '../components/AdvanceFilter.vue';
 import FilteredMovie from '../views/FilteredMovieView.vue';
 import FullMovieDetail from '../views/FullMovieDetailView.vue';
 import UserReviews from '../views/UserReviewsView.vue';
+import ArticleView from '../views/ArticleView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -120,6 +121,14 @@ const routes = [
       requiresAuth: true
     }
 
+  },
+  {
+    path: "/articles/:articleId/",
+    name: "articles",
+    component: ArticleView,
+    meta: {
+      requiresAuth: false
+    }
   }
   // {
   //   path: "/movies/:pageSize/:page/:sort/:search/",

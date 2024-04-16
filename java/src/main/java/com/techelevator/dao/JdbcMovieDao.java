@@ -408,41 +408,74 @@ public class JdbcMovieDao implements MovieDao  {
             double randomReviewSeed = Math.random();
             
             if(randomScore == 1){
-                if(randomReviewSeed < .25){
+                if(randomReviewSeed < .10){
                     randomReview = "Utterly disappointing. Save your time and money.";
-
-
-                }else if(randomReviewSeed < .75){
+                }else if(randomReviewSeed < .20){
                     randomReview = "A complete waste of potential. Avoid at all costs.";
+                }else if(randomReviewSeed < .30){
+                    randomReview = "I could not even finish this movie it was so terrible. If I had tried I would have fallen asleep.";
+                }else if(randomReviewSeed < .40){
+                    randomReview = "Is this even a movie? I'd rather watch a turtle travel 20 miles!";
+                }else if(randomReviewSeed < .50){
+                    randomReview = "Arrest the director! This movie is an assault on the senses!";
+                }else if(randomReviewSeed < .60){
+                    randomReview = "This director's vision is clearly incomprehensible to typical mortals like myself. Horrible.";
                 }
             } else if (randomScore == 2) {
-                if(randomReviewSeed < .25){
+                if(randomReviewSeed < .10){
                     randomReview = "Had moments, but overall fell flat.";
-
-
-                }else if(randomReviewSeed < .75){
+                }else if(randomReviewSeed < .20){
                     randomReview = "Lacked depth, left me wanting more substance.";
+                }else if(randomReviewSeed < .30){
+                    randomReview = "This movie was so confusing to watch. The overall plot must have been written by people who don't understand basic story telling.";
+                }else if(randomReviewSeed < .40){
+                    randomReview = "This movie was like banging my head up against a brick wall repeatedly then doing it again and again...... and again some more.";
+                } else if(randomReviewSeed < .50){
+                    randomReview = "I can't believe the actors got away with this. What was this even. And the direction? Please hire some writers at least next time.";
                 }
                 
             }else if (randomScore == 3) {
-                if(randomReviewSeed < .25){
+                if(randomReviewSeed < .10){
                     randomReview = "Decent enough, but forgettable.";
-                }else if(randomReviewSeed < .75){
+                }else if(randomReviewSeed < .20){
                     randomReview = "Average entertainment, nothing remarkable.";
+                }else if(randomReviewSeed < .30){
+                    randomReview = "This movie was ok. I wouldn't watch it again though unless I was stuck on an airplane with nothing else to do. " +
+                            "It fills time that you can never get back.";
+                }else if(randomReviewSeed < .40){
+                    randomReview = "The plot was amazing but the actors sucked.";
+                }else if(randomReviewSeed < .50){
+                    randomReview = "I really can't believe how mediocre the writing was. Not really too painful but easily forgettable.";
                 }
 
             }else if (randomScore == 4) {
-                if(randomReviewSeed < .25){
+                if(randomReviewSeed < .10){
                     randomReview = "Solid film, worth a watch.";
-                }else if(randomReviewSeed < .75){
+                }else if(randomReviewSeed < .20){
                     randomReview = "Engaging storyline, well-executed.";
+                }else if(randomReviewSeed < .30){
+                    randomReview = "This movie was really good. It told an interesting story and" +
+                            " was entertaining from start to finish. Would recommend to everyone.";
+                }else if(randomReviewSeed < .40){
+                    randomReview = "Everything was great but the CGI was worse than the moon landing but overall great movie!";
+                }else if(randomReviewSeed < .50){
+                    randomReview = "Really above average film. Only real problem was the poorly written Macguffin which was kind of stupid. Fun to watch though.";
                 }
 
             }else if (randomScore == 5) {
-                if(randomReviewSeed < .25){
+                if(randomReviewSeed < .10){
                     randomReview = "A masterpiece! Captivating from start to finish.";
-                }else if(randomReviewSeed < .75){
+                }else if(randomReviewSeed < .20){
                     randomReview = "Absolutely brilliant! A must-see for all.";
+                }else if(randomReviewSeed < .30){
+                    randomReview = "This movie was the best ever! If you haven't watched this movie I honestly" +
+                            " don't know what your are doing with your life! Watching this movie should be a requirement!";
+                }else if(randomReviewSeed < .40){
+                    randomReview = "The only thing I've seen more impressive than this movie is my buddy Mikes Knife collection!";
+                } else if (randomReviewSeed < .50) {
+                    randomReview = "so good that I left my wife and kids. This movie has filled their void and I'm happy about it damnit!";
+                } else if (randomReviewSeed < .60) {
+                    randomReview = "";
                 }
 
             }

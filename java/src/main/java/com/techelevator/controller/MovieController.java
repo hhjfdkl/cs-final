@@ -25,6 +25,7 @@ public class MovieController {
         this.userDao =  userDao;
 
         movieDao.fullMovieUpdateRatings();
+        movieDao.assignMovieGenres();
     }
 
     @GetMapping("/movies/{moviePerPage}/{page}/{sortBy}")

@@ -543,18 +543,58 @@ public class JdbcMovieDao implements MovieDao  {
                 //this is the important stuff
                 updateAvgRating(movie.getId());
             }
-
-
         }
-
-
-
-
-
     }
 
 
+    @Override
+    public void assignMovieGenres()
+    {
+        List<Movie> movies = new ArrayList<>();
 
+        String sql = "SELECT MAX(movie_id) AS total FROM movies;";
+        SqlRowSet total = jdbcTemplate.queryForRowSet(sql);
+        int max = 0;
+        if(total.next())
+            max = total.getInt("total");
+        sql =   "SELECT genres " +
+                "FROM movies " +
+                "WHERE movie_id = ? ;";
+
+        String sqlGetGenreId =
+                "SELECT genre_id " +
+                "FROM genres " +
+                "WHERE genre_name ILIKE ?;";
+
+        String sqlInsertMovieGenre =
+                "INSERT INTO movie_to_genre (movie_id, genre_id)" +
+                "VALUES (?, ?);";
+
+        for (int movieId = 1; movieId <= max; movieId++)
+        {
+            SqlRowSet join = jdbcTemplate.queryForRowSet(sql, movieId);
+            String result = "";
+            if(join.next())
+                result = join.getString("genres");
+            String[] results = result.split(", ");
+            for (String r : results)
+            {
+                int genreId = 0;
+                SqlRowSet n = jdbcTemplate.queryForRowSet(sqlGetGenreId, r);
+                if(n.next())
+                    genreId = n.getInt("genre_id");
+                try {
+                    jdbcTemplate.update(sqlInsertMovieGenre, movieId, genreId);
+                }catch (CannotGetJdbcConnectionException e) {
+                        //
+                    } catch (DataIntegrityViolationException e) {
+                        //
+                    } finally {
+
+                }
+            }
+        }
+    }
 
 
 

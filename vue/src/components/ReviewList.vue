@@ -4,7 +4,7 @@
 
             <div id="username">{{ review.username }}</div>
             <div id="movie_title">{{ review.movie_title }}</div>
-            <StarReviews :rating="review.rating" />
+            <StarReviews :rating="review.rating" id="rating" />
             <div id="review-text">{{ review.review }}</div>
 
 
@@ -56,7 +56,7 @@ export default {
     border: .001rem solid #890304;
     width: auto;
     padding: 5px;
-    margin-right: 10px;
+    margin-right: 25px;
     margin-bottom: 25px;
     margin-top: 25px;
     box-shadow: 0 2px 4px #7B3911;

@@ -1,6 +1,6 @@
 <template>
     <div class="section-title">
-        Reviews
+        My Reviews
     </div>
     <div>
         <ReviewList />

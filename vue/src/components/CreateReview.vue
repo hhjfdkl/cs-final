@@ -62,11 +62,12 @@ export default {
 
 #rating {
     width: 30px;
+    height: 15px;
 }
 
 #create-review>button {
     width: 100px;
-    height: 20px;
+    height: 25px;
     background-color: #890304;
     color: #fff0cb;
     border: 1px solid #890304;

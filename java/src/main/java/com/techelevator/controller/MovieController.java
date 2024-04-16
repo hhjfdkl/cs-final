@@ -23,6 +23,8 @@ public class MovieController {
     public MovieController(MovieDao movieDao, UserDao userDao) {
         this.movieDao = movieDao;
         this.userDao =  userDao;
+
+        movieDao.fullMovieUpdateRatings();
     }
 
     @GetMapping("/movies/{moviePerPage}/{page}/{sortBy}")

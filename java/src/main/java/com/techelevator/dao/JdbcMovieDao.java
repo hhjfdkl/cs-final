@@ -41,6 +41,8 @@ public class JdbcMovieDao implements MovieDao  {
             throw new DaoException("Unable to connect to server or database", e);
         }catch (DataIntegrityViolationException e){
             throw new DaoException("Illegal arguments", e);
+        }catch (NullPointerException e){
+            //skip empty reviews
         }
 
         return results;
@@ -383,6 +385,46 @@ public class JdbcMovieDao implements MovieDao  {
                 rs.getDouble("avgRating"));
 
         return movie;
+    }
+
+    //this method is for fixing the way the data base is set up this wouldn't be used in a real situation
+    @Override
+    public void fullMovieUpdateRatings(){
+
+       List<Movie> movies = getGroupOfMovies(500, 1, "movie_id", 2);
+
+
+       //extra stuff
+
+
+        for(Movie movie : movies){
+            int randomUser = (int) ((Math.random() *10 ) + 1);
+            int randomScore = (int) ((Math.random() *5 ) + 1);
+            String randomReview = "this was a movie!";
+
+            String sql = "INSERT INTO reviews(\n" +
+                    "\taccount_id, rating, review, movie_id)\n" +
+                    "\tVALUES (?, ?, ?, ?);";
+
+
+            try {
+                int out = jdbcTemplate.update(sql, randomUser, randomScore , randomReview , movie.getId());
+            }catch (CannotGetJdbcConnectionException e) {
+               //
+            } catch (DataIntegrityViolationException e) {
+             //
+            }finally {
+                //this is the important stuff
+                updateAvgRating(movie.getId());
+            }
+
+
+        }
+
+
+
+
+
     }
 
 

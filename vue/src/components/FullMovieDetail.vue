@@ -89,9 +89,9 @@ export default {
     created: function () {
         this.updateFav();
     },
-    watch: {
+    /*watch: {
         '$route': 'updateFav'
-    },
+    },*/
 
 
 }

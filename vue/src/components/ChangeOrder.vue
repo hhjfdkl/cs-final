@@ -32,7 +32,7 @@ export default {
             }
 
             if (this.selectedDirection == "") {
-                this.selectedDirection = "asc";
+                this.selectedDirection = "true";
             }
             this.$router.push({
                 name: this.$route.name,

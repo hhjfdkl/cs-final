@@ -86,9 +86,9 @@ export default {
 
 
 
-  watch: {
+  /*watch: {
     '$route': 'updateFav'
-  },
+  },*/
 
 
 }

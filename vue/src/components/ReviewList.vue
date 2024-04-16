@@ -5,6 +5,7 @@
             <div>{{ review.username }}</div>
             <div>{{ review.rating }}</div>
             <div>{{ review.review }}</div>
+            <div>{{ review.movie_title }}</div>
 
             <router-link v-bind:to="{ name: 'fullMovieDetails', params: { movieId: review.movie_id } }"
                 v-if="movieId == null"> link </router-link>

@@ -142,6 +142,7 @@ export default {
     font-size: 1.2rem;
 }
 
+
 .fav-button {
     background-color: #890304;
     color: #fff0cb;

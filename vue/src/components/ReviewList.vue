@@ -3,7 +3,7 @@
         <div v-for="review in reviews" v-bind:key="review.account_id">
             <div> </div>
             <div>{{ review.username }}</div>
-            <div>{{ review.rating }}</div>
+            <StarReviews :rating="review.rating" />
             <div>{{ review.review }}</div>
 
             <router-link v-bind:to="{ name: 'fullMovieDetails', params: { movieId: review.movie_id } }"
@@ -15,19 +15,19 @@
 <script>
 import AccountService from '../services/AccountService';
 import MovieService from '../services/MovieService';
+import StarReviews from './StarReviews.vue';
+
 export default {
     data() {
         return {
             reviews: []
         }
     },
-
+    components: {
+        StarReviews
+    },
     props: {
-
-
-
         movieId: Number
-
     },
 
     created() {
@@ -46,6 +46,7 @@ export default {
     },
 
 }
+
 </script>
 
 <style scoped></style>

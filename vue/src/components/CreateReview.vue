@@ -39,4 +39,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#rating {
+    margin-right: 5px;
+
+}
+</style>

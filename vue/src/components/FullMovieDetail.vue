@@ -15,11 +15,11 @@
                 <h1 class="movie-title">{{ movie.titleText }}</h1>
             </header>
             <div class="release-genres">
-                <div>{{ movie.releaseDate.substr(0, 4) }}</div>
-                <div>{{ movie.genres }}</div>
-                <div>{{ movie.runtime }}</div>
-                <div>{{ movie.meterRanking }}</div>
-                <div>{{ movie.avgRating }}</div>
+                <div class="release-date">{{ movie.releaseDate.substr(0, 4) }}</div>
+                <div class="genres">{{ movie.genres }}</div>
+                <div class="runtime">{{ movie.runtime }}</div>
+                <div class="meter-ranking">{{ movie.meterRanking }}</div>
+                <div class="avg-rating">{{ movie.avgRating }}</div>
             </div>
             <div class="section-title">Plot Summary</div>
             <div class="description">
@@ -129,6 +129,27 @@ export default {
     color: #002263;
     font-size: 20px;
 
+}
+
+.release-date {
+    margin-bottom: 10px;
+
+}
+
+.genres {
+    margin-bottom: 10px;
+}
+
+.runtime {
+    margin-bottom: 10px;
+}
+
+.meter-ranking {
+    margin-bottom: 10px;
+}
+
+.avg-rating {
+    margin-bottom: 10px;
 }
 
 .description {

@@ -113,6 +113,7 @@ div .movie {
   width: 25%;
   padding: 5px;
   margin-right: 10px;
+  margin-left: 10px;
   margin-bottom: 25px;
   margin-top: 25px;
   box-shadow: 0 2px 4px #7B3911;

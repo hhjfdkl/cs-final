@@ -15,7 +15,7 @@
         <div>{{ movie.genres }}</div>
       </div>
       <div class="description">
-        {{ movie.plot }}
+        {{ shortenPlot(movie.plot) }}
       </div>
 
       {{ movie.avgRating }}
@@ -67,6 +67,11 @@ export default {
       MovieService.isFav(this.movie.id).then((response) => {
         this.isFav = response.data;
       });
+    },
+    shortenPlot: function (plot) {
+      if (plot.length > 100) {
+        return plot.substr(0, 100) + '...';
+      }
     }
   },
   created: function () {

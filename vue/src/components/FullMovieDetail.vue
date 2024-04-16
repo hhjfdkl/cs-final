@@ -19,11 +19,13 @@
                 <div class="genres">{{ movie.genres }}</div>
                 <div class="runtime">{{ movie.runtime }}</div>
                 <div class="meter-ranking">{{ movie.meterRanking }}</div>
-                <div class="avg-rating">{{ movie.avgRating }}</div>
+                <div class="avg-rating">{{ movie.avgRating.toFixed(1) }}</div>
             </div>
             <div class="section-title">Plot Summary</div>
             <div class="description">
                 {{ movie.plot }}
+
+
             </div>
 
         </div>

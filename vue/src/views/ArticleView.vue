@@ -6,6 +6,7 @@
             class="article-img">
         <img v-if="this.$route.params.articleId == 3" src="@\assets\Fake Articles\Commando.png" alt="Commando Img"
             class="article-img">
+
         <p id="article-title">{{ article.title }}</p>
         <h1 id="article-author">{{ article.author }}</h1>
         <!-- <p id="article-body">{{ article.body }}</p> -->

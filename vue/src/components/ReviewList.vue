@@ -87,5 +87,6 @@ export default {
     font-family: 'League Spartan';
     color: #002263;
     margin-bottom: 5px;
+    font-style: italic;
 }
 </style>

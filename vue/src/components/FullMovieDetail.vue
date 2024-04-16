@@ -189,6 +189,7 @@ export default {
     font-size: 2rem;
     margin-left: 0px;
     margin-top: 5px;
+    margin-bottom: 15px;
 }
 </style>
   

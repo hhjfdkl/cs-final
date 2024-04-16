@@ -393,9 +393,36 @@ public class JdbcMovieDao implements MovieDao  {
 
        List<Movie> movies = getGroupOfMovies(500, 1, "movie_id", 2);
 
-       for( Movie movie : movies){
-           updateAvgRating(movie.getId());
-       }
+
+       //extra stuff
+
+
+        for(Movie movie : movies){
+            int randomUser = (int) ((Math.random() *10 ) + 1);
+            int randomScore = (int) ((Math.random() *5 ) + 1);
+            String randomReview = "this was a movie!";
+
+            String sql = "INSERT INTO reviews(\n" +
+                    "\taccount_id, rating, review, movie_id)\n" +
+                    "\tVALUES (?, ?, ?, ?);";
+
+
+            try {
+                int out = jdbcTemplate.update(sql, randomUser, randomScore , randomReview , movie.getId());
+            }catch (CannotGetJdbcConnectionException e) {
+               //
+            } catch (DataIntegrityViolationException e) {
+             //
+            }finally {
+                //this is the important stuff
+                updateAvgRating(movie.getId());
+            }
+
+
+        }
+
+
+
 
 
     }

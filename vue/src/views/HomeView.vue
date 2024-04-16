@@ -1,12 +1,8 @@
 <template>
-  <H2>
-    Movies
-  </H2>
-  <!-- <form @submit.prevent="searchMovies" class="search-change">
-
-    <input class="mpp" type="number" v-model="usersPerPage" placeholder="Movies per page" />
+  <form @submit.prevent="searchMovies" class="search-change">
+    <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
     <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
-  </form> -->
+  </form>
   <div id="fav-upper">
     <ChangeOrder />
   </div>
@@ -23,20 +19,19 @@
   </div>
 </template>
 
-<script>
+<script >
 import MovieDetails from "../components/MovieDetails.vue";
 
 import MovieService from "../services/MovieService";
-import ChangeOrder from "../components/ChangeOrder.vue";
+
+
+
 
 export default {
   data() {
     return {
       movies: [],
-      usersPerPage: "",
-      selectedOrder: "",
-      selectedDirection: ""
-
+      usersPerPage: ""
     };
   }
 
@@ -53,12 +48,10 @@ export default {
   },
   components: {
     MovieDetails,
-    ChangeOrder
   },
 
   methods: {
     nextPage() {
-
       if (Number(this.$route.params.pageSize) > this.movies.length) return; //this doesn't work if the page was full
       this.$router.push({
         name: "movies",
@@ -66,33 +59,16 @@ export default {
           pageSize: this.$route.params.pageSize,
           page: Number(this.$route.params.page) + 1,
           sort: this.$route.params.sort
-        }, query: { asc: new URLSearchParams(window.location.search).get('asc') }
+        }
       });
 
       this.updateMovies();
     },
     updateMovies() {
-      let urlParams = new URLSearchParams(window.location.search);
-
-      let title = urlParams.get('title');
-
-
-      let ascOrDesc = urlParams.get('asc');
-      if (ascOrDesc == undefined) {
-        ascOrDesc = true;
-      }
-
-
-      if (title == null) {
-        MovieService.getMoviePageOrdered(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, ascOrDesc).then((response) => {
-          this.movies = response.data;
-        });
-      } else {
-        MovieService.filterMoviesByTitle(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, title).then((response) => {
-          this.movies = response.data;
-        });
-      }
-
+      console.log("updating")
+      MovieService.getMoviePage(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort).then((response) => {
+        this.movies = response.data;
+      });
     },
     previousPage() {
       if (Number(this.$route.params.page) <= 1) return;
@@ -102,10 +78,8 @@ export default {
           pageSize: this.$route.params.pageSize,
           page: Number(this.$route.params.page) - 1,
           sort: this.$route.params.sort
-        }, query: { asc: new URLSearchParams(window.location.search).get('asc') }
-
+        }
       });
-
     }
 
     ,
@@ -116,13 +90,9 @@ export default {
           pageSize: this.usersPerPage,
           page: 1,
           sort: this.$route.params.sort
-        },
-
+        }
       });
-    },
-
-
-
+    }
 
   }
 
@@ -167,33 +137,17 @@ h2 {
   text-decoration-thickness: 2px
 }
 
-#fav-bottom {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
-}
-
 .prev-next {
   background-color: #fff0cb;
   color: #890304;
   border: 1px solid #890304;
   margin-top: 10px;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-  font-family: 'league spartan';
+
 }
 
 #prev {
-  margin-left: 5%;
+  margin-left: 15%;
   margin-right: 1%;
-}
-
-#next {
-  margin-right: 5%;
-  margin-left: 1%;
 }
 
 .prev-next:hover {
@@ -219,15 +173,4 @@ h2 {
   margin-left: 15%;
 
 }
-
-
-.mpp {
-  width: 100px;
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: none;
-  box-shadow: 0 2px 4px #7B3911;
-  margin-right: 1rem;
-}
 </style>
-

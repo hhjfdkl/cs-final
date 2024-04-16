@@ -7,14 +7,17 @@ public class Review
     private final String review;
     private final int movie_id;
     private final  String username;
+    private final String movie_title;
 
-    public Review(int account_id, int rating, String review, int movie_id, String userName)
+
+    public Review(int account_id, int rating, String review, int movie_id, String userName, String movieTitle)
     {
         this.account_id = account_id;
         this.rating = rating;
         this.review = review;
         this.movie_id = movie_id;
         this.username = userName;
+        movie_title = movieTitle;
     }
 
 
@@ -47,6 +50,10 @@ public class Review
     }
     //add this tostring for testing -luke
 
+
+    public String getMovie_title() {
+        return movie_title;
+    }
 
     @Override
     public String toString() {

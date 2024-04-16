@@ -163,6 +163,7 @@ public class JdbcReviewDao implements ReviewDao {
     private Review mapRowToReview(SqlRowSet rs) {
 
         int accountId  =rs.getInt("account_id");
+        int movieId = rs.getInt("movie_id");
 
 
 
@@ -171,7 +172,7 @@ public class JdbcReviewDao implements ReviewDao {
                 ,
                 rs.getInt("rating"),
                 rs.getString("review"),
-                rs.getInt("movie_id"),
-                userDao.getUserById(accountId).getUsername());
+                movieId,
+                userDao.getUserById(accountId).getUsername(), movieDao.getMovieById(movieId).getTitleText());
     }
 }

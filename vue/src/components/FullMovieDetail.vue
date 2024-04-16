@@ -156,7 +156,7 @@ export default {
     color: #002263;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 10px;
+    margin-left: 0px;
     font-size: 1.2rem;
 }
 
@@ -186,7 +186,7 @@ export default {
 .section-title {
     color: #7B3911;
     font-size: 2rem;
-    margin-left: 10px;
+    margin-left: 0px;
     margin-top: 5px;
 }
 </style>

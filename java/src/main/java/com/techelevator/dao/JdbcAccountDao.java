@@ -139,7 +139,7 @@ public class JdbcAccountDao implements AccountDao
                 reviews[i] = new Review(reviewSet.getInt("account_id"),
                         reviewSet.getInt("rating"),
                         reviewSet.getString("review"),
-                        reviewSet.getInt("movie_id"), this.username );
+                        reviewSet.getInt("movie_id"), this.username, "placeholder Text");
 
             }
         }

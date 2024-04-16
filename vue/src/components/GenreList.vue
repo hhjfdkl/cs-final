@@ -3,16 +3,18 @@
     <div class="main-block">
         <h3>Your Fav</h3>
         <div v-for="genre in favGenreArray" :key="genre.id" class="main-block">
-            {{ genre.name }}
+
 
             <button id="remove-button" @click="removeGenre(genre.id)">Remove</button>
+            {{ genre.name }}
         </div>
 
         <h3>Add to your Fav</h3>
         <div v-for="genre in unfavGenreArray" :key="genre.id" class="main-block">
-            {{ genre.name }}
+
 
             <button id="add-button" @click="addGenre(genre.id)">Add</button>
+            {{ genre.name }}
         </div>
     </div>
 </template> 

@@ -21,6 +21,7 @@ export default {
     display: flex;
     flex-direction: row;
     height: 1rem;
+    margin-bottom: 5px;
 }
 
 .rating-star {

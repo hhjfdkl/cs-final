@@ -7,9 +7,10 @@
     <div class="column">
       <header>
         <h1 class="movie-title">{{ movie.titleText }}</h1>
-
       </header>
-
+      <div class="avg-rating">
+        <img class=rating-star src="@\assets\Other Images\New Star.png" alt="star">
+      </div>
       <div class="release-genres">
         <div>{{ movie.releaseDate.substr(0, 4) }}</div>
         <div>{{ movie.genres }}</div>
@@ -166,6 +167,10 @@ div .movie {
   margin: 0 auto;
   font-family: 'league spartan';
   margin-top: 5px;
+}
+
+.rating-star {
+  height: 1.3rem
 }
 
 @media screen and (max-width: 600px) {

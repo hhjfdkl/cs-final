@@ -854,6 +854,32 @@ SET plot = 'A film about the troubled and controversial life of the master comed
 WHERE titletext = 'Chaplin';
 
 
+--Adding synopsis to movies (Thanks to Lord ChadGPT)
+UPDATE movies
+SET synopsis = 'In this gripping tale of resilience and hope, banker Andy Dufresne finds himself unjustly sentenced to life in Shawshank State Penitentiary for a crime he didn''t commit. Inside the harsh confines of the prison, Andy befriends fellow inmate Red and navigates a world of corruption and brutality while never losing sight of his dream of freedom. As Andy''s determination grows, he embarks on a daring plan to escape, defying all odds and leaving behind a legacy of redemption.'
+WHERE titletext = 'The Shawshank Redemption';
+UPDATE movies
+SET synopsis = 'Set in the world of organized crime, ''The Godfather'' follows the powerful Corleone family as they navigate the complex underworld of 1940s New York. When patriarch Don Vito Corleone is targeted in an assassination attempt, his youngest son, Michael, reluctantly steps into the family business, becoming embroiled in a web of violence, betrayal, and ambition. As Michael rises to power, he must confront his own morality and loyalty to protect his family''s legacy while establishing his own reign as the new Godfather.'
+WHERE titletext = 'The Godfather';
+UPDATE movies
+SET synopsis = 'In this exhilarating chapter of the Batman saga, the caped crusader faces his greatest challenge yet as he battles the chaos unleashed by the Joker, a psychotic criminal mastermind. With Gotham City plunged into darkness and despair, Batman teams up with District Attorney Harvey Dent and police commissioner James Gordon to thwart the Joker''s reign of terror. As the lines between hero and villain blur, Batman must confront his own inner demons and make the ultimate sacrifice to save the city he has sworn to protect.'
+WHERE titletext = 'The Dark Knight';
+UPDATE movies
+SET synopsis = ' In this tense courtroom drama, twelve jurors must deliberate the fate of a young man accused of murder, with a guilty verdict meaning the death penalty. As tempers flare and prejudices surface, one juror, played by Henry Fonda, challenges his fellow jurors to reexamine the evidence and consider the possibility of reasonable doubt. Through heated debate and intense scrutiny, the jurors confront their own biases and confrontations, ultimately striving for justice in the face of overwhelming pressure.'
+WHERE titletext = '12 Angry Men';
+UPDATE movies
+SET synopsis = 'Based on the true story of Oskar Schindler, a German businessman who saved over a thousand Jewish refugees during the Holocaust, ''Schindler''s List'' is a harrowing portrayal of one man''s heroic efforts to defy the atrocities of Nazi Germany. As Schindler risks everything to protect his workers from the horrors of concentration camps, he grapples with his own complicity and embarks on a journey of redemption and salvation amidst the darkest chapter in human history.'
+WHERE titletext = 'Schindler''s List';
+UPDATE movies
+SET synopsis = 'In the epic conclusion to the ''Lord of the Rings'' trilogy, Frodo and Sam continue their perilous journey to Mount Doom to destroy the One Ring and thwart the dark lord Sauron''s reign of terror over Middle-earth. Meanwhile, Aragorn leads the forces of men in a final, desperate stand against Sauron''s armies in the climactic Battle of Pelennor Fields. As the fate of Middle-earth hangs in the balance, friendships are tested, sacrifices are made, and heroes rise to fulfill their destinies in this breathtaking tale of courage, fellowship, and the enduring power of hope.'
+WHERE titletext = 'The Lord of the Rings: The Return of the King';
+UPDATE movies
+SET synopsis = 'The heartwarming tale of a simple-minded but kind-hearted man who inadvertently becomes an integral part of some of the most defining moments in American history. From his childhood in Alabama to his experiences in the Vietnam War and beyond, Forrest''s journey is marked by love, loss, and unexpected triumphs. With his unwavering optimism and unyielding spirit, Forrest proves that sometimes, the most extraordinary adventures come from the simplest of lives.'
+WHERE titletext = 'Forrest Gump';
+UPDATE movies
+SET synopsis = 'In this provocative exploration of masculinity and existentialism, an unnamed narrator disillusioned with consumerism and modern society forms an underground fight club with the charismatic Tyler Durden, who embodies everything he desires to be. As the fight club evolves into a nihilistic movement, the narrator becomes increasingly entangled in Tyler''s anarchist ideology, leading to a shocking revelation that blurs the lines between reality and madness. In a world where nothing is as it seems, the narrator must confront his own identity and the consequences of his actions in a visceral and mind-bending journey of self-discovery.'
+WHERE titletext = 'Fight Club';
+
 
 --more test data
 INSERT INTO genres (genre_name) VALUES

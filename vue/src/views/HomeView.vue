@@ -2,19 +2,7 @@
   <form @submit.prevent="searchMovies" class="search-change">
     <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
     <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
-<<<<<<< HEAD
   </form>
-
-
-
-  <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
-  <SlideShow />
-
-
-  <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
-  <button class="prev-next" @click="nextPage">Next Page</button>
-=======
-  </form> -->
   <div id="fav-upper">
     <ChangeOrder />
   </div>
@@ -29,7 +17,6 @@
     <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
     <button class="prev-next" id="next" @click="nextPage">Next Page</button>
   </div>
->>>>>>> a26f07190a97bd7f272ae25d79d878375e06aa32
 </template>
 
 <script >
@@ -113,9 +100,6 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
-<style>
-=======
 <style scoped>
 h2 {
   color: #7B3911;
@@ -144,7 +128,6 @@ h2 {
 }
 
 
->>>>>>> a26f07190a97bd7f272ae25d79d878375e06aa32
 .home {
   color: #890304;
 }

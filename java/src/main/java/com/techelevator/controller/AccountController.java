@@ -6,9 +6,11 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Account;
 import com.techelevator.model.User;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 
@@ -33,9 +35,9 @@ public class AccountController {
         try {
             return accountDao.getAccountById(user.getId());
         } catch (DaoException e){
-            //do something
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR , "accounts not found");
         }
-        return null;
+
 
     }
 }

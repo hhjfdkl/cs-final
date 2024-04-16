@@ -32,6 +32,7 @@ public class JdbcGenreDao implements GenreDao{
             while (results.next()) {
                 Genre genre = mapRowToGenre(results);
                 genres.add(genre);
+
             }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);

@@ -35,25 +35,38 @@ try{
     }
         catch (
     DaoException e) {
-        throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "retrieving movies failed failed.");
+        throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "retrieving reviews  failed.");
     }
+    }
+
+    @GetMapping( "/reviews")
+    public List<Review> getReviewsByUser(Principal principal){
+        User user = userDao.getUserByUsername(principal.getName());
+
+        try{
+            return reviewDao.getReviewsByAccountId(user.getId());
+        }
+        catch (
+                DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "retrieving reviews  failed.");
+        }
     }
 
     @PostMapping("/reviews")
     public boolean createReview(@RequestBody ReviewDto reviewDto, Principal principal){
-        System.out.println(reviewDto.getMovie_id());
-        System.out.println(reviewDto.getRating());
-        System.out.println(reviewDto.getReview());
+
         User user = userDao.getUserByUsername(principal.getName());
 
         try{
             return reviewDao.createReview(user.getId(), reviewDto.getRating(), reviewDto.getReview(), reviewDto.getMovie_id());
         }
-        catch (
-                DaoException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "retrieving movies failed failed.");
+        catch (DaoException
+                 e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "user likely already created a review for this movie");
         }
 
-//        return false;
+
     }
+
+
 }

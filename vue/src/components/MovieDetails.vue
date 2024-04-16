@@ -7,26 +7,29 @@
     <div class="column">
       <header>
         <h1 class="movie-title">{{ movie.titleText }}</h1>
-
       </header>
+      <div class="non-title-info">
+        <div class="avg-rating">
+          <img class=rating-star src="@\assets\Other Images\New Star.png" alt="star">
+          {{ movie.avgRating.toFixed(1) }}
+        </div>
+        <div class="release-genres">
+          <div>{{ movie.releaseDate.substr(0, 4) }}</div>
+          <div>{{ movie.genres }}</div>
+        </div>
+        <div class="description">
+          {{ movie.plot }}
+        </div>
 
-      <div class="release-genres">
-        <div>{{ movie.releaseDate.substr(0, 4) }}</div>
-        <div>{{ movie.genres }}</div>
+        <button v-show="!isFav" class="fav-button" @click="addFav">
+
+          Favorite
+        </button>
+        <button v-show="isFav" class="fav-button" @click="removeFav">
+
+          Unfavorite
+        </button>
       </div>
-      <div class="description">
-        {{ movie.plot }}
-      </div>
-
-      <button v-show="!isFav" class="fav-button" @click="addFav">
-
-        Favorite
-      </button>
-      <button v-show="isFav" class="fav-button" @click="removeFav">
-
-        Unfavorite
-      </button>
-
     </div>
   </div>
 </template> 
@@ -64,14 +67,28 @@ export default {
       MovieService.isFav(this.movie.id).then((response) => {
         this.isFav = response.data;
       });
+    },
+    shortenPlot: function (plot) {
+      if (plot.length > 100) {
+        return plot.substr(0, 100) + '...';
+      }
     }
   },
   created: function () {
     this.updateFav();
   },
-  watch: {
-    '$route': 'updateFav'
+  updated: function () {
+    console.log("updated");
+    this.updateFav();
   },
+
+
+
+
+
+  /*watch: {
+    '$route': 'updateFav'
+  },*/
 
 
 }
@@ -83,6 +100,7 @@ export default {
   max-width: 75%;
   max-height: 75%;
   margin: 5px;
+  border-radius: .5rem;
 }
 
 
@@ -95,13 +113,13 @@ div .movie {
   width: 25%;
   padding: 5px;
   margin-right: 10px;
+  margin-left: 10px;
   margin-bottom: 25px;
   margin-top: 25px;
   box-shadow: 0 2px 4px #7B3911;
   background-color: #e8e5c3;
-
-
   /* margin-left: 5%; */
+  border-radius: .5rem;
 }
 
 .column {
@@ -137,7 +155,6 @@ div .movie {
 }
 
 .fav-button {
-
   background-color: #890304;
   color: #f8f2bf;
   border: none;
@@ -160,6 +177,22 @@ div .movie {
   margin-top: 5px;
 }
 
+.rating-star {
+  height: 1.3rem;
+}
+
+.avg-rating {
+  color: #7B3911;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.non-title-info {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+
+}
 
 @media screen and (max-width: 600px) {
   .main-block {

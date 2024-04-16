@@ -8,9 +8,9 @@ public class Account
 {
     private  final int account_id;
     private  final String username;
-    private  int[] favMovieIds;
-    private  int[] favGenreIds;
-    private  Review[] reviews;
+    private  int[] favMovieIds = new int[]{};
+    private  int[] favGenreIds = new int[] {};
+    private  Review[] reviews = new Review[]{};
 
 
 //    public Account(){}

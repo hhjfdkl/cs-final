@@ -15,16 +15,20 @@ import java.util.List;
 public class JdbcReviewDao implements ReviewDao {
 
     private JdbcTemplate jdbcTemplate;
+    private UserDao userDao;
+    private MovieDao movieDao;
 
-    public JdbcReviewDao(JdbcTemplate jdbcTemplate) {
+    public JdbcReviewDao(JdbcTemplate jdbcTemplate, UserDao userDao , MovieDao movieDao) {
         this.jdbcTemplate = jdbcTemplate;
+        this.userDao =userDao;
+        this.movieDao = movieDao;
     }
 
 
     @Override
     public List<Review> getReviewsByAccountId(int acctId) //shows on user profile
     {
-        List<Review> reviews = null;
+        List<Review> reviews = new ArrayList<>();
         String sql =
                 "SELECT r.account_id, r.rating, r.review, r.movie_id\n" +
                         "FROM reviews AS r\n" +
@@ -134,14 +138,17 @@ public class JdbcReviewDao implements ReviewDao {
     }
 
     @Override
-    public boolean createReview(int account_id , int rating, String reviewText, int movie_id){
+    public boolean createReview(int account_id, int rating, String reviewText, int movie_id){
 
         String sql = "INSERT INTO reviews(\n" +
                 "\taccount_id, rating, review, movie_id)\n" +
                 "\tVALUES (?, ?, ?, ?);";
+
+
         try {
             int out = jdbcTemplate.update(sql, account_id, rating , reviewText ,movie_id);
             if(out == 1){
+                movieDao.updateAvgRating(movie_id);
                 return true;
             }
         }catch (CannotGetJdbcConnectionException e) {
@@ -154,11 +161,18 @@ public class JdbcReviewDao implements ReviewDao {
 
 
     private Review mapRowToReview(SqlRowSet rs) {
+
+        int accountId  =rs.getInt("account_id");
+        int movieId = rs.getInt("movie_id");
+
+
+
         return new Review(
-                rs.getInt("account_id"),
+                accountId
+                ,
                 rs.getInt("rating"),
                 rs.getString("review"),
-                rs.getInt("movie_id")
-        );
+                movieId,
+                userDao.getUserById(accountId).getUsername(), movieDao.getMovieById(movieId).getTitleText());
     }
 }

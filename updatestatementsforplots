@@ -1,0 +1,453 @@
+UPDATE movies
+SET plot = 'The adventures of Gustave H, a legendary concierge at a famous European hotel between the wars, and Zero Moustafa, the lobby boy who becomes his most trusted friend. The story involves the theft and recovery of a priceless Renaissance painting and the battle for an enormous family fortune – all against the backdrop of a suddenly and dramatically changing Continent.'
+WHERE titletext = 'The Grand Budapest Hotel';
+
+UPDATE movies
+SET plot = 'Two co-dependent high school seniors are forced to deal with separation anxiety after their plan to stage a booze-soaked party goes awry.'
+WHERE titletext = 'Superbad';
+
+UPDATE movies
+SET plot = 'King Arthur and his Knights of the Round Table embark on a surreal, low-budget search for the Holy Grail, encountering many, very silly obstacles.'
+WHERE titletext = 'Monty Python and the Holy Grail';
+
+UPDATE movies
+SET plot = 'A man afraid to fly must ensure that a plane lands safely after the pilots become sick.'
+WHERE titletext = 'Airplane!';
+
+UPDATE movies
+SET plot = 'Jeff "The Dude" Lebowski, mistaken for a millionaire of the same name, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.'
+WHERE titletext = 'The Big Lebowski';
+
+UPDATE movies
+SET plot = 'Ron Burgundy is San Diego''s top-rated newsman in the male-dominated broadcasting of the 1970s, but that''s all about to change for Ron and his cronies when an ambitious woman is hired as a new anchor.'
+WHERE titletext = 'Anchorman: The Legend of Ron Burgundy';
+
+
+UPDATE movies
+SET plot = 'The cross-country adventures of two good-hearted but incredibly stupid friends.'
+WHERE titletext = 'Dumb and Dumber';
+
+UPDATE movies
+SET plot = 'Competition between the maid of honor and a bridesmaid, over who is the bride''s best friend, threatens to upend the life of an out-of-work pastry chef.'
+WHERE titletext = 'Bridesmaids';
+
+UPDATE movies
+SET plot = 'A listless and alienated teenager decides to help his new friend win the class presidency in their small western high school, while he must deal with his bizarre family life back home.'
+WHERE titletext = 'Napoleon Dynamite';
+
+UPDATE movies
+SET plot = 'A man''s uneventful life is disrupted by the zombie apocalypse.'
+WHERE titletext = 'Shaun of the Dead';
+
+UPDATE movies
+SET plot = 'A high school wise guy is determined to have a day off from school, despite what the Principal thinks of that.'
+WHERE titletext = 'Ferris Bueller''s Day Off';
+
+UPDATE movies
+SET plot = 'While home sick in bed, a young boy''s grandfather reads him the story of a farmboy-turned-pirate who encounters numerous obstacles, enemies, and allies in his quest to be reunited with his true love.'
+WHERE titletext = 'The Princess Bride';
+
+UPDATE movies
+SET plot = 'A weatherman finds himself inexplicably living the same day over and over again.'
+WHERE titletext = 'Groundhog Day';
+
+
+
+UPDATE movies
+SET plot = 'A struggling musician poses as a substitute teacher at a prestigious prep school, where he teaches his students about rock music.'
+WHERE titletext = 'School of Rock';
+
+UPDATE movies
+SET plot = 'A down-on-his-luck Broadway producer and his accountant come up with a scheme to produce the worst musical ever in order to make money.'
+WHERE titletext = 'The Producers';
+
+UPDATE movies
+SET plot = 'A dysfunctional family takes a cross-country trip in their VW bus so their daughter can compete in a beauty pageant.'
+WHERE titletext = 'Little Miss Sunshine';
+
+UPDATE movies
+SET plot = 'A top London cop is reassigned to a small town, where he discovers a dark secret amidst a series of mysterious accidents.'
+WHERE titletext = 'Hot Fuzz';
+
+UPDATE movies
+SET plot = 'A man''s childhood teddy bear, who came to life as a result of a wish, complicates his adult life and relationship with his girlfriend.'
+WHERE titletext = 'Ted';
+
+UPDATE movies
+SET plot = 'A mockumentary about a fictional British rock band on tour.'
+WHERE titletext = 'This Is Spinal Tap';
+
+UPDATE movies
+SET plot = 'In a post-apocalyptic world overrun by zombies, a group of survivors forms an unlikely alliance to travel across the country.'
+WHERE titletext = 'Zombieland';
+
+UPDATE movies
+SET plot = 'A bumbling police detective must stop an assassination attempt on Queen Elizabeth II.'
+WHERE titletext = 'The Naked Gun: From the Files of Police Squad!';
+
+UPDATE movies
+SET plot = 'A wealthy investor and a street hustler find their lives reversed due to a bet between two wealthy brothers.'
+WHERE titletext = 'Trading Places';
+
+UPDATE movies
+SET plot = 'A middle-aged man, who has never had sex, embarks on a journey to lose his virginity with the help of his friends.'
+WHERE titletext = 'The 40-Year-Old Virgin';
+
+UPDATE movies
+SET plot = 'A parody of science fiction films, following the adventures of a rogue star pilot and his companions as they attempt to save a Princess.'
+WHERE titletext = 'Spaceballs';
+
+UPDATE movies
+SET plot = 'An African prince travels to Queens, New York City, to find a wife whom he can respect for her intelligence and will.'
+WHERE titletext = 'Coming to America';
+
+UPDATE movies
+SET plot = 'An exclusive golf course has to deal with a brash new member and a destructive dancing gopher.'
+WHERE titletext = 'Caddyshack';
+
+UPDATE movies
+SET plot = 'Three company workers who hate their jobs decide to rebel against their greedy boss.'
+WHERE titletext = 'Office Space';
+
+UPDATE movies
+SET plot = 'Two slacker friends try to promote their public-access cable show.'
+WHERE titletext = 'Wayne''s World';
+
+UPDATE movies
+SET plot = 'A blade runner must pursue and terminate four replicants who stole a ship in space, and have returned to Earth to find their creator.'
+WHERE titletext = 'Blade Runner';
+
+UPDATE movies
+SET plot = 'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy from the Empire''s world-destroying Death Star.'
+WHERE titletext = 'Star Wars: Episode IV - A New Hope';
+
+UPDATE movies
+SET plot = 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity''s survival.'
+WHERE titletext = 'Interstellar';
+
+
+
+UPDATE movies
+SET plot = 'The crew of a commercial spacecraft encounter a deadly extraterrestrial being.'
+WHERE titletext = 'Alien';
+
+UPDATE movies
+SET plot = 'A cyborg assassin is sent back in time to kill the mother of the future leader of the resistance, while a soldier from that war is sent to protect her.'
+WHERE titletext = 'The Terminator';
+
+UPDATE movies
+SET plot = 'During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.'
+WHERE titletext = 'Jurassic Park';
+
+UPDATE movies
+SET plot = 'In the colorful future, a cab driver unwittingly becomes the central figure in the search for a legendary cosmic weapon to keep Evil and Mr. Zorg at bay.'
+WHERE titletext = 'The Fifth Element';
+
+UPDATE movies
+SET plot = 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.'
+WHERE titletext = 'Avatar';
+
+UPDATE movies
+SET plot = 'An astronaut becomes stranded on Mars after his team assumes him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.'
+WHERE titletext = 'The Martian';
+
+UPDATE movies
+SET plot = 'Humanity finds a mysterious, obviously artificial object buried beneath the Lunar surface and, with the intelligent computer H.A.L. 9000, sets off on a quest.'
+WHERE titletext = '2001: A Space Odyssey';
+
+UPDATE movies
+SET plot = 'A troubled child summons the courage to help a friendly alien escape Earth and return to his home world.'
+WHERE titletext = 'E.T. the Extra-Terrestrial';
+
+UPDATE movies
+SET plot = 'A young man is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his friend, Dr. Emmett Brown.'
+WHERE titletext = 'Back to the Future';
+
+UPDATE movies
+SET plot = 'Earth''s mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.'
+WHERE titletext = 'The Avengers';
+
+UPDATE movies
+SET plot = 'Katniss Everdeen voluntarily takes her younger sister''s place in the Hunger Games: a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death.'
+WHERE titletext = 'The Hunger Games';
+
+UPDATE movies
+SET plot = 'The brash James T. Kirk tries to live up to his father''s legacy with Mr. Spock keeping him in check as a vengeful Romulan from the future creates black holes to destroy the Federation one planet at a time.'
+WHERE titletext = 'Star Trek';
+
+UPDATE movies
+SET plot = 'An extraterrestrial race forced to live in slum-like conditions on Earth suddenly find a kindred spirit in a government agent who is exposed to their biotechnology.'
+WHERE titletext = 'District 9';
+
+UPDATE movies
+SET plot = 'A small town in California is attacked by Martians, beginning a worldwide invasion.'
+WHERE titletext = 'The War of the Worlds';
+
+UPDATE movies
+SET plot = 'A mysterious alien spacecraft lands in Washington, D.C., and an alien emissary delivers a chilling ultimatum to Earth.'
+WHERE titletext = 'The Day the Earth Stood Still';
+
+UPDATE movies
+SET plot = 'Two astronauts work together to survive after an accident leaves them stranded in space.'
+WHERE titletext = 'Gravity';
+
+UPDATE movies
+SET plot = 'After an encounter with U.F.O.s, a line worker feels undeniably drawn to an isolated area in the wilderness where something spectacular is about to happen.'
+WHERE titletext = 'Close Encounters of the Third Kind';
+
+UPDATE movies
+SET plot = 'A young boy befriends a giant robot from outer space that a paranoid government agent wants to destroy.'
+WHERE titletext = 'The Iron Giant';
+
+UPDATE movies
+SET plot = 'As a war between humankind and monstrous sea creatures wages on, a former pilot and a trainee are paired up to drive a seemingly obsolete special weapon in a desperate effort to save the world from the apocalypse.'
+WHERE titletext = 'Pacific Rim';
+
+UPDATE movies
+SET plot = 'A young programmer is selected to participate in a ground-breaking experiment in synthetic intelligence by evaluating the human qualities of a highly advanced humanoid A.I.'
+WHERE titletext = 'Ex Machina';
+
+UPDATE movies
+SET plot = 'In 2074, when the mob wants to get rid of someone, the target is sent into the past, where a hired gun awaits - someone like Joe - who one day learns the mob wants to ''close the loop'' by sending back Joe''s future self for assassination.'
+WHERE titletext = 'Looper';
+
+
+
+UPDATE movies
+SET plot = 'Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion.'
+WHERE titletext = 'The Prestige';
+
+UPDATE movies
+SET plot = 'In a future where a special police unit is able to arrest murderers before they commit their crimes, an officer from that unit is himself accused of a future murder.'
+WHERE titletext = 'Minority Report';
+
+UPDATE movies
+SET plot = 'A civilian diving team is enlisted to search for a lost nuclear submarine and faces danger while encountering an alien aquatic species.'
+WHERE titletext = 'The Abyss';
+
+UPDATE movies
+SET plot = 'Archaeologist and adventurer Indiana Jones is hired by the U.S. government to find the Ark of the Covenant before the Nazis.'
+WHERE titletext = 'Indiana Jones and the Raiders of the Lost Ark';
+
+UPDATE movies
+SET plot = 'An American serving in the French Foreign Legion on an archaeological dig at the ancient city of Hamunaptra accidentally awakens a mummy.'
+WHERE titletext = 'The Mummy';
+
+UPDATE movies
+SET plot = 'A group of young misfits who call themselves The Goonies discover an ancient map and set out on a quest to find a legendary pirate''s long-lost treasure.'
+WHERE titletext = 'The Goonies';
+
+UPDATE movies
+SET plot = 'A historian races to find the legendary Templar Treasure before a team of mercenaries.'
+WHERE titletext = 'National Treasure';
+
+UPDATE movies
+SET plot = 'Bagheera the Panther and Baloo the Bear have a difficult time trying to convince a boy to leave the jungle for human civilization.'
+WHERE titletext = 'The Jungle Book';
+
+UPDATE movies
+SET plot = 'In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search of her homeland with the help of a group of female prisoners, a psychotic worshiper, and a drifter named Max.'
+WHERE titletext = 'Mad Max: Fury Road';
+
+UPDATE movies
+SET plot = 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it, from the dragon Smaug.'
+WHERE titletext = 'The Hobbit: An Unexpected Journey';
+
+UPDATE movies
+SET plot = 'In Africa during World War I, a gin-swilling riverboat captain is persuaded by a strait-laced missionary to use his boat to attack an enemy warship.'
+WHERE titletext = 'The African Queen';
+
+UPDATE movies
+SET plot = 'Two Americans searching for work in Mexico convince an old prospector to help them mine for gold in the Sierra Madre Mountains.'
+WHERE titletext = 'The Treasure of the Sierra Madre';
+
+UPDATE movies
+SET plot = 'A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.'
+WHERE titletext = 'The Revenant';
+
+UPDATE movies
+SET plot = 'A film crew goes to a tropical island for an exotic location shoot and discovers a colossal ape who takes a shine to their female blonde star.'
+WHERE titletext = 'King Kong';
+
+UPDATE movies
+SET plot = 'Master explorer Dirk Pitt goes on the adventure of a lifetime of seeking out a lost Civil War battleship known as the "Ship of Death" in the deserts of West Africa.'
+WHERE titletext = 'Sahara';
+
+UPDATE movies
+SET plot = 'A daydreamer escapes his anonymous life by disappearing into a world of fantasies filled with heroism, romance, and action.'
+WHERE titletext = 'The Secret Life of Walter Mitty';
+
+UPDATE movies
+SET plot = 'An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family, and the terrible evil that haunts the magical world.'
+WHERE titletext = 'Harry Potter and the Sorcerer''s Stone';
+
+UPDATE movies
+SET plot = 'In the falangist Spain of 1944, the bookish young stepdaughter of a sadistic army officer escapes into an eerie but captivating fantasy world.'
+WHERE titletext = 'Pan''s Labyrinth';
+
+UPDATE movies
+SET plot = 'In a countryside town bordering on a magical land, a young man makes a promise to his beloved that he''ll retrieve a fallen star by venturing into the magical realm.'
+WHERE titletext = 'Stardust';
+
+UPDATE movies
+SET plot = 'Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home to Kansas and help her friends as well.'
+WHERE titletext = 'The Wizard of Oz';
+
+UPDATE movies
+SET plot = 'Nineteen-year-old Alice returns to the magical world from her childhood adventure, where she reunites with her old friends and learns of her true destiny: to end the Red Queen''s reign of terror.'
+WHERE titletext = 'Alice in Wonderland';
+
+
+
+UPDATE movies
+SET plot = 'A troubled boy dives into a wondrous fantasy world through the pages of a mysterious book.'
+WHERE titletext = 'The NeverEnding Story';
+
+UPDATE movies
+SET plot = 'When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking castle.'
+WHERE titletext = 'Howl''s Moving Castle';
+
+UPDATE movies
+SET plot = 'During her family''s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.'
+WHERE titletext = 'Spirited Away';
+
+UPDATE movies
+SET plot = 'On another planet in the distant past, a Gelfling embarks on a quest to find the missing shard of a magical crystal, and so restore order to his world.'
+WHERE titletext = 'The Dark Crystal';
+
+UPDATE movies
+SET plot = 'A young farmer is chosen to undertake a perilous journey in order to protect a special baby from an evil queen.'
+WHERE titletext = 'Willow';
+
+UPDATE movies
+SET plot = 'To save her ill son, a field mouse must seek the aid of a colony of rats, with whom she has a deeper link than she ever suspected.'
+WHERE titletext = 'The Secret of NIMH';
+
+UPDATE movies
+SET plot = 'In a parallel universe, young Lyra Belacqua journeys to the far North to save her best friend and other kidnapped children from terrible experiments by a mysterious organization.'
+WHERE titletext = 'The Golden Compass';
+
+UPDATE movies
+SET plot = 'A selfish 16-year-old girl is given 13 hours to solve a labyrinth and rescue her baby brother when her wish for him to be taken away is granted by the Goblin King.'
+WHERE titletext = 'Labyrinth';
+
+UPDATE movies
+SET plot = 'Jack Skellington, king of Halloween Town, discovers Christmas Town, but his attempts to bring Christmas to his home causes confusion.'
+WHERE titletext = 'The Nightmare Before Christmas';
+
+UPDATE movies
+SET plot = 'As Harry, Ron, and Hermione race against time and evil to destroy the Horcruxes, they uncover the existence of the three most powerful objects in the wizarding world: the Deathly Hallows.'
+WHERE titletext = 'Harry Potter and the Deathly Hallows - Part 1';
+
+UPDATE movies
+SET plot = 'In his homeland of Alagaesia, a farm boy happens upon a dragon''s egg -- a discovery that leads him on a predestined journey where he realizes he''s the one person who can defend his home against an evil king.'
+WHERE titletext = 'Eragon';
+
+UPDATE movies
+SET plot = 'Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, but is later sued by two brothers who claimed he stole their idea, and the co-founder who was later squeezed out of the business.'
+WHERE titletext = 'The Social Network';
+
+UPDATE movies
+SET plot = 'The story of King George VI, his impromptu ascension to the throne of the British Empire in 1936, and the speech therapist who helped the unsure monarch overcome his stammer.'
+WHERE titletext = 'The King''s Speech';
+
+UPDATE movies
+SET plot = 'The life of the lawyer who became the famed leader of the Indian revolts against the British rule through his philosophy of nonviolent protest.'
+WHERE titletext = 'Gandhi';
+
+UPDATE movies
+SET plot = 'A look at the relationship between the famous physicist Stephen Hawking and his wife.'
+WHERE titletext = 'The Theory of Everything';
+
+UPDATE movies
+SET plot = 'After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.'
+WHERE titletext = 'A Beautiful Mind';
+
+UPDATE movies
+SET plot = 'A seasoned FBI agent pursues Frank Abagnale Jr. who, before his 19th birthday, successfully forged millions of dollars'' worth of checks while posing as a Pan Am pilot, a doctor, and a legal prosecutor.'
+WHERE titletext = 'Catch Me If You Can';
+
+UPDATE movies
+SET plot = 'A struggling salesman takes custody of his son as he''s poised to begin a life-changing professional career.'
+WHERE titletext = 'The Pursuit of Happyness';
+
+UPDATE movies
+SET plot = 'During World War II, the English mathematical genius Alan Turing tries to crack the German Enigma code with help from fellow mathematicians.'
+WHERE titletext = 'The Imitation Game';
+
+UPDATE movies
+SET plot = 'The story of the life and career of the legendary rhythm and blues musician Ray Charles, from his humble beginnings in the South, where he went blind at age seven, to his meteoric rise to stardom during the 1950s and 1960s.'
+WHERE titletext = 'Ray';
+
+UPDATE movies
+SET plot = 'The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.'
+WHERE titletext = 'Goodfellas';
+
+UPDATE movies
+SET plot = 'Biographical epic of the controversial and influential Black Nationalist leader, from his early life and career as a small-time gangster, to his ministry as a member of the Nation of Islam.'
+WHERE titletext = 'Malcolm X';
+
+
+UPDATE movies
+SET plot = 'A biopic depicting the early years of legendary director and aviator Howard Hughes'' career, from the late 1920s to the mid-1940s.'
+WHERE titletext = 'The Aviator';
+
+UPDATE movies
+SET plot = 'After graduating from Emory University, top student and athlete Christopher McCandless abandons his possessions, gives his entire savings account to charity, and hitchhikes to Alaska to live in the wilderness.'
+WHERE titletext = 'Into the Wild';
+
+UPDATE movies
+SET plot = 'As the Civil War continues to rage, America''s president struggles with continuing carnage on the battlefield as he fights with many inside his own cabinet on the decision to emancipate the slaves.'
+WHERE titletext = 'Lincoln';
+
+UPDATE movies
+SET plot = 'A Victorian surgeon rescues a heavily disfigured man who is mistreated while scraping a living as a side-show freak. Behind his monstrous facade, there is revealed a person of intelligence and sensitivity.'
+WHERE titletext = 'The Elephant Man';
+
+UPDATE movies
+SET plot = 'An unemployed single mother becomes a legal assistant and almost single-handedly brings down a California power company accused of polluting a city''s water supply.'
+WHERE titletext = 'Erin Brockovich';
+
+UPDATE movies
+SET plot = 'The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.'
+WHERE titletext = 'Lawrence of Arabia';
+
+UPDATE movies
+SET plot = 'In 1959, Truman Capote learns of the murder of a Kansas family and decides to write a book about the case. While researching for his novel In Cold Blood, Capote forms a relationship with one of the killers, Perry Smith, who is on death row.'
+WHERE titletext = 'Capote';
+
+UPDATE movies
+SET plot = 'When his secret bride is executed for assaulting an English soldier who tried to rape her, William Wallace begins a revolt against King Edward I of England.'
+WHERE titletext = 'Braveheart';
+
+UPDATE movies
+SET plot = 'A chronicle of country music legend Johnny Cash''s life, from his early days on an Arkansas cotton farm to his rise to fame with Sun Records in Memphis, where he recorded alongside Elvis Presley, Jerry Lee Lewis, and Carl Perkins.'
+WHERE titletext = 'Walk the Line';
+
+UPDATE movies
+SET plot = 'Steve Jobs takes us behind the scenes of the digital revolution, to paint a portrait of the man at its epicenter. The story unfolds backstage at three iconic product launches, ending in 1998 with the unveiling of the iMac.'
+WHERE titletext = 'Steve Jobs';
+
+UPDATE movies
+SET plot = 'The true story of Michael Oher, a homeless and traumatized boy who became an All-American football player and first-round NFL draft pick with the help of a caring woman and her family.'
+WHERE titletext = 'The Blind Side';
+
+UPDATE movies
+SET plot = 'A mountain climber becomes trapped under a boulder while canyoneering alone near Moab, Utah and resorts to desperate measures in order to survive.'
+WHERE titletext = '127 Hours';
+
+UPDATE movies
+SET plot = 'The incredible story of Wolfgang Amadeus Mozart, told by his peer and secret rival Antonio Salieri - now confined to an insane asylum.'
+WHERE titletext = 'Amadeus';
+
+UPDATE movies
+SET plot = 'Christy Brown, born with cerebral palsy, learns to paint and write with his only controllable limb - his left foot.'
+WHERE titletext = 'My Left Foot';
+
+UPDATE movies
+SET plot = 'A chronicle of Dr. Martin Luther King, Jr.''s campaign to secure equal voting rights via an epic march from Selma to Montgomery, Alabama, in 1965.'
+WHERE titletext = 'Selma';
+
+UPDATE movies
+SET plot = 'A film about the troubled and controversial life of the master comedy filmmaker Charles Chaplin.'
+WHERE titletext = 'Chaplin';

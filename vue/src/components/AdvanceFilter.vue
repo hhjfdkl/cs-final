@@ -39,8 +39,9 @@
                 </div>
             </div>
             <div v-for="(year, index) in selectedYears" :key="index" class="year-box">
+
+                <div class=year-box-button-x @click="removeSelectedYear(index)" @submit.prevent="">X</div>
                 {{ year }}
-                <button class=year-box-button-x @click="removeSelectedYear(index)">X</button>
             </div>
             <br />
 
@@ -84,7 +85,11 @@ export default {
         },
         addSelectedYear(year) {
 
-            this.selectedYears.push(year);
+            if (!this.selectedYears.includes(year)) {
+                this.selectedYears.push(year);
+            }
+
+
         },
         removeSelectedYear(index) {
             this.selectedYears.splice(index, 1);
@@ -134,7 +139,7 @@ export default {
 
 .year-box-button {
     margin-left: 0.5rem;
-    background-color: #7B3911;
+    background-color: #890304;
     color: #f8f2bf;
     border: none;
     padding: 0.2rem 1rem;
@@ -143,7 +148,7 @@ export default {
     display: block;
     /* margin: 0 auto; */
     font-family: 'league spartan';
-    font-size: larger;
+    font-size: 20px;
     font-weight: bolder;
 }
 
@@ -269,11 +274,25 @@ export default {
 h1 {
     font-size: 2rem;
     color: #7B3911;
-    text-align: center;
+    text-align: left;
     margin-bottom: 1rem;
     margin-top: 1rem;
     font-family: 'League Spartan';
     font-weight: bold;
+    margin-left: 7px;
+}
+
+.year-box-button-x {
+    border: #890304 1px solid;
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+    margin-right: 0.5rem;
+
+}
+
+.year-box {
+    width: 5rem;
 }
 </style>
   

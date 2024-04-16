@@ -36,6 +36,9 @@
       <router-link v-bind:to="{ name: 'filterSearch' }" class="nav-button" v-if="this.$store.state.token != ''">
         Filter
       </router-link>
+      <router-link v-bind:to="{ name: 'reviews' }" class="nav-button" v-if="this.$store.state.token != ''">
+        My Reviews
+      </router-link>
     </nav>
 
     <nav class="top-bar">
@@ -62,6 +65,7 @@ export default {
   },
   methods: {
     searchMovies() {
+      // if (this.searchTerm.length < 3) return;
       this.$router.push({ name: 'movies', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { title: this.searchTerm } })
     }
   }

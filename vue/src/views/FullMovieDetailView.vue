@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h3>Full Movie Details</h3>
 
         <FullMovieDetail :movie="movie" />
 
@@ -28,7 +27,13 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#movie-details {
+    color: #7B3911;
+    margin-left: 5%;
+    font-size: 50px;
+}
+</style>
 
 
 

@@ -23,6 +23,8 @@ public class MovieController {
     public MovieController(MovieDao movieDao, UserDao userDao) {
         this.movieDao = movieDao;
         this.userDao =  userDao;
+
+        movieDao.fullMovieUpdateRatings();
     }
 
     @GetMapping("/movies/{moviePerPage}/{page}/{sortBy}")
@@ -53,6 +55,8 @@ public class MovieController {
 
     @GetMapping("/movies/{id}")
     public Movie getMovieById(@PathVariable int id){
+
+        movieDao.updateAvgRating(id); //this  is ineffecent
 
         try {
             return movieDao.getMovieById(id);

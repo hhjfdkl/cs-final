@@ -44,6 +44,8 @@ export default {
 <style scoped>
 .article-img {
     width: 50%;
+    margin-left: 5%;
+    margin-top: 5%;
 
 }
 
@@ -63,4 +65,5 @@ export default {
     color: #002263;
     margin-left: 5%;
     font-size: 20px;
-}</style>
+}
+</style>

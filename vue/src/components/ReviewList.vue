@@ -7,7 +7,7 @@
             <div>{{ review.review }}</div>
 
             <router-link v-bind:to="{ name: 'fullMovieDetails', params: { movieId: review.movie_id } }"
-                v-if="movieId == null"> link </router-link>
+                v-if="movieId == null"> Movie Details </router-link>
         </div>
     </div>
 </template>
@@ -49,4 +49,41 @@ export default {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+#reviews {
+    border: .001rem solid #890304;
+    width: auto;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    box-shadow: 0 2px 4px #7B3911;
+    background-color: #e8e5c3;
+    /* margin-left: 5%; */
+    border-radius: .5rem;
+}
+
+#username {
+    font-weight: bold;
+
+    font-family: 'League Spartan';
+    color: #7B3911;
+    margin-bottom: 5px;
+}
+
+#rating {
+    margin-bottom: 5px;
+}
+
+#review-text {
+    font-family: 'League Spartan';
+    color: #002263;
+    margin-bottom: 5px;
+}
+
+#movie_title {
+    font-family: 'League Spartan';
+    color: #002263;
+    margin-bottom: 5px;
+}
+</style>

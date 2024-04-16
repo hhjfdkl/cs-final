@@ -69,6 +69,15 @@ export default {
   created: function () {
     this.updateFav();
   },
+  updated: function () {
+    console.log("updated");
+    this.updateFav();
+  },
+
+
+
+
+
   watch: {
     '$route': 'updateFav'
   },

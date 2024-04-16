@@ -65,6 +65,7 @@ export default {
   },
   methods: {
     searchMovies() {
+      // if (this.searchTerm.length < 3) return;
       this.$router.push({ name: 'movies', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { title: this.searchTerm } })
     }
   }

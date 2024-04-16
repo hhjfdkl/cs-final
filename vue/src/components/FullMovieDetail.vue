@@ -15,8 +15,11 @@
                 <h1 class="movie-title">{{ movie.titleText }}</h1>
             </header>
             <div class="release-genres">
-                <div>{{ movie.releaseDate.substr(0, 4) }}</div>
-                <div>{{ movie.genres }}</div>
+                <div class="release-date">{{ movie.releaseDate.substr(0, 4) }}</div>
+                <div class="genres">{{ movie.genres }}</div>
+                <div class="runtime">{{ movie.runtime }}</div>
+                <div class="meter-ranking">{{ movie.meterRanking }}</div>
+                <div class="avg-rating">{{ movie.avgRating }}</div>
             </div>
             <div class="section-title">Plot Summary</div>
             <div class="description">
@@ -30,6 +33,8 @@
             </div>
             <div id="review">
                 <ReviewList :movieId="movie.id" />
+            </div>
+            <div>
                 <div class="section-title">Write A Review</div>
                 <CreateReview />
             </div>
@@ -126,11 +131,32 @@ export default {
 
 }
 
+.release-date {
+    margin-bottom: 10px;
+
+}
+
+.genres {
+    margin-bottom: 10px;
+}
+
+.runtime {
+    margin-bottom: 10px;
+}
+
+.meter-ranking {
+    margin-bottom: 10px;
+}
+
+.avg-rating {
+    margin-bottom: 10px;
+}
+
 .description {
     color: #002263;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 10px;
+    margin-left: 0px;
     font-size: 1.2rem;
 }
 
@@ -140,6 +166,7 @@ export default {
     margin-top: 10px;
     color: #002263;
     font-size: 1.2rem;
+    flex-grow: 1;
 }
 
 
@@ -160,7 +187,7 @@ export default {
 .section-title {
     color: #7B3911;
     font-size: 2rem;
-    margin-left: 10px;
+    margin-left: 0px;
     margin-top: 5px;
 }
 </style>

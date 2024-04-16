@@ -1,9 +1,9 @@
 <template>
+    <div class="section-title">
+        Reviews
+    </div>
     <div>
-        user REviews
-
         <ReviewList />
-
     </div>
 </template>
 
@@ -17,9 +17,14 @@ export default {
         ReviewList
     },
 
-
-
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.section-title {
+    color: #7B3911;
+    font-size: 2rem;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+</style>

@@ -148,7 +148,7 @@ export default {
     border-radius: 4px;
     font-family: 'league spartan';
     margin-bottom: 5px;
-
+    cursor: pointer;
 }
 
 #add-button {
@@ -159,6 +159,7 @@ export default {
     border-radius: 4px;
     font-family: 'league spartan';
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 /* .movie-img {

@@ -30,29 +30,6 @@
           Unfavorite
         </button>
       </div>
-<<<<<<< HEAD
-=======
-      <div class="release-genres">
-        <div>{{ movie.releaseDate.substr(0, 4) }}</div>
-        <div>{{ movie.genres }}</div>
-      </div>
-      <div class="description">
-        {{ shortenPlot(movie.plot) }}
-      </div>
-
-      {{ movie.avgRating }}
-      <!-- move this where needed -->
-
-      <button v-show="!isFav" class="fav-button" @click="addFav">
-
-        Favorite
-      </button>
-      <button v-show="isFav" class="fav-button" @click="removeFav">
-
-        Unfavorite
-      </button>
-
->>>>>>> d24e8cc59b067e5f448add09f3e110329cdb8742
     </div>
   </div>
 </template> 

@@ -18,7 +18,7 @@
 
                 <SwiperSlide v-for="photo in  photos " :key="photo">
                     <router-link v-bind:to="{ name: 'articles', params: { articleId: photos.indexOf(photo) + 1 } }">
-                        <img :src="`src\\assets\\Fake Articles\\${photo}`" alt="photo">
+                        <img class="article-img" :src="`src\\assets\\Fake Articles\\${photo}`" alt="photo">
                     </router-link>
                 </SwiperSlide>
 
@@ -37,9 +37,8 @@ import 'swiper/css/autoplay';
 
 const photos = [
     'Arrest.png',
+    'Commando.png',
     'Seagal.png',
-    'Bootcamp.png',
-
 
 
 ];
@@ -52,8 +51,8 @@ const photos = [
 <style scoped>
 .swiper {
     overflow: visible;
-    width: 400px;
-    height: 400px;
+    width: 770px;
+    height: 520px;
 }
 
 .swiper-slide img {
@@ -110,6 +109,12 @@ p {
 .swiper {
 
     overflow: hidden;
+}
+
+.article-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .swiper-slide .swiper-slide-active {}

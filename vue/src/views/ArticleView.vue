@@ -1,10 +1,9 @@
 <template>
     <div>
-
-
-        <p>{{ article.title }}</p>
-        <h1>{{ article.author }}</h1>
-        <p>{{ article.body }}</p>
+        <img src="@\assets\Fake Articles\Bootcamp.png" alt="Bootcamp Img" class="article-img">
+        <p id="article-title">{{ article.title }}</p>
+        <h1 id="article-author">{{ article.author }}</h1>
+        <p id="article-body">{{ article.body }}</p>
 
     </div>
 </template>
@@ -26,4 +25,29 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.article-img {
+    width: 75%;
+    border-color: #890304;
+    border: 1px solid #890304;
+    box-shadow: #890304 1px 1px 2px;
+}
+
+#article-title {
+    color: #7B3911;
+    margin-left: 5%;
+    font-size: 50px;
+}
+
+#article-author {
+    color: #7B3911;
+    margin-left: 5%;
+    font-size: 30px;
+}
+
+#article-body {
+    color: #002263;
+    margin-left: 5%;
+    font-size: 20px;
+}
+</style>

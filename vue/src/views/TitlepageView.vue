@@ -15,9 +15,14 @@
                 :autoplay="{ delay: 2000, disableOnInteraction: false, }" :pagination="{
                     clickable: true,
                 }" :navigation="true" @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
+
                 <SwiperSlide v-for="photo in  photos " :key="photo">
-                    <img :src="`src\\assets\\placeholder\\${photo}`" alt="photo">
+                    <router-link v-bind:to="{ name: 'articles', params: { articleId: photos.indexOf(photo) + 1 } }">
+                        <img :src="`src\\assets\\Fake Articles\\${photo}`" alt="photo">
+                    </router-link>
                 </SwiperSlide>
+
+
             </Swiper>
         </div>
     </main>
@@ -31,11 +36,11 @@ import 'swiper/css/autoplay';
 
 
 const photos = [
-    'Test1.jpeg',
-    'Test2.webp',
-    'Test3.webp',
-    'Test4.jpeg',
-    'Test5.jpg',
+    'Arrest.png',
+    'Seagal.png',
+    'Bootcamp.png',
+
+
 
 ];
 

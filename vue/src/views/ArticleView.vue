@@ -28,9 +28,7 @@ export default {
 <style scoped>
 .article-img {
     width: 50%;
-    border-color: #890304;
-    border: 1px solid #890304;
-    box-shadow: #890304 1px 1px 5px;
+
 }
 
 #article-title {

@@ -47,8 +47,8 @@ const photos = [
 <style scoped>
 .swiper {
     overflow: visible;
-    width: 400px;
-    height: 400px;
+    width: 770px;
+    height: 520px;
 }
 
 .swiper-slide img {
@@ -69,11 +69,14 @@ const photos = [
 }
 
 p {
+    position: absolute;
+    top: 55%;
+    left: 55%;
+    transform: translate(-50%, -50%);
     font-size: 1.25rem;
     font-weight: 500;
     font-family: 'league Spartan';
     width: 50%;
-    margin: auto;
     color: #7B3911;
 }
 
@@ -100,10 +103,10 @@ p {
     height: auto;
     transition: 0.3s ease-in-out;
     overflow: visible;
+
 }
 
 .swiper {
-
     overflow: hidden;
 }
 

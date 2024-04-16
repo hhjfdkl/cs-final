@@ -15,9 +15,14 @@
                 :autoplay="{ delay: 2000, disableOnInteraction: false, }" :pagination="{
                     clickable: true,
                 }" :navigation="true" @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
+
                 <SwiperSlide v-for="photo in  photos " :key="photo">
-                    <img :src="`src\\assets\\placeholder\\${photo}`" alt="photo">
+                    <router-link v-bind:to="{ name: 'articles', params: { articleId: 1 } }">
+                        <img :src="`src\\assets\\placeholder\\${photo}`" alt="photo">
+                    </router-link>
                 </SwiperSlide>
+
+
             </Swiper>
         </div>
     </main>

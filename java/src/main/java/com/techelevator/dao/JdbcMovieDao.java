@@ -420,7 +420,16 @@ public class JdbcMovieDao implements MovieDao  {
                     randomReview = "Arrest the director! This movie is an assault on the senses!";
                 }else if(randomReviewSeed < .60){
                     randomReview = "This director's vision is clearly incomprehensible to typical mortals like myself. Horrible.";
+                }else if(randomReviewSeed < .70) {
+                    randomReview ="Worst movie ever! The acting was atrocious, the plot made absolutely no sense, and I felt like I wasted two hours of my life that I'll never get back. Save your money and avoid this disaster!";
+                }else if(randomReviewSeed < .80) {
+                    randomReview ="I couldn't even finish watching this garbage. The special effects were laughable, the dialogue was cringeworthy, and I honestly have no idea how anyone involved in making this film thought it was a good idea.";
+                }else if(randomReviewSeed < .90) {
+                    randomReview ="I wouldn't wish this movie on my worst enemy. It's like the filmmakers didn't even try. It's a complete mess from start to finish, and I'm still trying to understand what the point of it was.";
+                }else {
+                    randomReview ="I've seen student films with higher production value than this trainwreck. The acting was wooden, the script was terrible, and I'm convinced that the only reason this movie exists is to torture unsuspecting audiences.";
                 }
+
             } else if (randomScore == 2) {
                 if(randomReviewSeed < .10){
                     randomReview = "Had moments, but overall fell flat.";
@@ -430,8 +439,18 @@ public class JdbcMovieDao implements MovieDao  {
                     randomReview = "This movie was so confusing to watch. The overall plot must have been written by people who don't understand basic story telling.";
                 }else if(randomReviewSeed < .40){
                     randomReview = "This movie was like banging my head up against a brick wall repeatedly then doing it again and again...... and again some more.";
-                } else if(randomReviewSeed < .50){
+                }else if(randomReviewSeed < .50){
                     randomReview = "I can't believe the actors got away with this. What was this even. And the direction? Please hire some writers at least next time.";
+                }else if(randomReviewSeed < .60){
+                    randomReview = "I'd give this a one star but I liked the noise.";
+                }else if(randomReviewSeed < .70) {
+                    randomReview ="It's like they took a bunch of random ideas and threw them together without any rhyme or reason. There were moments where I thought it might start to make sense, but then it veered off into nonsense again. Disappointing.";
+                }else if(randomReviewSeed < .80) {
+                    randomReview ="I wanted to like this movie, I really did. But it just couldn't hold my attention. The pacing was off, the characters were forgettable, and by the end, I found myself wondering why I even bothered watching.";
+                }else if(randomReviewSeed < .90) {
+                    randomReview ="Eh, it's okay I guess. There were a few moments that were mildly entertaining, but they were few and far between. Overall, it's pretty forgettable.";
+                }else {
+                    randomReview ="I'm giving it two stars because I'm feeling generous. The only reason I didn't give it one star is because I've seen worse movies. Not much worse, but still worse.";
                 }
                 
             }else if (randomScore == 3) {
@@ -446,6 +465,16 @@ public class JdbcMovieDao implements MovieDao  {
                     randomReview = "The plot was amazing but the actors sucked.";
                 }else if(randomReviewSeed < .50){
                     randomReview = "I really can't believe how mediocre the writing was. Not really too painful but easily forgettable.";
+                }else if(randomReviewSeed < .60){
+                    randomReview = "Kinda mid but I liked the ending.";
+                }else if(randomReviewSeed < .70) {
+                    randomReview ="It's not terrible, but it's not great either. The visuals were impressive, and there were some interesting ideas, but it felt like it was trying too hard to be profound. Worth a watch if you're really bored.";
+                }else if(randomReviewSeed < .80) {
+                    randomReview ="I'm on the fence with this one. It had its moments, but they were overshadowed by the movie's many flaws. If you're a fan of the genre, you might enjoy it, but don't expect to be blown away.";
+                }else if(randomReviewSeed < .90) {
+                    randomReview ="I don't regret watching it, but I don't think I'll ever watch it again. It had its moments, but overall it was pretty forgettable. If you're looking for something mindless to pass the time, this might do the trick.";
+                }else {
+                    randomReview ="It's a decent enough movie, I suppose. The acting was decent, the visuals were impressive, and there were a few moments that made me think. It's not something I'll rush to watch again, but it's not something I regret watching either.";
                 }
 
             }else if (randomScore == 4) {
@@ -460,6 +489,16 @@ public class JdbcMovieDao implements MovieDao  {
                     randomReview = "Everything was great but the CGI was worse than the moon landing but overall great movie!";
                 }else if(randomReviewSeed < .50){
                     randomReview = "Really above average film. Only real problem was the poorly written Macguffin which was kind of stupid. Fun to watch though.";
+                }else if(randomReviewSeed < .60){
+                    randomReview = "I'd give this 5 stars but I will only give it 5 stars if it has Florence Pugh in it. This movie did not.";
+                }else if(randomReviewSeed < .70) {
+                    randomReview ="I actually enjoyed this movie. Sure, it had its flaws, but it was entertaining enough to keep me engaged from start to finish. The visuals were stunning, and the story, while not perfect, kept me interested.";
+                }else if(randomReviewSeed < .80) {
+                    randomReview ="I thought this movie was pretty good. It's not going to win any awards, but it kept me entertained for a couple of hours. The acting was decent, the story was interesting enough, and the ending was satisfying.";
+                }else if(randomReviewSeed < .90) {
+                    randomReview ="I enjoyed this movie more than I expected to. The pacing was good, the action scenes were well-done, and the story, while a bit predictable, kept me engaged. If you're looking for a fun way to pass the time, give this one a shot.";
+                }else {
+                    randomReview ="This movie exceeded my expectations. The visuals were stunning, the acting was solid, and the story, while not groundbreaking, was engaging enough to keep me hooked until the end. Definitely worth checking out.";
                 }
 
             }else if (randomScore == 5) {
@@ -475,7 +514,15 @@ public class JdbcMovieDao implements MovieDao  {
                 } else if (randomReviewSeed < .50) {
                     randomReview = "so good that I left my wife and kids. This movie has filled their void and I'm happy about it damnit!";
                 } else if (randomReviewSeed < .60) {
-                    randomReview = "";
+                    randomReview = "The greatest movie EVER made. I swear all people need to watch this. PERIOD.";
+                }else if(randomReviewSeed < .70) {
+                    randomReview ="Absolutely loved it! This movie has everything - action, suspense, drama, you name it. The performances were top-notch, the special effects were jaw-dropping, and the story was incredibly compelling. I can't recommend it enough!";
+                }else if(randomReviewSeed < .80) {
+                    randomReview ="Incredible! This movie blew me away. The attention to detail in every frame, the depth of the characters, the sheer emotional impact - it's rare to find a film that fires on all cylinders like this one does. A true masterpiece!";
+                }else if(randomReviewSeed < .90) {
+                    randomReview ="I have no words to describe how much I loved this movie. It's a masterpiece in every sense of the word. The acting, the direction, the writing - everything is top-notch. If you only see one movie this year, make it this one.";
+                }else {
+                    randomReview ="This movie is a triumph. The cinematography is stunning, the performances are electrifying, and the story is both thrilling and thought-provoking. It's the kind of movie that stays with you long after the credits roll. Bravo!";
                 }
 
             }

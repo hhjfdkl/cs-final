@@ -1,6 +1,11 @@
 <template>
     <div>
-        <img src="@\assets\Fake Articles\Arrest.png" alt="Bootcamp Img" class="article-img">
+        <img v-if="this.$route.params.articleId == 1" src="@\assets\Fake Articles\Arrest.png" alt="Arrest Img"
+            class="article-img">
+        <img v-if="this.$route.params.articleId == 2" src="@\assets\Fake Articles\Seagal.png" alt="Seagal Img"
+            class="article-img">
+        <img v-if="this.$route.params.articleId == 3" src="@\assets\Fake Articles\Commando.png" alt="Commando Img"
+            class="article-img">
         <p id="article-title">{{ article.title }}</p>
         <h1 id="article-author">{{ article.author }}</h1>
         <!-- <p id="article-body">{{ article.body }}</p> -->
@@ -39,9 +44,9 @@ export default {
 <style scoped>
 .article-img {
     width: 50%;
-    border-color: #890304;
-    border: 1px solid #890304;
-    box-shadow: #890304 1px 1px 5px;
+    margin-left: 5%;
+    margin-top: 5%;
+
 }
 
 #article-title {

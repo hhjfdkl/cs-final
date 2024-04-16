@@ -12,7 +12,7 @@
         </div>
         <div class="slideshow">
             <Swiper :modules="[Autoplay]" :spaceBetween="30" :centeredSlides="true"
-                :autoplay="{ delay: 2000, disableOnInteraction: false, }" :pagination="{
+                :autoplay="{ delay: 4000, disableOnInteraction: false, }" :pagination="{
                     clickable: true,
                 }" :navigation="true" @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
 
@@ -50,6 +50,11 @@ const photos = [
 
 
 <style scoped>
+.slideshow {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .swiper {
     overflow: visible;
     width: 400px;

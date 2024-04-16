@@ -2,7 +2,7 @@
   <form @submit.prevent="searchMovies" class="search-change">
     <input type="text" v-model="usersPerPage" placeholder="Movies per page" />
     <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
-  </form> -->
+  </form>
   <div id="fav-upper">
     <ChangeOrder />
   </div>
@@ -100,7 +100,34 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+h2 {
+  color: #7B3911;
+  margin-left: 5%;
+  font-size: 50px;
+}
+
+#fav-upper {
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+#main-display {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+
+  /*needs to be a row*/
+
+  /* justify-content: center; */
+
+}
+
+
 .home {
   color: #890304;
 }

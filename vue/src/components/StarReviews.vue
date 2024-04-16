@@ -1,6 +1,6 @@
 <template>
     <div class="rating">
-        <img src="src\assets\Other Images\New Star.png" v-bind:title="rating + ' stars'" class="star-rating"
+        <img src="@/assets/Other Images/New Star.png" v-bind:title="rating + ' stars'" class="star-rating"
             v-for="n in rating" v-bind:key="n" />
     </div>
 </template>

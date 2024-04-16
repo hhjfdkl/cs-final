@@ -4,7 +4,7 @@
 
             <div id="username">{{ review.username }}</div>
             <div id="movie_title">{{ review.movie_title }}</div>
-            <StarReviews :rating="review.rating" />
+            <StarReviews :rating="review.rating" id="rating" />
             <div id="review-text">{{ review.review }}</div>
 
 

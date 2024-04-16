@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-for="review in reviews" v-bind:key="review.account_id">
-            <div> </div>
+        <div id="review" v-for="review in reviews" v-bind:key="review.account_id">
+
             <div>{{ review.username }}</div>
             <div>{{ review.rating }}</div>
             <div>{{ review.review }}</div>
@@ -48,4 +48,17 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#review {
+    border: .001rem solid #890304;
+    width: 25%;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    box-shadow: 0 2px 4px #7B3911;
+    background-color: #e8e5c3;
+    /* margin-left: 5%; */
+    border-radius: .5rem;
+}
+</style>

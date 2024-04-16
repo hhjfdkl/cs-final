@@ -17,6 +17,9 @@
             <div class="release-genres">
                 <div>{{ movie.releaseDate.substr(0, 4) }}</div>
                 <div>{{ movie.genres }}</div>
+                <div>{{ movie.runtime }}</div>
+                <div>{{ movie.meterRanking }}</div>
+                <div>{{ movie.avgRating }}</div>
             </div>
             <div class="section-title">Plot Summary</div>
             <div class="description">
@@ -30,6 +33,8 @@
             </div>
             <div id="review">
                 <ReviewList :movieId="movie.id" />
+            </div>
+            <div>
                 <div class="section-title">Write A Review</div>
                 <CreateReview />
             </div>
@@ -140,6 +145,7 @@ export default {
     margin-top: 10px;
     color: #002263;
     font-size: 1.2rem;
+    flex-grow: 1;
 }
 
 .fav-button {

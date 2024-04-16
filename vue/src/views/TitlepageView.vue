@@ -17,7 +17,7 @@
                 }" :navigation="true" @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
 
                 <SwiperSlide v-for="photo in  photos " :key="photo">
-                    <router-link v-bind:to="{ name: 'articles', params: { articleId: 1 } }">
+                    <router-link v-bind:to="{ name: 'articles', params: { articleId: photos.indexOf(photo) + 1 } }">
                         <img :src="`src\\assets\\placeholder\\${photo}`" alt="photo">
                     </router-link>
                 </SwiperSlide>

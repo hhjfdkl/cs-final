@@ -398,9 +398,55 @@ public class JdbcMovieDao implements MovieDao  {
 
 
         for(Movie movie : movies){
-            int randomUser = (int) ((Math.random() *10 ) + 1);
+            int randomUser = (int) ((Math.random() *10 ) + 2);
             int randomScore = (int) ((Math.random() *5 ) + 1);
+            
+            
+            
             String randomReview = "this was a movie!";
+
+            double randomReviewSeed = Math.random();
+            
+            if(randomScore == 1){
+                if(randomReviewSeed < .25){
+                    randomReview = "Utterly disappointing. Save your time and money.";
+
+
+                }else if(randomReviewSeed < .75){
+                    randomReview = "A complete waste of potential. Avoid at all costs.";
+                }
+            } else if (randomScore == 2) {
+                if(randomReviewSeed < .25){
+                    randomReview = "Had moments, but overall fell flat.";
+
+
+                }else if(randomReviewSeed < .75){
+                    randomReview = "Lacked depth, left me wanting more substance.";
+                }
+                
+            }else if (randomScore == 3) {
+                if(randomReviewSeed < .25){
+                    randomReview = "Decent enough, but forgettable.";
+                }else if(randomReviewSeed < .75){
+                    randomReview = "Average entertainment, nothing remarkable.";
+                }
+
+            }else if (randomScore == 4) {
+                if(randomReviewSeed < .25){
+                    randomReview = "Solid film, worth a watch.";
+                }else if(randomReviewSeed < .75){
+                    randomReview = "Engaging storyline, well-executed.";
+                }
+
+            }else if (randomScore == 5) {
+                if(randomReviewSeed < .25){
+                    randomReview = "A masterpiece! Captivating from start to finish.";
+                }else if(randomReviewSeed < .75){
+                    randomReview = "Absolutely brilliant! A must-see for all.";
+                }
+
+            }
+
 
             String sql = "INSERT INTO reviews(\n" +
                     "\taccount_id, rating, review, movie_id)\n" +

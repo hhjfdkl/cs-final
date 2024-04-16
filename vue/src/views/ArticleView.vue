@@ -30,7 +30,7 @@ export default {
     computed: {
         collectionOfParagraphs() {
             console.log(this.article.body)
-            return this.article.body.split('\\n');
+            return this.article.body.split('||');
         }
     }
 }

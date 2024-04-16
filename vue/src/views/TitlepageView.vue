@@ -12,13 +12,13 @@
         </div>
         <div class="slideshow">
             <Swiper :modules="[Autoplay]" :spaceBetween="30" :centeredSlides="true"
-                :autoplay="{ delay: 2000, disableOnInteraction: false, }" :pagination="{
+                :autoplay="{ delay: 4000, disableOnInteraction: false, }" :pagination="{
                     clickable: true,
                 }" :navigation="true" @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
 
                 <SwiperSlide v-for="photo in  photos " :key="photo">
                     <router-link v-bind:to="{ name: 'articles', params: { articleId: photos.indexOf(photo) + 1 } }">
-                        <img :src="`src\\assets\\Fake Articles\\${photo}`" alt="photo">
+                        <img class="article-img" :src="`src\\assets\\Fake Articles\\${photo}`" alt="photo">
                     </router-link>
                 </SwiperSlide>
 
@@ -37,9 +37,8 @@ import 'swiper/css/autoplay';
 
 const photos = [
     'Arrest.png',
+    'Commando.png',
     'Seagal.png',
-    'Bootcamp.png',
-
 
 
 ];
@@ -50,10 +49,15 @@ const photos = [
 
 
 <style scoped>
+.slideshow {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .swiper {
     overflow: visible;
-    width: 400px;
-    height: 400px;
+    width: 770px;
+    height: 520px;
 }
 
 .swiper-slide img {
@@ -74,11 +78,14 @@ const photos = [
 }
 
 p {
+    position: absolute;
+    top: 55%;
+    left: 55%;
+    transform: translate(-50%, -50%);
     font-size: 1.25rem;
     font-weight: 500;
     font-family: 'league Spartan';
     width: 50%;
-    margin: auto;
     color: #7B3911;
 }
 
@@ -105,11 +112,17 @@ p {
     height: auto;
     transition: 0.3s ease-in-out;
     overflow: visible;
+
 }
 
 .swiper {
-
     overflow: hidden;
+}
+
+.article-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .swiper-slide .swiper-slide-active {}

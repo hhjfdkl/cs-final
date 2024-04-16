@@ -18,6 +18,9 @@
         {{ movie.plot }}
       </div>
 
+      {{ movie.avgRating }}
+      <!-- move this where needed -->
+
       <button v-show="!isFav" class="fav-button" @click="addFav">
 
         Favorite

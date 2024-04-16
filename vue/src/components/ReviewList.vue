@@ -51,7 +51,7 @@ export default {
 <style scoped>
 #review {
     border: .001rem solid #890304;
-    width: 25%;
+    width: auto;
     padding: 5px;
     margin-right: 10px;
     margin-bottom: 25px;

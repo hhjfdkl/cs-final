@@ -1,6 +1,11 @@
 <template>
     <div>
-        <img src="@\assets\Fake Articles\Arrest.png" alt="Bootcamp Img" class="article-img">
+        <img v-if="this.$route.params.articleId == 1" src="@\assets\Fake Articles\Arrest.png" alt="Arrest Img"
+            class="article-img">
+        <img v-if="this.$route.params.articleId == 2" src="@\assets\Fake Articles\Seagal.png" alt="Seagal Img"
+            class="article-img">
+        <img v-if="this.$route.params.articleId == 3" src="@\assets\Fake Articles\Commando.png" alt="Commando Img"
+            class="article-img">
         <p id="article-title">{{ article.title }}</p>
         <h1 id="article-author">{{ article.author }}</h1>
         <!-- <p id="article-body">{{ article.body }}</p> -->
@@ -58,5 +63,4 @@ export default {
     color: #002263;
     margin-left: 5%;
     font-size: 20px;
-}
-</style>
+}</style>

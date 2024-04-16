@@ -39,8 +39,9 @@
                 </div>
             </div>
             <div v-for="(year, index) in selectedYears" :key="index" class="year-box">
-                {{ year }}
+
                 <div class=year-box-button-x @click="removeSelectedYear(index)" @submit.prevent="">X</div>
+                {{ year }}
             </div>
             <br />
 
@@ -279,6 +280,19 @@ h1 {
     font-family: 'League Spartan';
     font-weight: bold;
     margin-left: 7px;
+}
+
+.year-box-button-x {
+    border: #890304 1px solid;
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+    margin-right: 0.5rem;
+
+}
+
+.year-box {
+    width: 5rem;
 }
 </style>
   

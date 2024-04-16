@@ -3,8 +3,11 @@
         <img src="@\assets\Fake Articles\Bootcamp.png" alt="Bootcamp Img" class="article-img">
         <p id="article-title">{{ article.title }}</p>
         <h1 id="article-author">{{ article.author }}</h1>
-        <p id="article-body">{{ article.body }}</p>
+        <!-- <p id="article-body">{{ article.body }}</p> -->
 
+        <div v-for="paragraph in collectionOfParagraphs" :key="paragraph">
+            <p id="article-body">{{ paragraph }}</p>
+        </div>
     </div>
 </template>
 
@@ -13,14 +16,22 @@ import ArticleService from '../services/ArticleService.js';
 export default {
     data() {
         return {
-            article: {}
+            article: { title: '', author: '', body: '' }
+
         }
     },
 
     created() {
         ArticleService.getArticle(this.$route.params.articleId).then((response) => {
             this.article = response.data;
+
         })
+    },
+    computed: {
+        collectionOfParagraphs() {
+            console.log(this.article.body)
+            return this.article.body.split('\\n');
+        }
     }
 }
 </script>

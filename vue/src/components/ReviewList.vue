@@ -4,7 +4,7 @@
 
             <div id="username">{{ review.username }}</div>
             <div id="movie_title">{{ review.movie_title }}</div>
-            <div id="rating">{{ review.rating }}</div>
+            <StarReviews :rating="review.rating" />
             <div id="review-text">{{ review.review }}</div>
 
 
@@ -17,19 +17,19 @@
 <script>
 import AccountService from '../services/AccountService';
 import MovieService from '../services/MovieService';
+import StarReviews from './StarReviews.vue';
+
 export default {
     data() {
         return {
             reviews: []
         }
     },
-
+    components: {
+        StarReviews
+    },
     props: {
-
-
-
         movieId: Number
-
     },
 
     created() {
@@ -48,6 +48,7 @@ export default {
     },
 
 }
+
 </script>
 
 <style scoped>

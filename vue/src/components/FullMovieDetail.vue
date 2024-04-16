@@ -169,6 +169,7 @@ export default {
     flex-grow: 1;
 }
 
+
 .fav-button {
     background-color: #890304;
     color: #fff0cb;

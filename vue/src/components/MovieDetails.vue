@@ -8,26 +8,28 @@
       <header>
         <h1 class="movie-title">{{ movie.titleText }}</h1>
       </header>
-      <div class="avg-rating">
-        <img class=rating-star src="@\assets\Other Images\New Star.png" alt="star">
+      <div class="non-title-info">
+        <div class="avg-rating">
+          <img class=rating-star src="@\assets\Other Images\New Star.png" alt="star">
+          {{ movie.avgRating.toFixed(1) }}
+        </div>
+        <div class="release-genres">
+          <div>{{ movie.releaseDate.substr(0, 4) }}</div>
+          <div>{{ movie.genres }}</div>
+        </div>
+        <div class="description">
+          {{ movie.plot }}
+        </div>
+
+        <button v-show="!isFav" class="fav-button" @click="addFav">
+
+          Favorite
+        </button>
+        <button v-show="isFav" class="fav-button" @click="removeFav">
+
+          Unfavorite
+        </button>
       </div>
-      <div class="release-genres">
-        <div>{{ movie.releaseDate.substr(0, 4) }}</div>
-        <div>{{ movie.genres }}</div>
-      </div>
-      <div class="description">
-        {{ movie.plot }}
-      </div>
-
-      <button v-show="!isFav" class="fav-button" @click="addFav">
-
-        Favorite
-      </button>
-      <button v-show="isFav" class="fav-button" @click="removeFav">
-
-        Unfavorite
-      </button>
-
     </div>
   </div>
 </template> 
@@ -170,7 +172,20 @@ div .movie {
 }
 
 .rating-star {
-  height: 1.3rem
+  height: 1.3rem;
+}
+
+.avg-rating {
+  color: #7B3911;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.non-title-info {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+
 }
 
 @media screen and (max-width: 600px) {

@@ -1,10 +1,12 @@
 <template>
     <div>
-        <div v-for="review in reviews" v-bind:key="review.account_id">
-            <div> </div>
-            <div>{{ review.username }}</div>
+        <div id="reviews" v-for="review in reviews" v-bind:key="review.account_id">
+
+            <div id="username">{{ review.username }}</div>
+            <div id="movie_title">{{ review.movie_title }}</div>
             <StarReviews :rating="review.rating" />
-            <div>{{ review.review }}</div>
+            <div id="review-text">{{ review.review }}</div>
+
 
             <router-link v-bind:to="{ name: 'fullMovieDetails', params: { movieId: review.movie_id } }"
                 v-if="movieId == null"> Movie Details </router-link>

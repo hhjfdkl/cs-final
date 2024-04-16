@@ -15,5 +15,19 @@ public class Article
         this.body = body;
     }
 
+    public int getArticleId() {
+        return articleId;
+    }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getBody() {
+        return body;
+    }
 }

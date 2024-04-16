@@ -19,13 +19,14 @@
                 <div class="genres">{{ movie.genres }}</div>
                 <div class="runtime">{{ movie.runtime }}</div>
                 <div class="meter-ranking">{{ movie.meterRanking }}</div>
-                <div class="avg-rating">{{ movie.avgRating.toFixed(1) }}</div>
+                <div class="avg-rating">
+                    <img class=rating-star src="@\assets\Other Images\New Star.png" alt="star">
+                    {{ movie.avgRating.toFixed(1) }}
+                </div>
             </div>
             <div class="section-title">Plot Summary</div>
             <div class="description">
                 {{ movie.plot }}
-
-
             </div>
 
         </div>
@@ -84,7 +85,7 @@ export default {
             MovieService.isFav(this.movie.id).then((response) => {
                 this.isFav = response.data;
             });
-        }
+        },
     },
     created: function () {
         this.updateFav();
@@ -192,6 +193,10 @@ export default {
     margin-left: 0px;
     margin-top: 5px;
     margin-bottom: 15px;
+}
+
+.rating-star {
+    height: 1.3rem;
 }
 </style>
   

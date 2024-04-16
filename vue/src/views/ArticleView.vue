@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="@\assets\Fake Articles\Bootcamp.png" alt="Bootcamp Img" class="article-img">
+        <img src="@\assets\Fake Articles\Arrest.png" alt="Bootcamp Img" class="article-img">
         <p id="article-title">{{ article.title }}</p>
         <h1 id="article-author">{{ article.author }}</h1>
         <p id="article-body">{{ article.body }}</p>
@@ -27,10 +27,10 @@ export default {
 
 <style scoped>
 .article-img {
-    width: 75%;
+    width: 50%;
     border-color: #890304;
     border: 1px solid #890304;
-    box-shadow: #890304 1px 1px 2px;
+    box-shadow: #890304 1px 1px 5px;
 }
 
 #article-title {

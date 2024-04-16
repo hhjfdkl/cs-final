@@ -1,24 +1,62 @@
 <template>
-    <div id="titlepage">
-        <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
-        <img class="logo" src="src\assets\Logos\Box_ffice__5_-removebg-preview.png" alt="BOB Dark LogoLogo">
-        <p>Welcome to Box Office Buzz! Box Office Buzz is your ultimate destination for all things cinema. From the latest
-            blockbuster hits to hidden gems, our curated recommendations and in-depth reviews ensure you're always in the
-            know about what's worth watching. Whether you're a casual moviegoer or a dedicated cinephile, let Box Office
-            Buzz guide you to your next cinematic adventure. </p>
-
-
-
-    </div>
+    <main>
+        <div id="titlepage">
+            <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
+            <img class="logo" src="src\assets\Logos\Box_ffice__5_-removebg-preview.png" alt="BOB Dark LogoLogo">
+            <p>Welcome to Box Office Buzz! Box Office Buzz is your ultimate destination for all things cinema. From the
+                latest
+                blockbuster hits to hidden gems, our curated recommendations and in-depth reviews ensure you're always in
+                the
+                know about what's worth watching. Whether you're a casual moviegoer or a dedicated cinephile, let Box Office
+                Buzz guide you to your next cinematic adventure. </p>
+        </div>
+        <div class="slideshow">
+            <Swiper :modules="[Autoplay]" :spaceBetween="30" :centeredSlides="true"
+                :autoplay="{ delay: 2000, disableOnInteraction: false, }" :pagination="{
+                    clickable: true,
+                }" :navigation="true" @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
+                <SwiperSlide v-for="photo in  photos " :key="photo">
+                    <img :src="`src\\assets\\placeholder\\${photo}`" alt="photo">
+                </SwiperSlide>
+            </Swiper>
+        </div>
+    </main>
 </template>
 
-<script>
-export default {
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css/autoplay';
 
-}
+
+const photos = [
+    'Test1.jpeg',
+    'Test2.webp',
+    'Test3.webp',
+    'Test4.jpeg',
+    'Test5.jpg',
+
+];
+
 </script>
 
+
+
+
 <style scoped>
+.swiper {
+    overflow: visible;
+    width: 400px;
+    height: 400px;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+}
+
+
 #titlepage {
     text-align: center;
     display: flex;
@@ -56,4 +94,18 @@ p {
     color: #fff7d5;
     cursor: pointer;
 }
+
+.swiper-slide:not(.swiper-slide-active) img {
+    max-width: 100%;
+    height: auto;
+    transition: 0.3s ease-in-out;
+    overflow: visible;
+}
+
+.swiper {
+
+    overflow: hidden;
+}
+
+.swiper-slide .swiper-slide-active {}
 </style>

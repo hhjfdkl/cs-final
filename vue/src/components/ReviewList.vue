@@ -2,10 +2,10 @@
     <div>
         <div id="reviews" v-for="review in reviews" v-bind:key="review.account_id">
 
-            <div>{{ review.username }}</div>
-            <div>{{ review.rating }}</div>
-            <div>{{ review.review }}</div>
-            <div>{{ review.movie_title }}</div>
+            <div id="username">{{ review.username }}</div>
+            <div id="rating">{{ review.rating }}</div>
+            <div id="review">{{ review.review }}</div>
+            <div id="movie_title">{{ review.movie_title }}</div>
 
             <router-link v-bind:to="{ name: 'fullMovieDetails', params: { movieId: review.movie_id } }"
                 v-if="movieId == null"> Movie Details </router-link>
@@ -76,6 +76,12 @@ export default {
 }
 
 #review-text {
+    font-family: 'League Spartan';
+    color: #002263;
+    margin-bottom: 5px;
+}
+
+#movie_title {
     font-family: 'League Spartan';
     color: #002263;
     margin-bottom: 5px;

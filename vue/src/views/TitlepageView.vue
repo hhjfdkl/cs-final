@@ -26,11 +26,15 @@
                             <img class="article-img" :src="`src\\assets\\Fake Articles\\${photo}`" alt="photo">
                         </router-link>
                     </SwiperSlide>
+
+
                 </Swiper>
+
             </div>
             <div>
                 <button class="prev-next" id="next" @click="nextPage">Next Article</button>
             </div>
+
         </div>
 
     </main>
@@ -50,8 +54,27 @@ const photos = [
 
 ];
 
+
 </script>
 
+<script>
+export default {
+    methods: {
+        nextPage() {
+            const swiper = document.querySelector('.mySwiper').swiper;
+
+
+            swiper.slideNext();
+
+        },
+
+        previousPage() {
+            const swiper = document.querySelector('.mySwiper').swiper;
+            swiper.slidePrev();
+        }
+    },
+};
+</script>
 
 
 

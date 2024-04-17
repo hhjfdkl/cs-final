@@ -1,25 +1,27 @@
 <template>
-    <H2>
-        Filtered Movies
-    </H2>
-    <!-- <div v-for="year in years" :key="year">
+    <div>
+        <H2>
+            Filtered Movies
+        </H2>
+        <!-- <div v-for="year in years" :key="year">
         {{ year }}
     </div>
     <div v-for="genre in genres" :key="genre"> {{ genre }}</div>
     <div v-for="mpaa in mpaas" :key="mpaa"> {{ mpaa }}</div> -->
-    <div id="fav-upper">
-        <ChangeOrder />
-    </div>
-    <div id="fav-bottom">
-        <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
-        <button class="prev-next" @click="nextPage">Next Page</button>
-    </div>
-    <div id="main-display">
-        <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
-    </div>
-    <div id="fav-bottom">
-        <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
-        <button class="prev-next" @click="nextPage">Next Page</button>
+        <div id="fav-upper">
+            <ChangeOrder />
+        </div>
+        <div id="fav-bottom">
+            <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+            <button class="prev-next" @click="nextPage">Next Page</button>
+        </div>
+        <div id="main-display">
+            <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
+        </div>
+        <div id="fav-bottom">
+            <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+            <button class="prev-next" @click="nextPage">Next Page</button>
+        </div>
     </div>
 </template>
   
@@ -158,6 +160,10 @@ h2 {
 }
 
 #fav-bottom {
+    width: 95%;
+
+    margin-left: 0;
+    margin-right: 0;
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
@@ -172,7 +178,7 @@ h2 {
     border-radius: 4px;
     cursor: pointer;
     display: block;
-    margin: 0 auto;
+    margin: 0;
     font-family: 'league spartan';
 }
 

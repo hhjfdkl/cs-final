@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div id="titlepage">
+        <div id="title-page">
             <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
             <img class="logo" src="src\assets\Logos\Box_ffice__5_-removebg-preview.png" alt="BOB Dark LogoLogo">
             <p id="title-text">Welcome to Box Office Buzz! Box Office Buzz is your ultimate destination for all things
@@ -12,7 +12,7 @@
                 Buzz guide you to your next cinematic adventure. </p>
         </div>
         <div id="bottom-content">
-            <div>
+            <div id="buttons">
                 <button class="prev-next" id="prev" @click="previousPage">Previous Article</button>
             </div>
             <div class="slideshow">
@@ -31,7 +31,7 @@
                 </Swiper>
 
             </div>
-            <div>
+            <div id="buttons">
                 <button class="prev-next" id="next" @click="nextPage">Next Article</button>
             </div>
 
@@ -86,6 +86,10 @@ export default {
     color: #002263;
 }
 
+#buttons {
+    margin-top: 15px;
+}
+
 #bottom-content {
     display: flex;
     flex-direction: row;
@@ -125,10 +129,11 @@ export default {
 }
 
 
-#titlepage {
+#title-page {
     text-align: center;
     display: flex;
     flex-direction: column;
+
 
 }
 

@@ -1,21 +1,28 @@
 <template>
-    <!-- <div v-for="year in years" :key="year">
+    <div>
+        <H2>
+            Filtered Movies
+        </H2>
+        <!-- <div v-for="year in years" :key="year">
         {{ year }}
     </div>
     <div v-for="genre in genres" :key="genre"> {{ genre }}</div>
     <div v-for="mpaa in mpaas" :key="mpaa"> {{ mpaa }}</div> -->
-    <ChangeOrder />
-    <form @submit.prevent="searchMovies" class="search-change">
-
-
-        <button v-show="usersPerPage != ''" class="change" type="submit">Change</button>
-    </form>
-
-    <div id="main-display">
-        <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
+        <div id="fav-upper">
+            <ChangeOrder />
+        </div>
+        <div id="fav-bottom">
+            <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+            <button class="prev-next" @click="nextPage">Next Page</button>
+        </div>
+        <div id="main-display">
+            <MovieDetails v-for="movie in movies" v-bind:key="movie.movie_id" :movie="movie" />
+        </div>
+        <div id="fav-bottom">
+            <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
+            <button class="prev-next" @click="nextPage">Next Page</button>
+        </div>
     </div>
-    <button class="prev-next" id="prev" @click="previousPage">Previous Page</button>
-    <button class="prev-next" @click="nextPage">Next Page</button>
 </template>
   
 <script>
@@ -113,15 +120,20 @@ export default {
 </script>
   
 <style scoped>
+h2 {
+    color: #7B3911;
+    margin-left: 5%;
+    font-size: 50px;
+}
+
 #main-display {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-evenly;
 
     /*needs to be a row*/
-
     /* justify-content: center; */
-
 }
 
 
@@ -134,17 +146,50 @@ export default {
     text-decoration-thickness: 2px
 }
 
+#change-order {
+    margin-left: 5%;
+    margin-bottom: 35px;
+}
+
+
+#fav-upper {
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#fav-bottom {
+    width: 95%;
+
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
 .prev-next {
     background-color: #fff0cb;
     color: #890304;
     border: 1px solid #890304;
     margin-top: 10px;
-
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    font-family: 'league spartan';
 }
 
 #prev {
-    margin-left: 15%;
+    margin-left: 5%;
     margin-right: 1%;
+}
+
+#next {
+    margin-right: 5%;
+    margin-left: 1%;
 }
 
 .prev-next:hover {

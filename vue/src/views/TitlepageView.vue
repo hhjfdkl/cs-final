@@ -51,9 +51,10 @@ const photos = [
     'Arrest.png',
     'Seagal.png',
     'Commando.png',
-    'AI.png',
-    'bobross.png',
     'canceled.png',
+
+    'bobross.png',
+    'AI.png',
 
 ];
 
@@ -84,7 +85,7 @@ export default {
 <style scoped>
 #title-text {
     color: #002263;
-    margin-left: 70px;
+    margin-left: 60px;
 }
 
 #buttons {
@@ -96,7 +97,6 @@ export default {
     display: flex;
     flex-direction: column;
     margin-left: 25px;
-
 }
 
 #bottom-content {
@@ -105,6 +105,7 @@ export default {
     justify-content: space-between;
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 0px;
 }
 
 .prev-next {

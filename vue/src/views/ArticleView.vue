@@ -21,11 +21,9 @@
             <p id="article-body">{{ paragraph }}</p>
         </div>
         <div id="buttons">
-            <button class="prev-next"
-                v-bind:to="{ name: 'articles', params: { articleId: Math.max(1, Number(this.$route.params.articleId) - 1) } }">Previous
+            <button class="prev-next" @click="prevArt">Previous
                 Article</button>
-            <button class="prev-next"
-                v-bind:to="{ name: 'articles', params: { articleId: Math.min(Number(this.$route.params.articleId) + 1, 6) } }">Next
+            <button class="prev-next" @click="nextArt">Next
                 Article</button>
         </div>
     </div>
@@ -51,6 +49,25 @@ export default {
         collectionOfParagraphs() {
             console.log(this.article.body)
             return this.article.body.split('||');
+        }
+    },
+    methods: {
+        nextArt() {
+
+            this.$router.push({
+                name: 'articles',
+                params: {
+                    articleId: Math.min(Number(this.$route.params.articleId) + 1, 6)
+                }
+            })
+        },
+        prevArt() {
+            this.$router.push({
+                name: 'articles',
+                params: {
+                    articleId: Math.max(Number(this.$route.params.articleId) - 1, 0)
+                }
+            })
         }
     }
 }

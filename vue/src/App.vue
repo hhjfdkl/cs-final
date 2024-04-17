@@ -18,7 +18,7 @@
 
 
       <router-link
-        v-bind:to="{ name: 'favorites', params: { pageSize: 9, page: 1, sort: 'titleText' }, query: { asc: true } }"
+        v-bind:to="{ name: 'favorites', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { asc: true } }"
         class="nav-button" v-if="this.$store.state.token != ''">
         Favorites
       </router-link>
@@ -28,7 +28,7 @@
         Movies
       </router-link>
       <router-link
-        v-bind:to="{ name: 'account', params: { pageSize: 9, page: 1, sort: 'titleText' }, query: { asc: true } }"
+        v-bind:to="{ name: 'account', params: { pageSize: 9, page: 1, sort: 'movie_id' }, query: { asc: true } }"
         class="nav-button" v-if="this.$store.state.token != ''">
         Account
       </router-link>

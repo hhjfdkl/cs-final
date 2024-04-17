@@ -51,6 +51,9 @@ const photos = [
     'Arrest.png',
     'Seagal.png',
     'Commando.png',
+    'AI.png',
+    'bobross.png',
+    'canceled.png',
 
 ];
 

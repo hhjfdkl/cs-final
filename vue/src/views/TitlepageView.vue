@@ -2,7 +2,7 @@
     <main>
         <div id="title-page">
             <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
-            <img class="logo" src="src\assets\Logos\Box_ffice__5_-removebg-preview.png" alt="BOB Dark LogoLogo">
+            <img class="logo" src="src\assets\Logos\Dark Logo.png" alt="BOB Dark LogoLogo">
             <p id="title-text">Welcome to Box Office Buzz! Box Office Buzz is your ultimate destination for all things
                 cinema. From the
                 latest
@@ -85,7 +85,7 @@ export default {
 <style scoped>
 #title-text {
     color: #002263;
-    margin-left: 70px;
+    margin-left: 60px;
 }
 
 #buttons {
@@ -143,7 +143,7 @@ export default {
 
 .logo {
     margin: auto;
-    width: 18rem;
+    width: auto;
     height: 18rem;
 
 }

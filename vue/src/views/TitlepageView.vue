@@ -84,7 +84,7 @@ export default {
 <style scoped>
 #title-text {
     color: #002263;
-    margin-left: 70px;
+    margin-left: 60px;
 }
 
 #buttons {
@@ -96,7 +96,6 @@ export default {
     display: flex;
     flex-direction: column;
     margin-left: 25px;
-
 }
 
 #bottom-content {

@@ -2,7 +2,6 @@
   <H2>
     Movies
   </H2>
-
   <!-- <form @submit.prevent="searchMovies" class="search-change">
 
     <input class="mpp" type="number" v-model="usersPerPage" placeholder="Movies per page" />

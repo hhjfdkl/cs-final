@@ -49,9 +49,12 @@ public class JdbcMovieDao implements MovieDao  {
     }
 
     @Override
-    public List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy , int userId){
+    public List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy , int userId , boolean ascending){
 
-
+        String direction = "ASC";
+        if(!ascending){
+            direction = "DESC";
+        }
         if(!checkSortBy(sortedBy)){ //add a check for mpaa
             sortedBy = "movie_id";
         }
@@ -118,13 +121,13 @@ public class JdbcMovieDao implements MovieDao  {
         String sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
                 ", genres, runtime, plot, meterranking, ratingssummary, episodes , avgRating FROM "+ removingAlreadyReview + " LEFT Join movie_to_genre\n" +
                 "as mg on mg.movie_id = movies.movie_id" +
-                " WHERE "+ whereInBuilder.toString() + " Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
+                " WHERE "+ whereInBuilder.toString() + " Order by "+ sortedBy+ " " + direction + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         if(genres.length == 0 && years.length == 0 && mpaa.length ==0 ){
             System.out.println("  nothing");
             sql = "SELECT distinct titletext, movies.movie_id as movie_id, primaryimage, releasedate" +
                     ", genres, runtime, plot, meterranking, ratingssummary, episodes , avgRating FROM "+ removingAlreadyReview + " LEFT Join movie_to_genre\n" +
                     "as mg on mg.movie_id = movies.movie_id" +
-                    "  Order by "+ sortedBy+ " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
+                    "  Order by "+ sortedBy+ " " + direction + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;";
         }
         System.out.println(sql);
         try {
@@ -183,7 +186,7 @@ public class JdbcMovieDao implements MovieDao  {
         if(!checkSortBy(sortedBy)){
             sortedBy = "movie_id";
         }
-        System.out.println(sortedBy);
+
         String direction = "ASC";
         if(!ascending){
             direction = "DESC";
@@ -344,6 +347,9 @@ public class JdbcMovieDao implements MovieDao  {
             return true;
         }
         if(sortedBy.equalsIgnoreCase("titletext")){
+            return true;
+        }
+        if(sortedBy.equalsIgnoreCase("avgRating")){
             return true;
         }
         //add one for avg rating

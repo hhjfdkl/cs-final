@@ -5,6 +5,7 @@
             <option value="releasedate">Release Date</option>
             <option value="titleText">Title</option>
             <option value="runtime">Runtime</option>
+            <option value="avgRating">Rating</option>
         </select>
         <select id="asc-desc" v-model="selectedDirection">
             <option value="" selected disabled>Sort By</option>

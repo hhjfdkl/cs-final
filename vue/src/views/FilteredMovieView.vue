@@ -4,6 +4,7 @@
     </div>
     <div v-for="genre in genres" :key="genre"> {{ genre }}</div>
     <div v-for="mpaa in mpaas" :key="mpaa"> {{ mpaa }}</div> -->
+    <ChangeOrder />
     <form @submit.prevent="searchMovies" class="search-change">
 
 
@@ -22,6 +23,7 @@
 import MovieDetails from "../components/MovieDetails.vue";
 
 import MovieService from "../services/MovieService";
+import ChangeOrder from "../components/ChangeOrder.vue";
 
 export default {
     // props: {
@@ -49,6 +51,7 @@ export default {
     },
     components: {
         MovieDetails,
+        ChangeOrder
     },
 
     methods: {
@@ -66,10 +69,18 @@ export default {
             this.updateMovies();
         },
         updateMovies() {
+            const ascParam = new URLSearchParams(this.$route.query).get('asc');
+            if (ascParam == "false") {
+                MovieService.getFilterMoviesWithAorD(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, this.$store.state.filteredGenres, this.$store.state.filteredRating, this.$store.state.filteredYears, false).then((response) => {
+                    this.movies = response.data;
+                });
 
-            MovieService.getFilterMovies(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, this.$store.state.filteredGenres, this.$store.state.filteredRating, this.$store.state.filteredYears).then((response) => {
-                this.movies = response.data;
-            });
+            } else {
+                MovieService.getFilterMovies(this.$route.params.pageSize, this.$route.params.page, this.$route.params.sort, this.$store.state.filteredGenres, this.$store.state.filteredRating, this.$store.state.filteredYears).then((response) => {
+                    this.movies = response.data;
+                });
+            }
+
         },
         previousPage() {
             if (Number(this.$route.params.page) <= 1) return;

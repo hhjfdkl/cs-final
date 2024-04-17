@@ -3,28 +3,36 @@
         <div id="titlepage">
             <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
             <img class="logo" src="src\assets\Logos\Box_ffice__5_-removebg-preview.png" alt="BOB Dark LogoLogo">
-            <p>Welcome to Box Office Buzz! Box Office Buzz is your ultimate destination for all things cinema. From the
+            <p id="title-text">Welcome to Box Office Buzz! Box Office Buzz is your ultimate destination for all things
+                cinema. From the
                 latest
                 blockbuster hits to hidden gems, our curated recommendations and in-depth reviews ensure you're always in
                 the
                 know about what's worth watching. Whether you're a casual moviegoer or a dedicated cinephile, let Box Office
                 Buzz guide you to your next cinematic adventure. </p>
         </div>
-        <div class="slideshow">
-            <Swiper :modules="[Autoplay]" :spaceBetween="30" :centeredSlides="true"
-                :autoplay="{ delay: 4000, disableOnInteraction: false, }" :pagination="{
-                    clickable: true,
-                }" :navigation="true" @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
+        <div id="bottom-content">
+            <div>
+                <button class="prev-next" id="prev" @click="previousPage">Previous Article</button>
+            </div>
+            <div class="slideshow">
+                <Swiper :modules="[Autoplay]" :spaceBetween="30" :centeredSlides="true"
+                    :autoplay="{ delay: 4000, disableOnInteraction: false, }" :pagination="{
+                        clickable: true,
+                    }" :navigation="true" @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
 
-                <SwiperSlide v-for="photo in  photos " :key="photo">
-                    <router-link v-bind:to="{ name: 'articles', params: { articleId: photos.indexOf(photo) + 1 } }">
-                        <img class="article-img" :src="`src\\assets\\Fake Articles\\${photo}`" alt="photo">
-                    </router-link>
-                </SwiperSlide>
-
-
-            </Swiper>
+                    <SwiperSlide v-for="photo in  photos " :key="photo">
+                        <router-link v-bind:to="{ name: 'articles', params: { articleId: photos.indexOf(photo) + 1 } }">
+                            <img class="article-img" :src="`src\\assets\\Fake Articles\\${photo}`" alt="photo">
+                        </router-link>
+                    </SwiperSlide>
+                </Swiper>
+            </div>
+            <div>
+                <button class="prev-next" id="next" @click="nextPage">Next Article</button>
+            </div>
         </div>
+
     </main>
 </template>
 
@@ -48,6 +56,32 @@ const photos = [
 
 
 <style scoped>
+#title-text {
+    color: #002263;
+}
+
+#bottom-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.prev-next {
+    background-color: #7B3911;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 .slideshow {
     margin-top: 20px;
     margin-bottom: 20px;

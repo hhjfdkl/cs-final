@@ -25,4 +25,6 @@ public interface MovieDao {
     public List<Movie> getMoviesByUserFavMovies(int moviePerPage, int pageNumber, String sortedBy,int userId );
 
     void fullMovieUpdateRatings();
+    void assignMovieGenres();
+
 }

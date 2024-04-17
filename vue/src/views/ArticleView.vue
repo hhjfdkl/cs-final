@@ -48,6 +48,7 @@ export default {
 
         })
     },
+
     computed: {
         collectionOfParagraphs() {
             console.log(this.article.body)
@@ -72,7 +73,18 @@ export default {
                 }
             })
         }
-    }
+    },
+
+
+    watch: { //runs updateMovies when route changes
+        '$route': function () {
+            ArticleService.getArticle(this.$route.params.articleId).then((response) => {
+                this.article = response.data;
+
+            })
+        }
+    },
+
 }
 </script>
 

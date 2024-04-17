@@ -98,6 +98,7 @@ export default {
     flex-direction: column;
     margin-left: 25px;
 
+    align-items: center;
 }
 
 #bottom-content {
@@ -137,20 +138,19 @@ export default {
 .swiper-slide img {
     width: 100%;
     height: 100%;
+
 }
 
 .logo {
     margin: auto;
+    width: 18rem;
+    height: 18rem;
+
 }
 
 p {
-    position: absolute;
-    top: 55%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-family: 'league Spartan';
+
+
     width: 50%;
     color: #7B3911;
 }

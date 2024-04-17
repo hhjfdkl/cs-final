@@ -84,10 +84,19 @@ export default {
 <style scoped>
 #title-text {
     color: #002263;
+    margin-left: 70px;
 }
 
 #buttons {
     margin-top: 15px;
+}
+
+#title-page {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+
 }
 
 #bottom-content {
@@ -126,15 +135,6 @@ export default {
 .swiper-slide img {
     width: 100%;
     height: 100%;
-}
-
-
-#title-page {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-
-
 }
 
 .logo {

@@ -8,7 +8,7 @@ public interface MovieDao {
 
     double updateAvgRating(int movie_id);
 
-    List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy, int userId);
+    List<Movie> filterMovies(int genres[], String[] mpaa, int[] years, int moviePerPage, int pageNumber, String sortedBy, int userId , boolean ascending);
 
     //    public List<Movie> getMovies();
     public List<Movie> getGroupOfMovies(int moviePerPage, int pageNumber, String sortedBy, int userId);

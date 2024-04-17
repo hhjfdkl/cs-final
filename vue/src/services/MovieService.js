@@ -30,6 +30,15 @@ export default {
             years: years
 
         });
+    }, getFilterMoviesWithAorD(moviePerPage, page, sortBy, genres, mpaas, years, asc) {
+        console.log(mpaas)
+
+        return axios.post(`/movies/filter/${moviePerPage}/${page}/${sortBy}}?asc=${asc}`, {
+            genres: genres,
+            mpaas: mpaas,
+            years: years
+
+        });
     },
     filterMoviesByTitle(moviePerPage, page, sortBy, title) {
 

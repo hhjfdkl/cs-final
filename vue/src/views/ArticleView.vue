@@ -11,9 +11,17 @@
         <h1 id="article-author">{{ article.author }}</h1>
         <!-- <p id="article-body">{{ article.body }}</p> -->
 
+
         <div v-for="paragraph in collectionOfParagraphs" :key="paragraph">
             <p id="article-body">{{ paragraph }}</p>
         </div>
+        <router-link
+            v-bind:to="{ name: 'articles', params: { articleId: Math.max(1, Number(this.$route.params.articleId) - 1) } }">Previous
+            Article</router-link>
+        <router-link
+            v-bind:to="{ name: 'articles', params: { articleId: Math.min(Number(this.$route.params.articleId) + 1, 6) } }">Next
+            Article</router-link>
+
     </div>
 </template>
 

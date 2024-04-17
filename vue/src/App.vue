@@ -39,6 +39,7 @@
       <router-link v-bind:to="{ name: 'reviews' }" class="nav-button" v-if="this.$store.state.token != ''">
         My Reviews
       </router-link>
+
     </nav>
 
     <nav class="top-bar">
@@ -78,6 +79,8 @@ export default {
 html {
   background-color: #fff0cb;
 }
+
+
 
 .search-submit {
   width: 55px;

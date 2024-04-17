@@ -93,15 +93,11 @@ export default {
 }
 
 #title-page {
-<<<<<<< HEAD
-    margin-bottom: 0px;
-=======
     text-align: center;
     display: flex;
     flex-direction: column;
     margin-left: 25px;
 
->>>>>>> 2c272979543da5a04e13ca4d5fbbf5e1c97bf49d
 }
 
 #bottom-content {

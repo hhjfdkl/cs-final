@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class JdbcMovieDao implements MovieDao  {
@@ -404,10 +405,20 @@ public class JdbcMovieDao implements MovieDao  {
 
 
         for(Movie movie : movies){
-            int randomUser = (int) ((Math.random() *10 ) + 2);
-            int randomScore = (int) ((Math.random() *5 ) + 1);
-            
-            
+            int randomUser = (int) ((Math.random() *50 ) + 3);
+            int randomScore;
+
+            int generate = new Random().nextInt(20);
+            if(generate <= 2)
+                randomScore = 1;
+            else if(generate <= 6)
+                randomScore = 2;
+            else if(generate <=12)
+                randomScore = 3;
+            else if(generate <=16)
+                randomScore = 4;
+            else randomScore = 5;
+
             
             String randomReview = "this was a movie!";
 

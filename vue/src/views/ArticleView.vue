@@ -1,5 +1,8 @@
 <template>
     <div>
+        <h2>News</h2>
+    </div>
+    <div>
         <img v-if="this.$route.params.articleId == 1" src="@\assets\Fake Articles\Arrest.png" alt="Arrest Img"
             class="article-img">
         <img v-if="this.$route.params.articleId == 2" src="@\assets\Fake Articles\Seagal.png" alt="Seagal Img"
@@ -21,9 +24,9 @@
             <p id="article-body">{{ paragraph }}</p>
         </div>
         <div id="buttons">
-            <button class="prev-next" @click="prevArt">Previous
+            <button class="prev-next" id="prev" @click="prevArt">Previous
                 Article</button>
-            <button class="prev-next" @click="nextArt">Next
+            <button class="prev-next" id="next" @click="nextArt">Next
                 Article</button>
         </div>
     </div>
@@ -74,10 +77,16 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+    color: #7B3911;
+    margin-left: 5%;
+    font-size: 50px;
+}
+
 .article-img {
     width: 50%;
     margin-left: 5%;
-    margin-top: 5%;
+
 
 }
 
@@ -112,6 +121,21 @@ export default {
     display: block;
     margin: 0 auto;
     font-family: 'league spartan';
+}
+
+#prev {
+    margin-left: 5%;
+    margin-right: 1%;
+}
+
+#next {
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+.prev-next:hover {
+    background-color: #890304;
+    color: #fff0cb;
 }
 
 #buttons {

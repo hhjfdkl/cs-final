@@ -346,6 +346,9 @@ public class JdbcMovieDao implements MovieDao  {
         if(sortedBy.equalsIgnoreCase("titletext")){
             return true;
         }
+        if(sortedBy.equalsIgnoreCase("avgRating")){
+            return true;
+        }
         //add one for avg rating
         //add other possable sorts
         return false;

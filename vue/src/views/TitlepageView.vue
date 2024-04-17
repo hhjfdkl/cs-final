@@ -51,9 +51,10 @@ const photos = [
     'Arrest.png',
     'Seagal.png',
     'Commando.png',
-    'AI.png',
-    'bobross.png',
     'canceled.png',
+
+    'bobross.png',
+    'AI.png',
 
 ];
 
@@ -104,6 +105,7 @@ export default {
     justify-content: space-between;
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 0px;
 }
 
 .prev-next {

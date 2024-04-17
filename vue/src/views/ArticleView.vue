@@ -6,6 +6,11 @@
             class="article-img">
         <img v-if="this.$route.params.articleId == 3" src="@\assets\Fake Articles\Commando.png" alt="Commando Img"
             class="article-img">
+        <img v-if="this.$route.params.articleId == 4" src="@\assets\Fake Articles\fizzbuzz.png" alt="Fizzbuzz Img"
+            class="article-img">
+        <img v-if="this.$route.params.articleId == 5" src="@\assets\Fake Articles\bobross.png" alt="Bobross Img"
+            class="article-img">
+        <img v-if="this.$route.params.articleId == 6" src="@\assets\Fake Articles\AI.png" alt="AI Img" class="article-img">
 
         <p id="article-title">{{ article.title }}</p>
         <h1 id="article-author">{{ article.author }}</h1>
@@ -15,13 +20,14 @@
         <div v-for="paragraph in collectionOfParagraphs" :key="paragraph">
             <p id="article-body">{{ paragraph }}</p>
         </div>
-        <router-link
-            v-bind:to="{ name: 'articles', params: { articleId: Math.max(1, Number(this.$route.params.articleId) - 1) } }">Previous
-            Article</router-link>
-        <router-link
-            v-bind:to="{ name: 'articles', params: { articleId: Math.min(Number(this.$route.params.articleId) + 1, 6) } }">Next
-            Article</router-link>
-
+        <div id="buttons">
+            <button class="prev-next"
+                v-bind:to="{ name: 'articles', params: { articleId: Math.max(1, Number(this.$route.params.articleId) - 1) } }">Previous
+                Article</button>
+            <button class="prev-next"
+                v-bind:to="{ name: 'articles', params: { articleId: Math.min(Number(this.$route.params.articleId) + 1, 6) } }">Next
+                Article</button>
+        </div>
     </div>
 </template>
 
@@ -62,6 +68,7 @@ export default {
     color: #7B3911;
     margin-left: 5%;
     font-size: 50px;
+    margin-right: 5%;
 }
 
 #article-author {
@@ -73,6 +80,30 @@ export default {
 #article-body {
     color: #002263;
     margin-left: 5%;
+    margin-right: 5%;
     font-size: 20px;
+}
+
+.prev-next {
+    background-color: #fff0cb;
+    color: #890304;
+    border: 1px solid #890304;
+    margin-top: 10px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    font-family: 'league spartan';
+}
+
+#buttons {
+    width: 95%;
+
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
 }
 </style>

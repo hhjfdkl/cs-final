@@ -24,7 +24,9 @@ public class MovieController {
         this.movieDao = movieDao;
         this.userDao =  userDao;
 
-        movieDao.fullMovieUpdateRatings();
+        for (int i = 0; i < 20; i++)
+            movieDao.fullMovieUpdateRatings();
+
         movieDao.assignMovieGenres();
     }
 

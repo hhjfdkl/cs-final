@@ -27,7 +27,7 @@ const routes = [
   {//remove this
     path: '/',
     name: 'home',
-    component: HomeView,
+    component: TitlepageView,
     meta: {
       requiresAuth: true
     }

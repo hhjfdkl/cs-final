@@ -75,7 +75,7 @@ export default {
                 params: {
                     pageSize: 9,
                     page: 1,
-                    sort: "movie_id"
+                    sort: "titleText"
                 }
             })
         },

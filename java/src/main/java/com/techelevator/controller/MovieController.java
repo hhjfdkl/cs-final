@@ -24,7 +24,9 @@ public class MovieController {
         this.movieDao = movieDao;
         this.userDao =  userDao;
 
-        movieDao.fullMovieUpdateRatings();
+        for (int i = 0; i < 20; i++)
+            movieDao.fullMovieUpdateRatings();
+
         movieDao.assignMovieGenres();
     }
 
@@ -87,7 +89,7 @@ public class MovieController {
 
 
     @PostMapping("/movies/filter/{moviePerPage}/{page}/{sortBy}")
-    public List<Movie> getFilteredMovies(@PathVariable int moviePerPage , @PathVariable int page, @PathVariable String sortBy , @RequestBody FilterDto filterDto, Principal principal){
+    public List<Movie> getFilteredMovies(@PathVariable int moviePerPage , @PathVariable int page, @PathVariable String sortBy , @RequestBody FilterDto filterDto , Principal principal, @RequestParam( defaultValue = "true") boolean asc){
         User user = userDao.getUserByUsername(principal.getName());
 
         System.out.println(Arrays.toString(filterDto.getMpaas()));
@@ -98,7 +100,7 @@ public class MovieController {
 
 
         try {
-            return movieDao.filterMovies(filterDto.getGenres(),filterDto.getMpaas(),filterDto.getYears(),moviePerPage,page,sortBy, user.getId());
+            return movieDao.filterMovies(filterDto.getGenres(),filterDto.getMpaas(),filterDto.getYears(),moviePerPage,page,sortBy, user.getId() , asc);
         }
         catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Filter failed.");
